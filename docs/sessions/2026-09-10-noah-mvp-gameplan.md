@@ -1,0 +1,24 @@
+# 2026-09-10 — Noah — MVP game plan and roles
+**Teammate:** Noah · **Model:** Claude Opus 5
+
+## Asked for
+- Hide Noah's email on the public repo (done: commits use the GitHub no-reply address; the first commit was replaced).
+- Main code development will run from Greg's desktop (Claude Max); Noah and Tiago are on Pro. Organize the MVP tasks, divide them by capacity, and make a game plan.
+
+## Did
+- Wrote `docs/MVP-GAMEPLAN.md`: roles, critical path, 5 phases, and every task with an owner and its Claude intensity.
+- Added D-012 (roles + plan, PROPOSED); updated `STATUS.md`, `COLLABORATION.md`, `CLAUDE.md`.
+
+## Learned (with sources)
+- Max is sold as 5x or 20x Pro's usage, with a rolling 5-hour window plus a weekly cap; exact quotas aren't published. [Morph](https://www.morphllm.com/claude-code-usage-limits), [CC for Everyone](https://ccforeveryone.com/guides/claude-code-limits-and-pricing)
+- The App Store requires: Sign in with Apple (or an equivalent) if we offer social logins (4.8); a privacy policy in the app and the listing (5.1.1); in-app account deletion (5.1.1(v)); a demo account for review (2.1). [Guidelines](https://developer.apple.com/app-store/review/guidelines/)
+- Supabase supports native Sign in with Apple in Expo via `signInWithIdToken`. [Supabase docs](https://supabase.com/docs/guides/auth/social-login/auth-apple)
+- The #1 blocker: without a Mac, test builds on iPhones need the paid Apple Developer account.
+
+## Decisions
+- D-012 roles + game plan → PROPOSED
+
+## Open questions / next steps
+- All: sign off on D-004–D-012; decide who holds the Apple Developer account (18+).
+- Noah: invite Tiago & Greg to the repo.
+- Optional: turn the plan's tasks into GitHub Issues (needs `gh` CLI or manual creation).

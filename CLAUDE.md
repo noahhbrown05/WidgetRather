@@ -58,6 +58,8 @@ Noah wants us to follow the approach of Chris Raroque (https://www.youtube.com/@
 
 **Team constraints (Noah, 2026-09-10):** nobody has a Mac; all coding will be done with AI tools; this is one of the team's first projects and is primarily a learning project.
 
+**Roles (proposed, D-012):** Greg (Claude Max) is lead engineer; app code runs on his desktop. Noah (Pro) handles product & launch. Tiago (Pro) handles design & content. When talking to Noah or Tiago, keep sessions focused and token-light (they're on Pro); route long coding work to Greg per `docs/MVP-GAMEPLAN.md`.
+
 ## Repo map
 
 | Path | What's there |
@@ -66,6 +68,7 @@ Noah wants us to follow the approach of Chris Raroque (https://www.youtube.com/@
 | `docs/STATUS.md` | One-page current state. Read first |
 | `docs/DECISIONS.md` | Decision log: the single source of truth for what the team has decided |
 | `docs/COLLABORATION.md` | How the three of us work together (git, branches, PRs, accounts) |
+| `docs/MVP-GAMEPLAN.md` | Roles, phases, and every MVP task with its owner |
 | `docs/sessions/` | One short summary per Claude session, per teammate |
 | `research/` | Research write-ups (market, tech stack, safety/legal, Raroque playbook) |
 | `research/video-sources.txt` | IDs of YouTube videos we've researched |

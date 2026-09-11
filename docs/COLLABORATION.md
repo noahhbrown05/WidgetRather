@@ -43,10 +43,11 @@ We use [GitHub flow](https://docs.github.com/en/get-started/using-github/github-
 
 ## 4. Don't step on each other
 
-- **Split by area, not by file.** Each person owns a piece at a time. Once the gate lifts, a natural first split:
-  - **Widget + iOS builds** (the tech spike, EAS, Apple setup)
-  - **Backend** (Supabase tables, security rules, question-of-the-day)
-  - **App screens + design + waitlist/marketing**
+- **Split by area, not by file.** Our split (D-012, details in `MVP-GAMEPLAN.md`):
+  - **Greg:** all app and backend code (he has Claude Max; long coding sessions run on his desktop)
+  - **Noah:** accounts, policies, App Store listing, beta program, PR reviews
+  - **Tiago:** designs, question bank, waitlist page, QA testing, PR reviews
+- Since Greg writes almost all the code, conflicts in code should be rare. Noah and Tiago mostly touch `docs/`, `research/`, and design/content files.
 - **Track tasks in GitHub Issues.** One issue per task, assign yourself before you start, and link the PR to the issue.
 - **Keep branches short-lived** (a day or two). Long branches cause painful merges.
 - **Pull `main` often** while you're working: `git pull origin main` on your branch.
