@@ -22,6 +22,7 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 | D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☑ Noah ☐ Tiago ☑ Greg |
 | D-014 | 2026-09-10 | Development on hold until ROADMAP Stages 1–3 (product spec, design, accounts/legal) are done; no timeline, follow `docs/ROADMAP.md` step by step | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 | D-015 | 2026-09-11 | **Duo mode** (pairs for couples/best friends/siblings, anyone 13+) is the first feature after the MVP launch | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
+| D-016 | 2026-09-11 | Avatar direction: **Pastel Critters**: ~12 pastel animals from one shape language, each named with a personality; "your pick tints your avatar"; no photos (see `research/avatar-case-study.md`) | PROPOSED (Tiago owns design) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 
 ---
 

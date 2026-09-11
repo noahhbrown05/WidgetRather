@@ -27,6 +27,6 @@
 - Proposed a system: **your pick tints your avatar** (pink = A, blue = B). Three directions: Pastel Critters / **The Rathers (aliens, recommended)** / Mood Blobs. MVP: 12 characters × 8 colours.
 
 ## Open questions / next steps
-- Noah + Tiago: pick an avatar direction (A/B/C).
+- **Noah picked Pastel Critters** (D-016, proposed; Tiago owns design and confirms).
 - Team: spec §9 public-community safety option (A recommended); drop window; confirm the [proposed defaults].
 - Tiago & Greg: re-sign D-008 and sign D-015.
