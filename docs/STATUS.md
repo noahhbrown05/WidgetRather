@@ -3,7 +3,7 @@
 _Rewrite this page (don't append) whenever things change. Last updated: 2026-09-10 by Noah's session._
 
 ## Current phase
-**Development is on hold (D-014).** We're following **`docs/ROADMAP.md`** step by step, with no timeline. We're at **Stage 1: Define the product** (the one-page MVP spec, question bank, name check, brand). No app code until Stages 1–3 are done (spec, design freeze, accounts/legal) *and* all three have signed D-005 + D-008.
+**Development is on hold (D-014).** We're following **`docs/ROADMAP.md`** step by step, with no timeline. We're at **Stage 1: Define the product**. **The MVP spec draft is written: `docs/MVP-SPEC.md`** (2026-09-11). It expands the MVP: all 3 widget sizes, public communities, and insights, so **D-008 needs all three to re-sign**. No app code until Stages 1–3 are done *and* D-005 + D-008 are signed.
 
 ## The goal
 A learning project: prove the three of us can build and grow an app. Target: the smallest working MVP, then a small friends beta, then the App Store.
@@ -24,7 +24,9 @@ Noah ☑ + Greg ☑ on D-001–D-013; Tiago pending. D-014 (development hold) is
 |---|---|
 | Tiago | Sign off on D-004–D-014 |
 | Team (kickoff) | Widget sizes (recommend medium only) · "Everyone" % (recommend yes) · morning drop window · hide friends' picks until you vote (recommend yes) · who answers reports (recommend Noah) |
-| Noah | ROADMAP 1.1: write the one-page MVP spec |
+| Tiago, Greg | Read `docs/MVP-SPEC.md`; re-sign D-008 (revised); sign D-015 (duo mode after launch) |
+| Team | Spec §9: public communities with strangers of all ages, option A (totals only, recommended), B (age-banded), or C (fully social) |
+| Noah | Review the spec's [proposed defaults] |
 | Tiago | ROADMAP 1.2 + 1.4: question bank v1 + brand |
 | Noah | ROADMAP 1.3: App Store name check |
 | Greg | Prototype bug fixes (empty result bars, squashed note tags, Apple logo, missing doctype; see Noah's session 2026-09-10) whenever convenient |

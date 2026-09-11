@@ -14,13 +14,14 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 | D-005 | 2026-09-10 | Stack: Expo (React Native) + expo-widgets + EAS cloud builds + Supabase | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-006 | 2026-09-10 | iOS-first launch; Android later | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-007 | 2026-09-10 | Age handling: 13+ for the MVP; revisit under-13 (6th graders) with a lawyer | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
-| D-008 | 2026-09-10 | MVP scope, incl. a **random morning drop, same moment per time zone** (see below) | PROPOSED | Claude + Noah (added random drop) | ☑ Noah ☐ Tiago ☑ Greg |
+| D-008 | 2026-09-10 (revised 09-11) | MVP scope → **now defined by `docs/MVP-SPEC.md`**: random morning drop, all 3 widget sizes, friend groups + **public communities** (creator + mods), multiple memberships, insights (Rare pick / Your twin / Split meter), emoji avatars | PROPOSED (**revised, re-sign needed**) | Noah + Claude | ☑ Noah ☐ Tiago ☐ Greg |
 | D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | PROPOSED (already in use) | Claude, at Noah's request | ☑ Noah ☐ Tiago ☑ Greg |
 | D-010 | 2026-09-10 | Public repo (stays public) + hygiene: no secrets, no raw copyrighted transcripts | IN EFFECT | Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☑ Noah ☐ Tiago ☑ Greg |
 | D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☑ Noah ☐ Tiago ☑ Greg |
 | D-014 | 2026-09-10 | Development on hold until ROADMAP Stages 1–3 (product spec, design, accounts/legal) are done; no timeline, follow `docs/ROADMAP.md` step by step | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
+| D-015 | 2026-09-11 | **Duo mode** (pairs for couples/best friends/siblings, anyone 13+) is the first feature after the MVP launch | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 
 ---
 
@@ -64,7 +65,12 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 - Under 13 triggers **COPPA**: verifiable parental consent before collecting personal info; amended rule fully in force since Apr 22, 2026 ([White & Case](https://www.whitecase.com/insight-alert/unpacking-ftcs-coppa-amendments-what-you-need-know)). The FTC says a neutral age gate can screen users, but a "I am over 12" checkbox doesn't count ([FTC COPPA FAQ](https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions)).
 - **Proposal:** the MVP is 13+ with a neutral age gate (roughly 7th/8th grade and up), using Apple's Declared Age Range API where it applies. Revisit under-13 support with a lawyer before a public launch.
 
-## D-008: MVP scope (proposed)
+## D-008 revision (2026-09-11)
+- Noah's spec session changed the scope, and **`docs/MVP-SPEC.md` is now the source of truth**. Added: all 3 widget sizes · public communities with creator + moderators (no size cap) · multiple memberships · three insights instead of a plain "Everyone %" · emoji/colour avatars, no photos · reactions on each friend's pick.
+- Greg's earlier sign-off was for the old scope, so it was cleared. **All three need to re-sign.** The biggest open call: how public communities handle strangers of different ages (spec §9, options A/B/C).
+- The original v1 list below is kept for history.
+
+## D-008: MVP scope (original, 2026-09-10)
 Goal: prove the three of us can build and ship it. Keep scope as small as possible for as long as possible (Raroque `Cufn-fjnVCE @ 03:08`), with value visible in seconds (Bier, [Lenny's](https://www.lennysnewsletter.com/p/how-to-consistently-go-viral-nikita-bier)).
 
 **In v1:**
