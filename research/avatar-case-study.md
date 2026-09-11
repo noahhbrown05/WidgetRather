@@ -1,6 +1,6 @@
 # Avatar Case Study: designed profile icons
 
-_2026-09-11, Noah's request: "a set of icon characters for profiles… based on an entire system of something correlated… pastel icons of different animals… or aliens." The MVP spec already says **no photos; emoji/colour avatars** (MVP-SPEC §8). This upgrades that to a designed character system. Design is Tiago's area (D-012); this is research to start from._
+_2026-09-11, Noah's request: "a set of icon characters for profiles… based on an entire system of something correlated… pastel icons of different animals… or aliens." The MVP spec already says **no photos; emoji/colour avatars** (MVP-SPEC §8). This upgrades that to a designed character system. Design is Noah's area (D-017); this is research to start from._
 
 ## The case studies
 
@@ -26,7 +26,7 @@ _2026-09-11, Noah's request: "a set of icon characters for profiles… based on 
 ## A system idea that's ours: "your pick tints your avatar"
 Our two options are already colour-coded: **pink = option A, blue = option B** (from the mockups; see Greg's session 2026-09-10). If every avatar is a **pastel character whose accent colour takes on the colour of the side you picked today**, the results screen shows *who picked what at a glance*, with no labels needed. Friends' faces turn pink or blue after the reveal. This works with any of the directions below.
 
-## Three directions (for Noah + Tiago to pick)
+## Three directions (Noah picked **A. Pastel Critters**, D-016)
 
 **A. Pastel Critters:** ~12 animals (capybara, axolotl, frog, bunny, fox…), all built from one soft bean/blob base shape, each with a one-line "would you rather" personality ("Capy: would rather nap than anything").
 - ✅ Warm and cute; works for couples/duos (D-015); easy to love.
@@ -47,6 +47,6 @@ Our two options are already colour-coded: **pink = option A, blue = option B** (
 - **Later:** seasonal sets, unlockables for duo streaks, a Notion-style builder.
 
 ## Open questions
-1. Direction A, B, or C (or a mix: aliens that look like pastel animals)?
-2. Who draws them: Tiago, or Tiago + Claude Design for exploration? (Claude Design shares Pro usage limits, so plan for it.)
-3. Does the pick-tint rule work with the colour-blind-friendly contrast we need? (Tiago to check.)
+1. ~~Direction~~: **Pastel Critters** chosen (D-016). Roster draft: `design/critters.md`.
+2. Who draws them: Noah with Claude Design for exploration, or a hired illustrator? (Claude Design shares Pro usage limits, so plan for it.)
+3. Does the pick-tint rule work with the colour-blind-friendly contrast we need? (Noah to check.)

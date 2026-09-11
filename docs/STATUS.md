@@ -1,35 +1,30 @@
 # Status: Widget Rather
 
-_Rewrite this page (don't append) whenever things change. Last updated: 2026-09-10 by Noah's session._
+_Rewrite this page (don't append) whenever things change. Last updated: 2026-09-11 by Noah's session._
 
 ## Current phase
-**Development is on hold (D-014).** We're following **`docs/ROADMAP.md`** step by step, with no timeline. We're at **Stage 1: Define the product**. **The MVP spec draft is written: `docs/MVP-SPEC.md`** (2026-09-11). It expands the MVP: all 3 widget sizes, public communities, and insights, so **D-008 needs all three to re-sign**. No app code until Stages 1–3 are done *and* D-005 + D-008 are signed.
+**Development is on hold (D-014).** We're following **`docs/ROADMAP.md`** step by step, with no timeline, and are at **Stage 1: Define the product**.
+- ✅ 1.1 MVP spec drafted: **`docs/MVP-SPEC.md`**
+- ✅ 1.3 Name check: "Widget Rather" looks available (`research/name-check.md`)
+- 🟡 1.4 Brand/avatars: **Pastel Critters** chosen (D-016); roster draft in `design/critters.md`
+- ☐ 1.2 Question bank v1
 
-## The goal
-A learning project: prove the three of us can build and grow an app. Target: the smallest working MVP, then a small friends beta, then the App Store.
+## Roles (D-017, proposed 2026-09-11; needs Greg)
+- **Greg:** back end + builds (Claude Max).
+- **Noah:** **the main front end + design + everything else** (spec, content, accounts, policies, App Store).
+- **Tiago:** advisor. Weighs in only when Noah and Greg ask.
+- **Decisions need Noah + Greg.**
 
-## The MVP (D-008)
-Each morning before school, the question drops at a random time (same moment for everyone in a time zone). You answer on the home-screen widget, see your friend group's % split, and react with emoji. Plus sign in with Apple, a 13+ age gate, one friend group, report/block, and account deletion.
-
-## Roles (D-012)
-- **Greg:** backend + builds (Claude Max). Supabase, security, data layer, widget ↔ backend, drop scheduler, EAS builds, widget test.
-- **Noah:** front end (onboarding, sign-in, age gate, groups, settings/safety) + misc (spec, accounts, policies, waitlist, beta, App Store listing).
-- **Tiago:** front end (design system, question → results → reactions, widget look) + misc (designs, brand, question bank, screenshots).
-
-## Decisions
-Noah ☑ + Greg ☑ on D-001–D-013; Tiago pending. D-014 (development hold) is new: Noah ☑.
+## The MVP (spec draft)
+A random morning drop (per time zone) → answer on the widget (all 3 sizes) → friend groups + public communities → results + insights (Rare pick, Your twin, Split meter) → emoji reactions on friends' picks. Pastel Critter avatars, no photos. Duo mode comes right after launch (D-015).
 
 ## Waiting on
 | Who | What |
 |---|---|
-| Tiago | Sign off on D-004–D-014 |
-| Team (kickoff) | Widget sizes (recommend medium only) · "Everyone" % (recommend yes) · morning drop window · hide friends' picks until you vote (recommend yes) · who answers reports (recommend Noah) |
-| Tiago, Greg | Read `docs/MVP-SPEC.md`; re-sign D-008 (revised); sign D-015 (duo mode after launch) |
-| Team | Spec §9: public communities with strangers of all ages, option A (totals only, recommended), B (age-banded), or C (fully social) |
-| Noah | Review the spec's [proposed defaults] |
-| Tiago | ROADMAP 1.2 + 1.4: question bank v1 + brand |
-| Noah | ROADMAP 1.3: App Store name check |
-| Greg | Prototype bug fixes (empty result bars, squashed note tags, Apple logo, missing doctype; see Noah's session 2026-09-10) whenever convenient |
+| **Greg** | Sign D-014, D-015, D-016, **D-017**; re-sign **D-008 (revised = the spec)**. Once D-017 is signed, D-005 (stack) and the rest become DECIDED |
+| Noah + Greg | ROADMAP 0.5 sync: drop window · public-community safety (spec §9: A totals-only, recommended / B age-banded / C fully social) · who answers reports · the spec's [proposed defaults] |
+| Noah | 1.2 question bank · test the critter roster at 22px · register the domain once agreed |
+| Greg | Prototype bug fixes (see Noah's session 2026-09-10) whenever convenient |
 
 ## Where things are
-**Roadmap: `docs/ROADMAP.md`** · Tasks/owners: `docs/MVP-GAMEPLAN.md` · Mockups: `design/mockups/` · Clickable mockup: `prototype/index.html` · Kickoff: `docs/KICKOFF-AGENDA.md` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`
+**Roadmap: `docs/ROADMAP.md`** · **Spec: `docs/MVP-SPEC.md`** · Critters: `design/critters.md` · Tasks/owners: `docs/MVP-GAMEPLAN.md` · Mockups: `design/mockups/` · Clickable mockup: `prototype/index.html` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`

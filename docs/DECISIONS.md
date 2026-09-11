@@ -3,7 +3,7 @@
 The single source of truth for what the Widget Rather team has decided.
 
 **Statuses:** `PROPOSED` (open for discussion) · `DECIDED` (team agreed) · `REJECTED` · `SUPERSEDED`.
-A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg have each signed off. To sign off, change your ☐ to ☑ and commit.
+**Since D-017 (2026-09-11), a decision is `DECIDED` once Noah and Greg have both signed.** Tiago is an advisor; his box is optional. To sign off, change your ☐ to ☑ and commit. _(Before D-017, all three had to sign.)_
 
 | ID | Date | Decision | Status | Proposed by | Sign-off |
 |---|---|---|---|---|---|
@@ -22,7 +22,8 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 | D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☑ Noah ☐ Tiago ☑ Greg |
 | D-014 | 2026-09-10 | Development on hold until ROADMAP Stages 1–3 (product spec, design, accounts/legal) are done; no timeline, follow `docs/ROADMAP.md` step by step | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 | D-015 | 2026-09-11 | **Duo mode** (pairs for couples/best friends/siblings, anyone 13+) is the first feature after the MVP launch | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
-| D-016 | 2026-09-11 | Avatar direction: **Pastel Critters**: ~12 pastel animals from one shape language, each named with a personality; "your pick tints your avatar"; no photos (see `research/avatar-case-study.md`) | PROPOSED (Tiago owns design) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
+| D-016 | 2026-09-11 | Avatar direction: **Pastel Critters**: ~12 pastel animals from one shape language, each named with a personality; "your pick tints your avatar"; no photos (see `research/avatar-case-study.md`) | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
+| D-017 | 2026-09-11 | **Roles revised:** Greg = back end; **Noah = main front end + design + everything else**; Tiago = advisor only when Noah + Greg ask. **Decisions need Noah + Greg**. Replaces D-012's split | PROPOSED (needs Greg) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 
 ---
 
@@ -103,6 +104,12 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
   - Greg owns native builds because the Expo free plan allows 15 iOS builds/month ([Expo pricing](https://expo.dev/pricing)).
 - **Contract:** Greg provides generated Supabase types + a data-layer function list; screens only call those functions.
 - **Plan:** `docs/MVP-GAMEPLAN.md`.
+
+## D-017: Roles revised; Noah + Greg decide
+- **Noah (2026-09-11):** "Greg is back end and I am the main front end, Tiago is maybe just weighing in if necessary if me and Greg deem it to be."
+- **Effect:** every task that was Tiago's (design system, screens, widget look, brand, question bank, screenshots) moves to **Noah**. Decisions need **Noah + Greg**.
+- **Once Greg signs D-017:** every decision already ticked by both Noah and Greg (D-001–D-007, D-009–D-013) becomes `DECIDED`, **including D-005 (stack)**. D-008 (revised) still needs Greg's re-sign; after that, the only thing left before development is D-014's Stages 1–3.
+- **Capacity note:** Noah is on Pro and now owns all front end + design. Greg (Max) picks up overflow, per `MVP-GAMEPLAN.md`.
 
 ## D-014: Hold development; follow the roadmap
 - **Noah (2026-09-10):** "hold off on development right now." Wants a step-by-step from here to production and past launch, with **no timeline**.

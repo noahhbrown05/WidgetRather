@@ -26,7 +26,15 @@
 - Researched Google Docs' anonymous animals (73), Netflix icon sets (rotating themed sets), Notion Faces (modular, "expressiveness over likeness"), Duolingo (3-shape language), Among Us (colour + silhouette), Finch (hatch-and-name ownership; the widget evolves), and Raroque's Ellie hamster widget → `research/avatar-case-study.md`.
 - Proposed a system: **your pick tints your avatar** (pink = A, blue = B). Three directions: Pastel Critters / **The Rathers (aliens, recommended)** / Mood Blobs. MVP: 12 characters × 8 colours.
 
+## Roles change (later in the session)
+- **Noah:** "Greg is back end and I am the main front end, Tiago is maybe just weighing in if necessary if me and Greg deem it to be." → **D-017** (proposed, needs Greg). Tiago's tasks move to Noah; decisions need Noah + Greg. Updated CLAUDE.md, DECISIONS, ROADMAP, MVP-GAMEPLAN (banner), MVP-SPEC, COLLABORATION, STATUS; the kickoff agenda is marked superseded.
+
+## Name check + critters
+- `research/name-check.md`: "Widget Rather" looks available. No app or brand found; no would-you-rather app mentions widgets; widgetrather.com/.app don't resolve. The definitive check is in App Store Connect (needs the Apple account). [Either](https://apps.apple.com/us/app/either-you-would-rather/id1437917909), [IPRightsHub](https://iprightshub.com/blog/how-to-check-if-app-name-is-already-taken-cross-store-guide-2026)
+- `design/critters.md`: 12 named Pastel Critters (head-silhouette rules for 22px, bandana pick-tint, 8 body colours, 5 moods, onboarding "pick your critter").
+
 ## Open questions / next steps
+- Greg: sign D-014–D-017; re-sign D-008 (revised).
 - **Noah picked Pastel Critters** (D-016, proposed; Tiago owns design and confirms).
 - Team: spec §9 public-community safety option (A recommended); drop window; confirm the [proposed defaults].
 - Tiago & Greg: re-sign D-008 and sign D-015.

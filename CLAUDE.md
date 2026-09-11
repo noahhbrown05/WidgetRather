@@ -16,7 +16,7 @@ Noah's direction (2026-09-10): **no coding or production work until the tech sta
 
 - Allowed right now: research, writing docs, comparing options, mockups on paper, research tooling (like the transcript script).
 - Not allowed yet: scaffolding the app, installing app frameworks, writing app code.
-- The gate lifts only when `docs/DECISIONS.md` has the tech stack (D-005) and MVP scope/positioning (D-008) marked `DECIDED`, with all three teammates signed off.
+- The gate lifts only when `docs/DECISIONS.md` has the tech stack (D-005) and MVP scope/positioning (D-008) marked `DECIDED`, signed off by **Noah and Greg** (D-017).
 - **Also (D-014, Noah 2026-09-10):** development stays on hold until `docs/ROADMAP.md` Stages 1–3 are done (MVP spec, design freeze, accounts/legal). Follow the roadmap in order; don't propose timelines.
 
 ## RULE 3 — Three-person team, three machines
@@ -26,7 +26,7 @@ The team is **Noah, Tiago, and Greg**. Each works on their own computer and sync
 - At the start of a session, figure out who you're talking to (ask, or check `git config user.name`) and put their name in the session log.
 - Always `git pull` before starting work and before committing, so you don't clobber a teammate's changes.
 - Never force-push. Never rewrite shared history.
-- A decision one teammate makes in a chat is **Proposed** until it's recorded in `docs/DECISIONS.md` and the others have had a chance to weigh in. Don't treat one person's opinion as team consensus.
+- A decision one teammate makes in a chat is **Proposed** until it's recorded in `docs/DECISIONS.md` and signed by **both Noah and Greg** (D-017). Tiago is an advisor: bring him in when Noah and Greg ask. Don't treat one person's opinion as a decision.
 
 ## RULE 4 — Log every conversation and decision in the repo
 
@@ -59,7 +59,7 @@ Noah wants us to follow the approach of Chris Raroque (https://www.youtube.com/@
 
 **Team constraints (Noah, 2026-09-10):** nobody has a Mac; all coding will be done with AI tools; this is one of the team's first projects and is primarily a learning project.
 
-**Roles (proposed, D-012):** Greg (Claude Max) owns the backend, data layer, widget ↔ backend, and all native/EAS builds. Noah and Tiago (Pro) split the front-end screens and miscellaneous tasks per `docs/MVP-GAMEPLAN.md`. When working with Noah or Tiago, keep sessions focused and token-light: one screen or task per session, small prompts, and no repo-wide exploration. Front-end code must call Greg's data-layer functions, never query the database directly.
+**Roles (D-017, revised 2026-09-11; replaces the D-012 split):** **Greg** (Claude Max) = back end: backend, data layer, widget ↔ backend, all native/EAS builds. **Noah** (Pro) = the main front end: all screens, design, and everything else (spec, content, accounts, policies, App Store). **Tiago** = advisor: weighs in only when Noah and Greg ask. **Decisions need Noah + Greg**; Tiago's sign-off is optional. When working with Noah, keep sessions focused and token-light (Pro): one screen or task per session, small prompts, no repo-wide exploration. Front-end code must call Greg's data-layer functions, never query the database directly.
 
 ## Repo map
 

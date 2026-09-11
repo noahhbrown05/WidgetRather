@@ -1,5 +1,7 @@
 # MVP Game Plan
 
+> **Roles revised 2026-09-11 (D-017):** Greg = back end. **Noah = the main front end + design + everything else. Every task below listed for Tiago (T1–T9) now belongs to Noah.** Tiago = advisor, only when Noah + Greg ask. Decisions need Noah + Greg.
+
 _Proposed 2026-09-10 (Noah's session), decision D-012 (revised the same day: Greg = backend, Noah + Tiago = front end + everything else). Builds on the MVP scope (D-008) and stack (D-005). **No timeline** (Noah, 2026-09-10). For the full ordered path from here to launch and beyond, see `docs/ROADMAP.md`; this file keeps the task IDs and owners._
 
 ## The MVP (from D-008)

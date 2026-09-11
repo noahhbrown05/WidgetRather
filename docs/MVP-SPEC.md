@@ -1,6 +1,6 @@
 # MVP Spec: Widget Rather (draft v1)
 
-_ROADMAP step 1.1. Drafted 2026-09-11 from Noah's answers in his session. **Status: DRAFT, needs Tiago and Greg.** Items marked **[proposed default]** are Claude's recommendations Noah didn't explicitly choose; items marked **[OPEN]** need a team decision. This draft **changes D-008's scope** (see "Impact" at the end)._
+_ROADMAP step 1.1. Drafted 2026-09-11 from Noah's answers in his session. **Status: DRAFT, needs Greg's sign-off (D-017: Noah + Greg decide).** Items marked **[proposed default]** are Claude's recommendations Noah didn't explicitly choose; items marked **[OPEN]** need a team decision. This draft **changes D-008's scope** (see "Impact" at the end)._
 
 ---
 
@@ -76,7 +76,7 @@ You can be in **several** groups and communities. The widget shows the one you c
 
 ## 8. Reactions and profiles
 - **Reactions:** a fixed set of about 6 emoji on **each friend's pick** (Noah). No free text anywhere in the MVP, so there's nothing typed to moderate.
-- **Profiles:** display name + **a designed avatar character**; **no photos** in the MVP (Noah). Direction: **Pastel Critters** (Noah's pick, D-016; Tiago to confirm): ~12 named pastel animals built from one shape language, and your accent colour takes on today's pick (pink/blue). See `research/avatar-case-study.md`.
+- **Profiles:** display name + **a designed avatar character**; **no photos** in the MVP (Noah). Direction: **Pastel Critters** (Noah's pick, D-016): ~12 named pastel animals built from one shape language, and your accent colour takes on today's pick (pink/blue). See `research/avatar-case-study.md`.
 - **No DMs, no chat, no comments** in the MVP.
 
 ## 9. Safety and moderation
@@ -109,25 +109,25 @@ You can be in **several** groups and communities. The widget shows the one you c
 ## 12. Onboarding flow
 Sign in with Apple → birthday (neutral gate) → display name + emoji avatar → **join with a code / create a group / browse communities** → "Add the widget" guide → today's question.
 
-## 13. Screen list (for Tiago's designs and the front-end split)
+## 13. Screen list (all front end = Noah, D-017)
 | Screen | Front end |
 |---|---|
 | Sign in · Birthday · Name + avatar | Noah |
 | Join / create group · Invite (code + share) | Noah |
 | Browse + search communities · Create community | Noah |
-| Today: unanswered · Today: answered (split + insights) | Tiago |
-| Group detail (who picked what, reactions) · Community detail (per §9 choice) | Tiago |
-| Widget: all 3 sizes × all states + lock screen | Tiago |
+| Today: unanswered · Today: answered (split + insights) | Noah |
+| Group detail (who picked what, reactions) · Community detail (per §9 choice) | Noah |
+| Widget: all 3 sizes × all states + lock screen | Noah |
 | You: settings, blocked people, policies, delete account | Noah |
 | Report sheet · Moderator tools (remove, appoint mods, edit name) | Noah |
-| "Add the widget" guide | Tiago |
+| "Add the widget" guide | Noah |
 
 ## 14. Not in the MVP
 - **Duo mode** (pairs for couples, best friends, siblings; anyone 13+) → **the first thing after launch**. Plan: a 2-person group with an "in sync" score + a streak of matching picks, answer-then-talk. Couples apps prove the ritual: Paired ~100K daily couples, Candle ~50% DAU/MAU with widgets ([Paired](https://www.paired.com/), [Candle](https://apps.apple.com/us/app/candle-couples-relationship/id6743355635)).
 - Chat, comments, threads · photos · user-submitted questions · Android · AI-generated questions.
 
 ## 15. Impact on D-008 (honest note)
-This draft adds **all three widget sizes, public communities with moderators, multiple memberships, and three insights** to the MVP that D-008 originally scoped (one group, medium-leaning, no communities). It's Noah's call to make, but it's a real increase in build and moderation work, so **D-008 goes back to PROPOSED and needs all three sign-offs again.**
+This draft adds **all three widget sizes, public communities with moderators, multiple memberships, and three insights** to the MVP that D-008 originally scoped (one group, medium-leaning, no communities). It's Noah's call to make, but it's a real increase in build and moderation work, so **D-008 goes back to PROPOSED and needs Noah + Greg to sign again (D-017).**
 
 ## 16. Open questions for the team
 1. Morning drop window (exact hours).

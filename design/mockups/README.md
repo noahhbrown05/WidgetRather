@@ -1,6 +1,6 @@
 # Mockups
 
-Early concept mockups added by Noah on 2026-09-10. These are for direction and vibe, not final designs (Tiago owns the final designs, per D-012).
+Early concept mockups added by Noah on 2026-09-10. These are for direction and vibe, not final designs (Noah owns the final designs, per D-017).
 
 ![Concept: app and widget states](01-concept-app-and-widget-states.png)
 

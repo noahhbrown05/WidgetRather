@@ -46,7 +46,8 @@ We use [GitHub flow](https://docs.github.com/en/get-started/using-github/github-
 - **Split by area, not by file.** Our split (D-012, details in `MVP-GAMEPLAN.md`):
   - **Greg:** backend, data layer, widget ↔ backend, native/EAS builds
   - **Noah:** front-end screens for onboarding/sign-in/age gate, groups, and settings/safety, plus accounts, policies, waitlist, beta, and App Store listing
-  - **Tiago:** design system, front-end screens for question/results/reactions and the widget look, plus designs, brand, and the question bank
+  - _(Revised by D-017, 2026-09-11: **Noah is now the whole front end + design**, including everything listed for Tiago here. Tiago advises when Noah and Greg ask.)_
+  - **Tiago (before D-017):** design system, front-end screens for question/results/reactions and the widget look, plus designs, brand, and the question bank
 - **Screens only call Greg's data-layer functions** and never write database queries directly. That boundary keeps front end and back end from colliding.
 - **Tiago builds the theme/shared components first**; Noah's screens reuse them. If you need to change a shared component, say so in the PR.
 - **Native builds go through Greg** (the Expo free plan has 15 iOS builds/month). Adding a library with native code? Tell Greg first.
@@ -56,7 +57,7 @@ We use [GitHub flow](https://docs.github.com/en/get-started/using-github/github-
 - **Merge conflict?** Don't panic, and never force-push. Ask Claude: "help me resolve this merge conflict, keeping both people's changes."
 
 ## 5. Decisions
-- Talk it through anywhere (group chat, call), but **it isn't decided until it's in `docs/DECISIONS.md`** with all three sign-offs.
+- Talk it through anywhere (group chat, call), but **it isn't decided until it's in `docs/DECISIONS.md`** signed by **Noah and Greg** (D-017; Tiago's sign-off is optional).
 - To sign off: change your ☐ to ☑ in the table and commit.
 - Suggestion: a 15-minute weekly check-in, working down the "Waiting on" list in `STATUS.md`.
 

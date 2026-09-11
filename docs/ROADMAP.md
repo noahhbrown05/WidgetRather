@@ -1,6 +1,6 @@
 # Roadmap: from here to production, and past launch
 
-_Written 2026-09-10 at Noah's request: a genuine step-by-step, **no timeline**. Development is **on hold** until Stages 1–3 are done (D-014). Task IDs like `G4`/`N5`/`T2` point to `MVP-GAMEPLAN.md`._
+_Roles updated 2026-09-11 (D-017): Greg = back end, Noah = front end + design + everything else, Tiago = advisor when Noah and Greg ask. Written 2026-09-10 at Noah's request: a genuine step-by-step, **no timeline**. Development is **on hold** until Stages 1–3 are done (D-014). Task IDs like `G4`/`N5`/`T2` point to `MVP-GAMEPLAN.md`._
 
 **How to read this:** do the stages in order. Inside a stage, steps can run in parallel unless one says it needs another. Each step says **who** owns it and when it's **done**.
 
@@ -15,28 +15,28 @@ _Written 2026-09-10 at Noah's request: a genuine step-by-step, **no timeline**. 
 | 0.1 | ✅ Research, project rules, shared repo, logging system | Noah | — |
 | 0.2 | ✅ Decisions D-001–D-013 signed by Noah and Greg | Noah, Greg | — |
 | 0.3 | ✅ Concept mockups (`design/mockups/`) + clickable prototype (`prototype/`) | Noah, Greg | — |
-| 0.4 | ☐ Tiago signs D-004–D-013 | Tiago | All three ticks in `DECISIONS.md` |
-| 0.5 | ☐ **Kickoff call** (`KICKOFF-AGENDA.md`) to settle the open questions: (a) widget sizes for the MVP (recommend **medium only**); (b) "Everyone" % (recommend **yes**; it's just a total, with no content to moderate); (c) the exact morning drop window; (d) hide friends' picks until you've voted (recommend **yes**); (e) who answers reports (recommend **Noah**) | All | Each answer recorded as a decision |
+| 0.4 | ☐ Greg signs D-014–D-017 and re-signs the revised D-008 (decisions now need **Noah + Greg**; Tiago advises when asked, D-017) | Greg | Both ticks in `DECISIONS.md` |
+| 0.5 | ☐ **Noah + Greg sync** to settle what's still open: (a) the exact morning drop window; (b) public-community safety (MVP-SPEC §9: option A/B/C); (c) who answers reports (recommend Noah); (d) the spec's [proposed defaults]. _Already settled by Noah in the spec: all 3 widget sizes, insights instead of a plain "Everyone %", picks hidden until you vote._ | Noah, Greg | Each answer recorded as a decision |
 
 ## Stage 1: Define the product (no code) 👉 YOU ARE HERE
 
 | # | Step | Who | Done when |
 |---|---|---|---|
-| 1.1 | **Write the one-page MVP spec**: every screen, every widget state, and the rules. Rules to settle: When does a question close (at the next drop?) · Can you answer late? · What does someone see if they join a group mid-day? · Min/max group size? · What happens with no group yet? | Noah | All three agree; the spec is in `docs/` |
-| 1.2 | **Question bank v1 + content guidelines**: 60+ questions; hypotheticals only; never about real people; appropriate for 13+ (D-004, D-007) | Tiago (+Noah) | A CSV in the repo, guidelines written |
-| 1.3 | **Name check:** search the App Store for "Widget Rather"/"WidgetRather". App names are limited to 30 characters ([AppScreenshotStudio](https://appscreenshotstudio.com/blog/app-store-metadata-for-indie-devs-title-subtitle-keywords-2026)). The name is only reserved once the app record exists (step 7.2) | Noah | No conflict found, or a backup name chosen |
-| 1.4 | **Brand:** wordmark (fix the "WigetRather" typo), app icon, colours, fonts | Tiago | Assets in `design/` |
+| 1.1 | ✅ **One-page MVP spec** drafted: `docs/MVP-SPEC.md` (2026-09-11) | Noah | ✅ Drafted; Noah + Greg sign the revised D-008 |
+| 1.2 | **Question bank v1 + content guidelines**: 60+ questions; hypotheticals only; never about real people; appropriate for 13+ (D-004, D-007) | Noah | A CSV in the repo, guidelines written |
+| 1.3 | ✅ **Name check:** looks available; see `research/name-check.md` (definitive check at 7.2). Original step: search the App Store for "Widget Rather"/"WidgetRather". App names are limited to 30 characters ([AppScreenshotStudio](https://appscreenshotstudio.com/blog/app-store-metadata-for-indie-devs-title-subtitle-keywords-2026)). The name is only reserved once the app record exists (step 7.2) | Noah | No conflict found, or a backup name chosen |
+| 1.4 | **Brand:** wordmark (fix the "WigetRather" typo), app icon, colours, fonts | Noah | Assets in `design/` |
 
 ## Stage 2: Design (no code)
 
 | # | Step | Who | Done when |
 |---|---|---|---|
-| 2.1 | Study how real apps handle each screen (Raroque uses Mobbin, `oNRrjbKiF04 @ 05:15`) | Tiago | Reference board saved |
-| 2.2 | **Design system:** colours, type, buttons, cards, result bars, emoji bar | Tiago | Documented in `design/` |
-| 2.3 | **Every screen, finished**, including edge states: logged out, no group, offline, empty, error, and the widget-gallery preview (Raroque `m5cRcii3pec @ 02:06`, `9sHd-VWssxw @ 01:02`) | Tiago | All screens from the 1.1 spec |
-| 2.4 | **Widget designs** for the chosen size(s), before and after voting, plus a display-only lock-screen version (lock-screen buttons don't work until unlock, see `research/tech-stack.md`). Tiny image assets (`9sHd-VWssxw @ 02:04`) | Tiago | Designs signed off |
-| 2.5 | **Update the clickable prototype** to the final designs and fix its known bugs | Greg or Tiago | Prototype matches the designs |
-| 2.6 | **Show the prototype to a few friends (13+)** and watch where they get confused | Noah, Tiago | Notes written; designs adjusted |
+| 2.1 | Study how real apps handle each screen (Raroque uses Mobbin, `oNRrjbKiF04 @ 05:15`) | Noah | Reference board saved |
+| 2.2 | **Design system:** colours, type, buttons, cards, result bars, emoji bar | Noah | Documented in `design/` |
+| 2.3 | **Every screen, finished**, including edge states: logged out, no group, offline, empty, error, and the widget-gallery preview (Raroque `m5cRcii3pec @ 02:06`, `9sHd-VWssxw @ 01:02`) | Noah | All screens from the 1.1 spec |
+| 2.4 | **Widget designs** for the chosen size(s), before and after voting, plus a display-only lock-screen version (lock-screen buttons don't work until unlock, see `research/tech-stack.md`). Tiny image assets (`9sHd-VWssxw @ 02:04`) | Noah | Designs signed off |
+| 2.5 | **Update the clickable prototype** to the final designs and fix its known bugs | Greg or Noah | Prototype matches the designs |
+| 2.6 | **Show the prototype to a few friends (13+)** and watch where they get confused | Noah | Notes written; designs adjusted |
 | 2.7 | **Design freeze** for the MVP | All | Recorded as a decision |
 
 ## Stage 3: Accounts, legal, and business setup (no code)
@@ -54,24 +54,24 @@ _Written 2026-09-10 at Noah's request: a genuine step-by-step, **no timeline**. 
 
 | # | Step | Who | Done when |
 |---|---|---|---|
-| 4.1 | **Lift the hold:** Stages 1–3 done, and D-005 + D-008 signed by all three | All | Recorded in `DECISIONS.md` |
+| 4.1 | **Lift the hold:** Stages 1–3 done, and D-005 + D-008 signed by Noah + Greg | All | Recorded in `DECISIONS.md` |
 | 4.2 | Scaffold the Expo app + EAS; first **iOS simulator build** (no Apple account needed) (G1) | Greg | Builds and runs |
 | 4.3 | **Widget spike** in a simulator (cloud Mac or Appetize, see `research/testing-without-apple-account.md`): can a widget button save an answer to Supabase without opening the app? Do widget changes need a native rebuild? (G2) | Greg | Written result: **pass**, or switch to the fallback (tap opens the app to answer) |
 | 4.4 | Supabase: schema, **row-level security from day 1**, generated TypeScript types, and the data-layer function list (the "contract") (G3, G5) | Greg | Function list published in the repo |
-| 4.5 | Front-end tooling on Noah's and Tiago's PCs; screens run in the browser / Android emulator | Noah, Tiago | Each can run the app |
+| 4.5 | Front-end tooling on Noah's PC; screens run in the browser / Android emulator | Noah | Each can run the app |
 
 ## Stage 5: Build the MVP (one pull request per feature)
 Each feature, Raroque's way: **UI with dummy data → data → connect → polish** (`Q13QOgwoF0E @ 01:02`).
 
 | # | Feature | Front end | Back end |
 |---|---|---|---|
-| 5.1 | Theme + shared components | Tiago (T4) | — |
+| 5.1 | Theme + shared components | Noah (T4) | — |
 | 5.2 | Sign in with Apple + neutral age gate (13+) + display name | Noah (N4) | Greg (G4) |
 | 5.3 | Create/join group, invite code | Noah (N5) | Greg (G5) |
 | 5.4 | Question drop: import the bank; **random morning time per time zone**; question hidden until the drop | — | Greg (G6) |
-| 5.5 | **Widget:** before/after states, answer from the widget, results | Tiago (T6) | Greg (G7) |
-| 5.6 | Today → voted → results (+ "Everyone" % if approved) | Tiago (T5) | Greg (G5) |
-| 5.7 | Emoji reactions | Tiago | Greg |
+| 5.5 | **Widget:** before/after states, answer from the widget, results | Noah (T6) | Greg (G7) |
+| 5.6 | Today → voted → results (+ "Everyone" % if approved) | Noah (T5) | Greg (G5) |
+| 5.7 | Emoji reactions | Noah | Greg |
 | 5.8 | Push notification at the drop + widget reload ([Apple WidgetKit push](https://developer.apple.com/documentation/WidgetKit/Updating-widgets-with-widgetkit-push-notifications)) | — | Greg (G9) |
 | 5.9 | **Safety:** report, block, delete account, filter on names, contact info (Guidelines 1.2, 5.1.1(v)) | Noah (N8) | Greg (G8) |
 | 5.10 | Analytics events + **week-1 retention** dashboard; Sentry crash reports | Noah (N9) | Greg |
@@ -93,7 +93,7 @@ Each feature, Raroque's way: **UI with dummy data → data → connect → polis
 | 7.1 | **Buy the Apple Developer account** ($99/yr), per 3.1's choice (D-013) | Holder (18+) | Enrolled |
 | 7.2 | **Create the app record** in App Store Connect (this reserves the name). Fill in the **age rating questionnaire**, including the new **social media capability** question, required for new apps from September 2026; "yes" means at least a 13+ rating ([Apple news](https://developer.apple.com/news/?id=tlur8uvi), [9to5Mac](https://9to5mac.com/2026/07/09/apple-adds-social-media-questions-to-app-store-connect-age-rating-questionnaire/)). If our terms say 13+, override to at least 13+ ([Apple help](https://developer.apple.com/help/app-store-connect/manage-app-information/set-an-app-age-rating/)) | Noah | Record created |
 | 7.3 | Real-iPhone builds via EAS → **internal TestFlight** for the three of us (up to 100 internal testers) ([TestFlight](https://developer.apple.com/testflight/)) | Greg | On all three phones |
-| 7.4 | Fix real-phone issues: widget memory, push delivery, drop timing across time zones | Greg, Tiago | Stable for a few days of daily use |
+| 7.4 | Fix real-phone issues: widget memory, push delivery, drop timing across time zones | Greg, Noah | Stable for a few days of daily use |
 | 7.5 | **External TestFlight for friends (13+)**. The first build needs Beta App Review (Raroque saw ~24h, `9sHd-VWssxw @ 03:06`); invite by email or public link ([TestFlight](https://developer.apple.com/testflight/)) | Noah (+Greg builds) | Friends installed |
 | 7.6 | **Beta plan:** a feedback channel (form or board, `MnF-zJhyUtE @ 02:04`). Measure: % who add the widget, answers per drop, **week-1 retention** | Noah | Weekly beta readout |
 | 7.7 | **Go/no-go:** Raroque launches when beta users keep coming back for days, not just day one (`MnF-zJhyUtE @ 07:15`) | All | Decision recorded |
@@ -103,7 +103,7 @@ Each feature, Raroque's way: **UI with dummy data → data → connect → polis
 | # | Step | Who | Done when |
 |---|---|---|---|
 | 8.1 | **Listing text:** name (30 chars), subtitle (30), keywords (100), description ([AppScreenshotStudio](https://appscreenshotstudio.com/blog/app-store-metadata-for-indie-devs-title-subtitle-keywords-2026)) | Noah | Filled in |
-| 8.2 | **Screenshots:** the 6.9" iPhone size (1398×2034 portrait), 1–10 images ([Apple specs](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/)). Raroque spends 3–4 days on these (`MnF-zJhyUtE @ 06:12`) | Tiago (T9) | Uploaded |
+| 8.2 | **Screenshots:** the 6.9" iPhone size (1398×2034 portrait), 1–10 images ([Apple specs](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/)). Raroque spends 3–4 days on these (`MnF-zJhyUtE @ 06:12`) | Noah (T9) | Uploaded |
 | 8.3 | Privacy policy URL, support URL, **App Privacy** answers, age rating confirmed | Noah | Filled in |
 | 8.4 | **Demo account + review notes** (required, Guideline 2.1). Important for us: **reviewers must be able to see a question at any time**, not just in the morning drop window, so the demo account needs a question waiting and a group with results | Noah (+Greg) | Tested by someone who's never seen the app |
 | 8.5 | **Lawyer review** of the age gate, privacy policy, and terms before going public (D-007) | Noah | Sign-off |
@@ -122,11 +122,11 @@ Each feature, Raroque's way: **UI with dummy data → data → connect → polis
 
 | Rhythm | What | Who |
 |---|---|---|
-| **Every day** | The question drops (keep the bank **30+ days ahead**); moderation reports answered promptly; crashes (Sentry); spending alerts | Tiago (questions), Noah (reports), Greg (systems) |
+| **Every day** | The question drops (keep the bank **30+ days ahead**); moderation reports answered promptly; crashes (Sentry); spending alerts | Noah (questions + reports), Greg (systems) |
 | **Every week** | Week-1 retention and funnel review (`cXIWx1eYA9w @ 12:28`); top feedback requests; fix the biggest friction point (`oNRrjbKiF04 @ 01:01`); 15-min team check-in | All |
 | **Shipping updates** | JS/UI/image fixes go out **over the air with EAS Update**; native changes (new native libraries, permissions, SDK upgrades) need a **new App Store build and review**. Updates must still follow App Store rules ([Expo docs](https://docs.expo.dev/eas-update/introduction/)) | Greg |
 | **Ratings** | Ask for a rating after a good moment (e.g. after seeing your group agrees). Apple shows the prompt at most **3 times per year** per user ([SwiftLee](https://www.avanderlee.com/swift/skstorereviewcontroller-app-ratings/)) | Noah, Greg |
-| **App Store** | Keep improving screenshots, keywords, and reviews (`cXIWx1eYA9w @ 14:34`) | Noah, Tiago |
+| **App Store** | Keep improving screenshots, keywords, and reviews (`cXIWx1eYA9w @ 14:34`) | Noah |
 
 ## Stage 11: Grow (Raroque's ladder, easiest → hardest, `cXIWx1eYA9w @ 13:31–17:41`)
 1. **App Store organic:** a strong listing plus reviews.

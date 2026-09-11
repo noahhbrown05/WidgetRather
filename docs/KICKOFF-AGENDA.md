@@ -1,3 +1,5 @@
+> **Superseded 2026-09-11 (D-017):** decisions now need Noah + Greg only; the open items moved to ROADMAP step 0.5 (a Noah + Greg sync). Kept for history.
+
 # Kickoff Call: 30 minutes, all three of us
 
 **Goal:** leave the call with the research gate lifted (D-005 + D-008 signed by all three) and everyone knowing their first task.
