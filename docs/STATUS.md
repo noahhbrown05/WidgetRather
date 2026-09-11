@@ -24,7 +24,8 @@ Not anonymous (D-004) · Expo + expo-widgets + EAS + Supabase (D-005) · iOS-fir
 |---|---|
 | Tiago | Kickoff call → sign off on D-004–D-013 (Greg signed 2026-09-10) |
 | Team | Exact morning drop window (e.g. roughly 6–8am local), based on school start times |
-| Team | Noah's mockups (`design/mockups/`) show an **"Everyone" %** next to "Friends". Add it to the MVP (D-008)? |
+| Team | Noah's mockups (`design/mockups/`) show an **"Everyone" %** next to "Friends". Add it to the MVP (D-008)? Toggle it in `prototype/index.html` and decide |
+| Team | Mockup 02 shows **three widget sizes** = three layouts to build and keep in sync. Does the MVP ship medium only? |
 | Noah | Create Expo + Supabase team accounts and invite the others |
 | Noah | Waitlist page (another day) |
 
@@ -34,4 +35,4 @@ Not anonymous (D-004) · Expo + expo-widgets + EAS + Supabase (D-005) · iOS-fir
 3. Noah & Tiago: set up Expo tooling on your PCs; build screens with dummy data; test in the browser / Android emulator
 
 ## Where things are
-Plan: `docs/MVP-GAMEPLAN.md` · Mockups: `design/mockups/` · Kickoff: `docs/KICKOFF-AGENDA.md` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`
+Plan: `docs/MVP-GAMEPLAN.md` · Mockups: `design/mockups/` · Clickable mockup: `prototype/index.html` · Kickoff: `docs/KICKOFF-AGENDA.md` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`
