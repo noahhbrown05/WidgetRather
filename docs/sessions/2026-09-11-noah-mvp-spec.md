@@ -22,6 +22,11 @@
 - Florida HB 3 (under-14 ban / 14–15 parental consent) only applies to platforms meeting all 4 criteria, including algorithmic feeds + addictive features. Texas SCOPE has a small-business exemption and is partly blocked. [Hunton](https://www.hunton.com/privacy-and-cybersecurity-law-blog/florida-enacts-legislation-restriction-social-media-accounts-for-minors), [Kelley Drye](https://www.kelleydrye.com/viewpoints/blogs/ad-law-access/the-scope-act-in-focus-what-you-should-know-about-texass-partially-blocked-youth-privacy-statute)
 - Big platforms now default teens to no stranger contact (Discord's teen-by-default settings in Mar 2026; Instagram connections-only DMs). [Childhelp](https://childhelp.org/the-latest-apps-parents-should-know-about-a-2026-guide-to-kids-online-safety/)
 
+## Avatar case study (mid-session request)
+- Researched Google Docs' anonymous animals (73), Netflix icon sets (rotating themed sets), Notion Faces (modular, "expressiveness over likeness"), Duolingo (3-shape language), Among Us (colour + silhouette), Finch (hatch-and-name ownership; the widget evolves), and Raroque's Ellie hamster widget → `research/avatar-case-study.md`.
+- Proposed a system: **your pick tints your avatar** (pink = A, blue = B). Three directions: Pastel Critters / **The Rathers (aliens, recommended)** / Mood Blobs. MVP: 12 characters × 8 colours.
+
 ## Open questions / next steps
+- Noah + Tiago: pick an avatar direction (A/B/C).
 - Team: spec §9 public-community safety option (A recommended); drop window; confirm the [proposed defaults].
 - Tiago & Greg: re-sign D-008 and sign D-015.

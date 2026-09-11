@@ -76,7 +76,7 @@ You can be in **several** groups and communities. The widget shows the one you c
 
 ## 8. Reactions and profiles
 - **Reactions:** a fixed set of about 6 emoji on **each friend's pick** (Noah). No free text anywhere in the MVP, so there's nothing typed to moderate.
-- **Profiles:** display name + **emoji/colour avatar**; **no photos** in the MVP (Noah).
+- **Profiles:** display name + **a designed avatar character**; **no photos** in the MVP (Noah). Direction (pastel critters / aliens / mood blobs) is being explored in `research/avatar-case-study.md`. **[OPEN]**: Noah + Tiago pick a direction.
 - **No DMs, no chat, no comments** in the MVP.
 
 ## 9. Safety and moderation
