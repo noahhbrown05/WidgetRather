@@ -1,6 +1,6 @@
 # MVP Game Plan
 
-_Proposed 2026-09-10 (Noah's session), decision D-012 (revised the same day: Greg = backend, Noah + Tiago = front end + everything else). Builds on the MVP scope (D-008) and stack (D-005). Timelines are **targets**, not verified estimates. Adjust after the tech spike._
+_Proposed 2026-09-10 (Noah's session), decision D-012 (revised the same day: Greg = backend, Noah + Tiago = front end + everything else). Builds on the MVP scope (D-008) and stack (D-005). **No timeline** (Noah, 2026-09-10). For the full ordered path from here to launch and beyond, see `docs/ROADMAP.md`; this file keeps the task IDs and owners._
 
 ## The MVP (from D-008)
 The question **drops at a random time each morning before school (same moment per time zone)** → sign in → join a friend group → **answer from the home-screen widget** → see your group's % split → react with emoji. Plus the App Store must-haves: age gate, report/block, account deletion, privacy policy.
@@ -56,7 +56,7 @@ Apple Developer account ($99/yr, holder 18+) ─► needed later: real-iPhone bu
 | 0.2 | Everyone reads STATUS → DECISIONS → this plan and signs off on D-004–D-012 (or pushes back) | All |
 | 0.3 | Decide who holds the Apple Developer account (legal age, 18+ in most places) ([Apple](https://developer.apple.com/programs/enroll/)) | All |
 
-## Phase 1: Foundations (target: week 1)
+## Phase 1: Foundations
 | # | Task | Owner | Claude load |
 |---|---|---|---|
 | N1 | Enroll in Apple Developer ($99/yr); add Greg & Tiago in App Store Connect. **Can wait until the MVP works in a simulator** (D-013), but it's needed before Phase 4 beta | Noah / holder | None |
@@ -70,7 +70,7 @@ Apple Developer account ($99/yr, holder 18+) ─► needed later: real-iPhone bu
 | T2 | **Widget design:** small + medium + lock-screen; states: unanswered, answered + results, logged out, no group, offline. Tiny image assets (~2MB crashed Raroque's widget, `9sHd-VWssxw @ 02:04`) | Tiago | Light |
 | T3 | **Question bank v1:** 60+ questions (about 2 months). Rules: 13+ appropriate, hypotheticals only, never about real people (D-004). CSV for Greg to import. Noah can write half | Tiago (+Noah) | Light |
 
-## Phase 2: Core build (target: weeks 2–3)
+## Phase 2: Core build
 One PR per screen/feature. Screens start with dummy data, then switch to Greg's functions once they exist.
 
 | # | Task | Owner | Claude load |
@@ -88,7 +88,7 @@ One PR per screen/feature. Screens start with dummy data, then switch to Greg's 
 | N7 | **Waitlist page** (Raroque: Framer + one screenshot + email capture, `MnF-zJhyUtE @ 00:00`), using Tiago's brand | Noah | Light |
 | T7 | Brand: app icon, name treatment, maybe a widget character (Raroque's Duolingo-style widget, `m5cRcii3pec @ 06:17`) | Tiago | Light |
 
-## Phase 3: Safety, polish, App Store must-haves (target: week 4)
+## Phase 3: Safety, polish, App Store must-haves
 | # | Task | Owner | Claude load |
 |---|---|---|---|
 | N8 | Settings screen: **report user, block user, delete account** (required, [Guideline 1.2](https://developer.apple.com/app-store/review/guidelines/), [5.1.1(v)](https://developer.apple.com/app-store/review/guidelines/)), links to policy/terms | Noah | Medium |
@@ -99,7 +99,7 @@ One PR per screen/feature. Screens start with dummy data, then switch to Greg's 
 | T8 | Polish pass: animations, empty states, loading states, dark mode | Tiago | Medium |
 | All | QA: use every build in real life (Raroque `oNRrjbKiF04 @ 07:20`); file bugs as GitHub Issues | All | None |
 
-## Phase 4: Beta (target: week 5)
+## Phase 4: Beta
 | # | Task | Owner |
 |---|---|---|
 | G11 | TestFlight builds via EAS Build + Submit | Greg |
@@ -107,7 +107,7 @@ One PR per screen/feature. Screens start with dummy data, then switch to Greg's 
 | N11 | Feedback channel: a feedback board (Canny/UserJot) or a simple form (Raroque `MnF-zJhyUtE @ 02:04`) | Noah |
 | All | Watch week-1 retention; fix the top friction points | All |
 
-## Phase 5: App Store submission (target: week 6)
+## Phase 5: App Store submission
 | # | Task | Owner |
 |---|---|---|
 | T9 | App Store screenshot designs (Raroque spends 3–4 days, `MnF-zJhyUtE @ 06:12`) | Tiago |

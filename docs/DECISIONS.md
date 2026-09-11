@@ -20,6 +20,7 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 | D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☑ Noah ☐ Tiago ☑ Greg |
 | D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☑ Noah ☐ Tiago ☑ Greg |
+| D-014 | 2026-09-10 | Development on hold until ROADMAP Stages 1–3 (product spec, design, accounts/legal) are done; no timeline, follow `docs/ROADMAP.md` step by step | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 
 ---
 
@@ -95,6 +96,11 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
   - Greg owns native builds because the Expo free plan allows 15 iOS builds/month ([Expo pricing](https://expo.dev/pricing)).
 - **Contract:** Greg provides generated Supabase types + a data-layer function list; screens only call those functions.
 - **Plan:** `docs/MVP-GAMEPLAN.md`.
+
+## D-014: Hold development; follow the roadmap
+- **Noah (2026-09-10):** "hold off on development right now." Wants a step-by-step from here to production and past launch, with **no timeline**.
+- **What it means:** even after D-005/D-008 are signed, no app code until ROADMAP Stages 1–3 are done: the one-page MVP spec, finished designs (design freeze), and accounts/legal setup. Clickable mockups and design work are fine.
+- **Plan:** `docs/ROADMAP.md` (Stages 0–12). `MVP-GAMEPLAN.md` keeps the task IDs and owners; its week targets were removed.
 
 ## D-013: Testing without the Apple account (for now)
 - **Question (Noah):** is there any way to test the early MVP without the paid Apple Developer account, ideally something iPhone-like on Windows?

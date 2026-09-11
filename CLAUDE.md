@@ -17,6 +17,7 @@ Noah's direction (2026-09-10): **no coding or production work until the tech sta
 - Allowed right now: research, writing docs, comparing options, mockups on paper, research tooling (like the transcript script).
 - Not allowed yet: scaffolding the app, installing app frameworks, writing app code.
 - The gate lifts only when `docs/DECISIONS.md` has the tech stack (D-005) and MVP scope/positioning (D-008) marked `DECIDED`, with all three teammates signed off.
+- **Also (D-014, Noah 2026-09-10):** development stays on hold until `docs/ROADMAP.md` Stages 1–3 are done (MVP spec, design freeze, accounts/legal). Follow the roadmap in order; don't propose timelines.
 
 ## RULE 3 — Three-person team, three machines
 
@@ -68,7 +69,8 @@ Noah wants us to follow the approach of Chris Raroque (https://www.youtube.com/@
 | `docs/STATUS.md` | One-page current state. Read first |
 | `docs/DECISIONS.md` | Decision log: the single source of truth for what the team has decided |
 | `docs/COLLABORATION.md` | How the three of us work together (git, branches, PRs, accounts) |
-| `docs/MVP-GAMEPLAN.md` | Roles, phases, and every MVP task with its owner |
+| `docs/ROADMAP.md` | **The step-by-step path**: Stage 0 → production → beta → App Store → post-launch (no timeline) |
+| `docs/MVP-GAMEPLAN.md` | Roles and every MVP task ID with its owner |
 | `docs/sessions/` | One short summary per Claude session, per teammate |
 | `design/mockups/` | Concept mockups (direction, not final designs) |
 | `prototype/` | Clickable form-only mockup of the MVP (`index.html`, open it in a browser). Not the app |
