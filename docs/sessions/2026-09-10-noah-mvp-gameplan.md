@@ -15,8 +15,16 @@
 - Supabase supports native Sign in with Apple in Expo via `signInWithIdToken`. [Supabase docs](https://supabase.com/docs/guides/auth/social-login/auth-apple)
 - The #1 blocker: without a Mac, test builds on iPhones need the paid Apple Developer account.
 
+- **Revision (same session):** Noah proposed Greg = main back-end dev, with Noah + Tiago splitting all front end + misc. The plan was rewritten around that:
+  - Greg: backend, data layer, widget ↔ backend, EAS builds, tech spike.
+  - Noah: onboarding/auth/age gate, groups, settings/safety screens + accounts/policies/waitlist/beta/listing.
+  - Tiago: design system, question/results/reactions screens, widget look + designs/brand/questions/screenshots.
+  - A "contract": Greg ships generated Supabase types + a function list; screens only call those functions.
+- Verified for the revision: Expo dev builds load JS/TS changes from each person's own PC with no rebuild ([Expo docs](https://docs.expo.dev/develop/development-builds/introduction/)); the free EAS plan allows 15 iOS builds/month in a low-priority queue and supports teams ([Expo pricing](https://expo.dev/pricing)); Supabase generates TypeScript types ([Supabase docs](https://supabase.com/docs/guides/api/rest/generating-types)).
+- UNVERIFIED, to check in the spike: whether changes to `expo-widgets` widget code need a native rebuild.
+
 ## Decisions
-- D-012 roles + game plan → PROPOSED
+- D-012 roles + game plan → PROPOSED (revised split)
 
 ## Open questions / next steps
 - All: sign off on D-004–D-012; decide who holds the Apple Developer account (18+).

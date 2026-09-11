@@ -44,10 +44,12 @@ We use [GitHub flow](https://docs.github.com/en/get-started/using-github/github-
 ## 4. Don't step on each other
 
 - **Split by area, not by file.** Our split (D-012, details in `MVP-GAMEPLAN.md`):
-  - **Greg:** all app and backend code (he has Claude Max; long coding sessions run on his desktop)
-  - **Noah:** accounts, policies, App Store listing, beta program, PR reviews
-  - **Tiago:** designs, question bank, waitlist page, QA testing, PR reviews
-- Since Greg writes almost all the code, conflicts in code should be rare. Noah and Tiago mostly touch `docs/`, `research/`, and design/content files.
+  - **Greg:** backend, data layer, widget ↔ backend, native/EAS builds
+  - **Noah:** front-end screens for onboarding/sign-in/age gate, groups, and settings/safety, plus accounts, policies, waitlist, beta, and App Store listing
+  - **Tiago:** design system, front-end screens for question/results/reactions and the widget look, plus designs, brand, and the question bank
+- **Screens only call Greg's data-layer functions** and never write database queries directly. That boundary keeps front end and back end from colliding.
+- **Tiago builds the theme/shared components first**; Noah's screens reuse them. If you need to change a shared component, say so in the PR.
+- **Native builds go through Greg** (the Expo free plan has 15 iOS builds/month). Adding a library with native code? Tell Greg first.
 - **Track tasks in GitHub Issues.** One issue per task, assign yourself before you start, and link the PR to the issue.
 - **Keep branches short-lived** (a day or two). Long branches cause painful merges.
 - **Pull `main` often** while you're working: `git pull origin main` on your branch.

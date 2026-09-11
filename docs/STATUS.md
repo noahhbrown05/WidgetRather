@@ -9,9 +9,9 @@ _Rewrite this page (don't append) whenever things change. Last updated: 2026-09-
 A learning project: prove the three of us can build and grow an app. Target: the smallest working MVP.
 
 ## Roles (proposed, D-012)
-- **Greg:** lead engineer (Claude Max). All app code runs from his desktop.
-- **Noah:** product & launch (Pro). Accounts, policies, App Store listing, beta, PR reviews.
-- **Tiago:** design & content (Pro). Screens, widget design, question bank, waitlist page, QA, PR reviews.
+- **Greg:** backend + builds (Claude Max). Supabase, security, data layer, widget ↔ backend, EAS builds, tech spike.
+- **Noah:** front end (onboarding, sign-in, age gate, groups, settings/safety) + misc (accounts, policies, waitlist, beta, App Store listing).
+- **Tiago:** front end (design system, question → results → reactions, widget look) + misc (designs, brand, question bank, screenshots).
 
 ## What's been decided
 - Project rules: research-first, cite everything, repo is the shared memory (D-001–D-003)
@@ -32,8 +32,9 @@ A learning project: prove the three of us can build and grow an app. Target: the
 
 ## Next up (once the gate lifts), from MVP-GAMEPLAN Phase 1
 1. Noah: Apple Developer enrollment + team accounts (Expo, Supabase, PostHog, Sentry)
-2. Greg: Expo scaffold → dev build on iPhones → **tech spike** (widget button saves an answer to Supabase)
-3. Tiago: question bank (60+) + screen and widget designs
+2. Greg: Expo scaffold → dev build on all 3 iPhones → **tech spike** (widget button saves an answer to Supabase) → schema + RLS
+3. Tiago: design system + screen/widget designs + question bank (60+)
+4. Noah & Tiago: set up Expo tooling on your PCs; start screens with dummy data once the scaffold exists
 
 ## Where things are
 Plan: `docs/MVP-GAMEPLAN.md` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`

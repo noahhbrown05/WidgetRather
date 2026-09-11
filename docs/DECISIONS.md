@@ -18,7 +18,7 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 | D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | PROPOSED (already in use) | Claude, at Noah's request | ☐ Noah ☐ Tiago ☐ Greg |
 | D-010 | 2026-09-10 | Public repo hygiene: no secrets, no raw copyrighted transcripts | IN EFFECT (safety default; team can revisit) | Claude | ☐ Noah ☐ Tiago ☐ Greg |
 | D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☐ Noah ☐ Tiago ☐ Greg |
-| D-012 | 2026-09-10 | Roles + MVP game plan: Greg = lead engineer (Max), Noah = product & launch (Pro), Tiago = design & content (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☐ Noah ☐ Tiago ☐ Greg |
+| D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☐ Noah ☐ Tiago ☐ Greg |
 
 ---
 
@@ -83,6 +83,10 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
 - See `docs/COLLABORATION.md`. Based on [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow).
 
 ## D-012: Roles and MVP game plan
-- **Noah's direction:** main code development runs from Greg's desktop because Greg has Claude Max; Noah and Tiago have Pro, so divide the tasks by capacity.
-- **Rationale:** Max is sold as 5x or 20x Pro's usage under a rolling 5-hour window plus a weekly cap ([Morph](https://www.morphllm.com/claude-code-usage-limits), [CC for Everyone](https://ccforeveryone.com/guides/claude-code-limits-and-pricing)). Long agentic coding goes to Greg; short writing/design/review/admin tasks go to Noah and Tiago.
-- **Plan:** `docs/MVP-GAMEPLAN.md`. The #1 blocker is the Apple Developer account (needed to put test builds on iPhones without a Mac).
+- **Noah's direction:** Greg (Claude Max) is the main back-end developer; Noah and Tiago (Pro) split all front-end and miscellaneous MVP tasks. (This revised a first draft that gave Greg all the code.)
+- **Rationale:**
+  - Max is sold as 5x or 20x Pro's usage ([Morph](https://www.morphllm.com/claude-code-usage-limits), [CC for Everyone](https://ccforeveryone.com/guides/claude-code-limits-and-pricing)), so the heaviest work goes to Greg: backend, security, widget ↔ backend, builds, and the tech spike.
+  - Front end is feasible on Pro: with an Expo dev build installed, JS/TS changes load from each person's own PC without rebuilding ([Expo docs](https://docs.expo.dev/develop/development-builds/introduction/)).
+  - Greg owns native builds because the Expo free plan allows 15 iOS builds/month ([Expo pricing](https://expo.dev/pricing)).
+- **Contract:** Greg provides generated Supabase types + a data-layer function list; screens only call those functions.
+- **Plan:** `docs/MVP-GAMEPLAN.md`. The #1 blocker is the Apple Developer account.

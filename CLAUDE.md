@@ -58,7 +58,7 @@ Noah wants us to follow the approach of Chris Raroque (https://www.youtube.com/@
 
 **Team constraints (Noah, 2026-09-10):** nobody has a Mac; all coding will be done with AI tools; this is one of the team's first projects and is primarily a learning project.
 
-**Roles (proposed, D-012):** Greg (Claude Max) is lead engineer; app code runs on his desktop. Noah (Pro) handles product & launch. Tiago (Pro) handles design & content. When talking to Noah or Tiago, keep sessions focused and token-light (they're on Pro); route long coding work to Greg per `docs/MVP-GAMEPLAN.md`.
+**Roles (proposed, D-012):** Greg (Claude Max) owns the backend, data layer, widget ↔ backend, and all native/EAS builds. Noah and Tiago (Pro) split the front-end screens and miscellaneous tasks per `docs/MVP-GAMEPLAN.md`. When working with Noah or Tiago, keep sessions focused and token-light: one screen or task per session, small prompts, and no repo-wide exploration. Front-end code must call Greg's data-layer functions, never query the database directly.
 
 ## Repo map
 
