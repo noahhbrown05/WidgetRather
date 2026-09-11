@@ -1,5 +1,7 @@
 # 2026-09-10 — Noah — Prototype review + roadmap
-**Teammate:** Noah · **Model:** Claude Opus 5
+**Teammate:** Noah · **Model:** Claude Opus 5 · **Status:** wrapped for the day
+
+> **Where Noah left off (end of 2026-09-10):** development is on hold (D-014). We're at ROADMAP Stage 1. Everything from today is pushed. Tomorrow's first moves: the kickoff call (Tiago's sign-off + the 5 open questions), then Noah starts the one-page MVP spec (1.1) and the name check (1.3).
 
 ## Asked for
 - Review Greg's clickable prototype (`prototype/index.html`).
