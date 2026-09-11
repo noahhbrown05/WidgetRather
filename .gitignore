@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.env
+.env.*
+.claude/settings.local.json
+
+# Raw YouTube transcripts are other people's copyrighted content and this repo is public.
+# Keep them local; re-download with the youtube-transcript skill (video IDs in research/video-sources.txt).
+research/transcripts/

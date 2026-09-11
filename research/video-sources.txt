@@ -1,0 +1,28 @@
+# Videos we've researched. Raw transcripts are not committed (public repo + copyright).
+# Re-download all of them into research/transcripts/raroque/ with:
+#   Windows:   .venv\Scripts\python.exe .claude/skills/youtube-transcript/scripts/yt_transcript.py get <ids...> --out research/transcripts/raroque
+#   Mac/Linux: .venv/bin/python .claude/skills/youtube-transcript/scripts/yt_transcript.py get <ids...> --out research/transcripts/raroque
+
+# Chris Raroque (@raroque), pulled 2026-09-10
+cXIWx1eYA9w  How To Build An App In 2026 (Complete Guide)
+9vPyxCucxqI  How I Build Apps So Fast (UPDATED AI coding workflow)
+MnF-zJhyUtE  Things I ALWAYS Do Before Launching New Apps
+Q13QOgwoF0E  How I Built a Full App in ONE Week Using AI
+gNR3XI5Eb0k  I was wrong about Claude Code (UPDATED AI workflow tutorial)
+4xg5GrFEVeE  No coding experience? Start here
+Cufn-fjnVCE  I built 3 apps - Here's how I pick winning ideas
+ow7qWPxkKI4  The tech stack I'm using to build my new budgeting app
+m5cRcii3pec  Building a Duolingo style iOS widget for my productivity app
+9sHd-VWssxw  Building and launching an iOS widget for my productivity app
+avJ_gimBPHs  Building a todo/calendar iOS widget for my app
+ETK_cZLezs4  I Built and Launched an App in 1 Week
+8mMH6Pq8qnE  How I Make Apps FEEL 10x Better (5 Design Secrets)
+tK4NQtzfZbM  Vibe Coding Has A Security Problem (And How To Fix It)
+Et45hFGwSqQ  How I'm Rebuilding My App for the AI Era
+MXLF8b15GhQ  How I Make Apps FEEL Premium (5 examples)
+oNRrjbKiF04  I Built An App (But Users KEEP dropping off)
+JDwxt9fHofk  App Branding Masterclass
+H0czeRyXPxA  My App Design Process
+lSjzGHPpzic  Lets talk about Codex (why i switched)
+sWs_qAgEEdI  I Got My First 10 Users (And What I Did Next)
+a6JyOFGUaWM  The tech stack I used to build my productivity app (Firebase, React and Swift)
