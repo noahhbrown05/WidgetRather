@@ -7,19 +7,19 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 
 | ID | Date | Decision | Status | Proposed by | Sign-off |
 |---|---|---|---|---|---|
-| D-001 | 2026-09-10 | Research phase first: no app code until stack (D-005) + MVP scope (D-008) are DECIDED | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
-| D-002 | 2026-09-10 | Claude never relies on internal knowledge; everything is researched and cited | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
-| D-003 | 2026-09-10 | GitHub repo is the shared memory (STATUS / DECISIONS / session summaries) | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
-| D-004 | 2026-09-10 | Not anonymous: users are identified to their friend groups (anonymity was never part of the concept) | PROPOSED | Noah (clarified) | ☑ Noah ☐ Tiago ☐ Greg |
-| D-005 | 2026-09-10 | Stack: Expo (React Native) + expo-widgets + EAS cloud builds + Supabase | PROPOSED | Claude | ☑ Noah ☐ Tiago ☐ Greg |
-| D-006 | 2026-09-10 | iOS-first launch; Android later | PROPOSED | Claude | ☑ Noah ☐ Tiago ☐ Greg |
-| D-007 | 2026-09-10 | Age handling: 13+ for the MVP; revisit under-13 (6th graders) with a lawyer | PROPOSED | Claude | ☑ Noah ☐ Tiago ☐ Greg |
-| D-008 | 2026-09-10 | MVP scope, incl. a **random morning drop, same moment per time zone** (see below) | PROPOSED | Claude + Noah (added random drop) | ☑ Noah ☐ Tiago ☐ Greg |
-| D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | PROPOSED (already in use) | Claude, at Noah's request | ☑ Noah ☐ Tiago ☐ Greg |
-| D-010 | 2026-09-10 | Public repo (stays public) + hygiene: no secrets, no raw copyrighted transcripts | IN EFFECT | Claude | ☑ Noah ☐ Tiago ☐ Greg |
-| D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☑ Noah ☐ Tiago ☐ Greg |
-| D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☑ Noah ☐ Tiago ☐ Greg |
-| D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☑ Noah ☐ Tiago ☐ Greg |
+| D-001 | 2026-09-10 | Research phase first: no app code until stack (D-005) + MVP scope (D-008) are DECIDED | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☑ Greg |
+| D-002 | 2026-09-10 | Claude never relies on internal knowledge; everything is researched and cited | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☑ Greg |
+| D-003 | 2026-09-10 | GitHub repo is the shared memory (STATUS / DECISIONS / session summaries) | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☑ Greg |
+| D-004 | 2026-09-10 | Not anonymous: users are identified to their friend groups (anonymity was never part of the concept) | PROPOSED | Noah (clarified) | ☑ Noah ☐ Tiago ☑ Greg |
+| D-005 | 2026-09-10 | Stack: Expo (React Native) + expo-widgets + EAS cloud builds + Supabase | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-006 | 2026-09-10 | iOS-first launch; Android later | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-007 | 2026-09-10 | Age handling: 13+ for the MVP; revisit under-13 (6th graders) with a lawyer | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-008 | 2026-09-10 | MVP scope, incl. a **random morning drop, same moment per time zone** (see below) | PROPOSED | Claude + Noah (added random drop) | ☑ Noah ☐ Tiago ☑ Greg |
+| D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | PROPOSED (already in use) | Claude, at Noah's request | ☑ Noah ☐ Tiago ☑ Greg |
+| D-010 | 2026-09-10 | Public repo (stays public) + hygiene: no secrets, no raw copyrighted transcripts | IN EFFECT | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☑ Noah ☐ Tiago ☑ Greg |
+| D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☑ Noah ☐ Tiago ☑ Greg |
 
 ---
 

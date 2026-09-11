@@ -3,7 +3,7 @@
 _Rewrite this page (don't append) whenever things change. Last updated: 2026-09-10 by Noah's session._
 
 ## Current phase
-**Research phase: about to lift.** Noah has signed off on every decision (D-001–D-013). Once **Tiago and Greg sign D-005 (stack) and D-008 (MVP scope)**, app coding can start. Use `docs/KICKOFF-AGENDA.md` for the call.
+**Research phase: one signature from lifting.** Noah and Greg have signed every decision (D-001–D-013). Once **Tiago signs D-005 (stack) and D-008 (MVP scope)**, app coding can start. Use `docs/KICKOFF-AGENDA.md` for the call.
 
 ## The goal
 A learning project: prove the three of us can build and grow an app. Target: the smallest working MVP.
@@ -16,13 +16,13 @@ Each morning before school, the question drops at a random time (same moment for
 - **Noah:** front end (onboarding, sign-in, age gate, groups, settings/safety) + misc (accounts, policies, waitlist, beta, App Store listing).
 - **Tiago:** front end (design system, question → results → reactions, widget look) + misc (designs, brand, question bank, screenshots).
 
-## Decisions (Noah ☑ on all; Tiago & Greg pending)
+## Decisions (Noah ☑ + Greg ☑ on all; Tiago pending)
 Not anonymous (D-004) · Expo + expo-widgets + EAS + Supabase (D-005) · iOS-first (D-006) · 13+ (D-007) · MVP scope + random morning drop (D-008) · logging format (D-009) · public repo, no secrets (D-010) · GitHub flow (D-011) · roles (D-012) · test in simulators first, buy the Apple account before the beta (D-013)
 
 ## Waiting on
 | Who | What |
 |---|---|
-| Tiago, Greg | Kickoff call → sign off on D-004–D-013 |
+| Tiago | Kickoff call → sign off on D-004–D-013 (Greg signed 2026-09-10) |
 | Team | Exact morning drop window (e.g. roughly 6–8am local), based on school start times |
 | Noah | Create Expo + Supabase team accounts and invite the others |
 | Noah | Waitlist page (another day) |
