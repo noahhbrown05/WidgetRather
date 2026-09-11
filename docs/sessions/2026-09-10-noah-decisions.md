@@ -17,7 +17,11 @@
 ## Did
 - Updated `DECISIONS.md` (Noah's ticks, D-004 reworded, D-008 random drop), `MVP-GAMEPLAN.md` (G6 drop scheduler, G9 push), `STATUS.md`; new `KICKOFF-AGENDA.md`.
 
+## Mockups
+- Noah added two concept mockups → `design/mockups/` (app + before/after-voting widget; small/medium/large widget sizes). Flagged: the "WigetRather" typo in mockup 01, and an "Everyone" % that isn't in the MVP scope yet.
+
 ## Open questions / next steps
+- Team: add the "Everyone" % to the MVP (D-008)?
 - Kickoff call → Tiago & Greg sign off → gate lifts.
 - Team: the exact morning drop window.
 - Noah: Expo + Supabase team accounts; waitlist page another day.

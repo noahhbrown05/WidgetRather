@@ -70,6 +70,7 @@ Noah wants us to follow the approach of Chris Raroque (https://www.youtube.com/@
 | `docs/COLLABORATION.md` | How the three of us work together (git, branches, PRs, accounts) |
 | `docs/MVP-GAMEPLAN.md` | Roles, phases, and every MVP task with its owner |
 | `docs/sessions/` | One short summary per Claude session, per teammate |
+| `design/mockups/` | Concept mockups (direction, not final designs) |
 | `research/` | Research write-ups (market, tech stack, safety/legal, Raroque playbook) |
 | `research/testing-without-apple-account.md` | How to test on Windows without the paid Apple account |
 | `research/video-sources.txt` | IDs of YouTube videos we've researched |
