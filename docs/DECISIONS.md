@@ -10,16 +10,16 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 | D-001 | 2026-09-10 | Research phase first: no app code until stack (D-005) + MVP scope (D-008) are DECIDED | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 | D-002 | 2026-09-10 | Claude never relies on internal knowledge; everything is researched and cited | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 | D-003 | 2026-09-10 | GitHub repo is the shared memory (STATUS / DECISIONS / session summaries) | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
-| D-004 | 2026-09-10 | Non-anonymous friend circles; questions are hypotheticals, never rating real people | PROPOSED | Claude | ☐ Noah ☐ Tiago ☐ Greg |
-| D-005 | 2026-09-10 | Stack: Expo (React Native) + expo-widgets + EAS cloud builds + Supabase | PROPOSED (recommended) | Claude | ☐ Noah ☐ Tiago ☐ Greg |
-| D-006 | 2026-09-10 | iOS-first launch; Android later | PROPOSED | Claude | ☐ Noah ☐ Tiago ☐ Greg |
-| D-007 | 2026-09-10 | Age handling: 13+ for the MVP; revisit under-13 (6th graders) with a lawyer | PROPOSED | Claude | ☐ Noah ☐ Tiago ☐ Greg |
-| D-008 | 2026-09-10 | MVP scope: the smallest loop that proves we can build it (see below) | PROPOSED | Claude, from Noah's direction | ☐ Noah ☐ Tiago ☐ Greg |
-| D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | PROPOSED (already in use) | Claude, at Noah's request | ☐ Noah ☐ Tiago ☐ Greg |
-| D-010 | 2026-09-10 | Public repo hygiene: no secrets, no raw copyrighted transcripts | IN EFFECT (safety default; team can revisit) | Claude | ☐ Noah ☐ Tiago ☐ Greg |
-| D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☐ Noah ☐ Tiago ☐ Greg |
-| D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☐ Noah ☐ Tiago ☐ Greg |
-| D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☐ Noah ☐ Tiago ☐ Greg |
+| D-004 | 2026-09-10 | Not anonymous: users are identified to their friend groups (anonymity was never part of the concept) | PROPOSED | Noah (clarified) | ☑ Noah ☐ Tiago ☐ Greg |
+| D-005 | 2026-09-10 | Stack: Expo (React Native) + expo-widgets + EAS cloud builds + Supabase | PROPOSED | Claude | ☑ Noah ☐ Tiago ☐ Greg |
+| D-006 | 2026-09-10 | iOS-first launch; Android later | PROPOSED | Claude | ☑ Noah ☐ Tiago ☐ Greg |
+| D-007 | 2026-09-10 | Age handling: 13+ for the MVP; revisit under-13 (6th graders) with a lawyer | PROPOSED | Claude | ☑ Noah ☐ Tiago ☐ Greg |
+| D-008 | 2026-09-10 | MVP scope, incl. a **random morning drop, same moment per time zone** (see below) | PROPOSED | Claude + Noah (added random drop) | ☑ Noah ☐ Tiago ☐ Greg |
+| D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | PROPOSED (already in use) | Claude, at Noah's request | ☑ Noah ☐ Tiago ☐ Greg |
+| D-010 | 2026-09-10 | Public repo (stays public) + hygiene: no secrets, no raw copyrighted transcripts | IN EFFECT | Claude | ☑ Noah ☐ Tiago ☐ Greg |
+| D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☑ Noah ☐ Tiago ☐ Greg |
+| D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☑ Noah ☐ Tiago ☐ Greg |
+| D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☑ Noah ☐ Tiago ☐ Greg |
 
 ---
 
@@ -36,9 +36,9 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 - `docs/sessions/`: one short summary per session (under ~60 lines), **not** word-for-word transcripts. Noah flagged that verbatim logs would get too big.
 - Why separate files per session: two people editing the same file at the same time causes git merge conflicts; separate files avoid that.
 
-## D-004: Not anonymous; hypotheticals, not people
-- **Rationale:** Apple removes apps used primarily for anonymous/random chat or "hot-or-not" voting on real people, and requires filter/report/block for UGC ([App Store Guidelines 1.2](https://developer.apple.com/app-store/review/guidelines/)). Anonymous teen apps (Sarahah, YikYak, YOLO) ran into bullying and removal ([Fast Company](https://www.fastcompany.com/90346978/anonymous-qa-app-yolo-is-a-hit-with-teens-but-bullying-concerns-linger)).
-- **Trade-off:** anonymity was part of YOLO's and Gas's growth.
+## D-004: Not anonymous
+- **Noah (2026-09-10):** there was never any anonymity positioning. YOLO was referenced for the audience and vibe, not the anonymous mechanic.
+- **Related content rule (kept in the question-bank guidelines):** questions are hypotheticals, never polls rating real people. Apple removes apps built around "hot-or-not" voting on real people and requires filter/report/block for user content ([App Store Guidelines 1.2](https://developer.apple.com/app-store/review/guidelines/)).
 
 ## D-005: Tech stack (recommended: Option A)
 - **Constraints (Noah, 2026-09-10):** no Mac on the team; all coding done with AI tools.
@@ -69,13 +69,17 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
 **In v1:**
 1. Sign in (Sign in with Apple; Raroque's signup went from 60% to ~100% after adding social login, `cXIWx1eYA9w @ 10:21`) + age gate.
 2. Create or join **one friend group** via invite code/link.
-3. **One question per day**, written by us (stored in the database).
+3. **One question per day**, written by us (stored in the database), **dropped at a random time each morning before school, at the same moment for everyone in a time zone** (added by Noah, 2026-09-10).
+   - Why morning: 28 states + DC have bell-to-bell school phone bans ([Harvard Kennedy School](https://www.hks.harvard.edu/faculty-research/policy-topics/education-training-labor/many-states-are-banning-cellphones-schools), [Newsweek](https://www.newsweek.com/map-shows-us-states-with-school-phone-bans-in-2026-11335155)), so a before-school drop lets people answer, then talk about it at school the same day.
+   - Why per time zone: everyone nearby gets the same shared moment, and the backend needs just one random time per zone per day.
+   - **Open:** the exact window (e.g. roughly 6–8am local). Decide from school start times.
+   - **How it works (for Greg):** a server job picks each zone's time and sends a push, which also tells the widget to reload. WidgetKit supports server-push reloads ([Apple docs](https://developer.apple.com/documentation/WidgetKit/Updating-widgets-with-widgetkit-push-notifications)), and expo-widgets supports push updates ([Expo docs](https://docs.expo.dev/versions/latest/sdk/widgets/)).
 4. **iOS home-screen widget** shows the question with two buttons.
 5. After answering, you see **your group's % split**.
 6. **Emoji reactions** on the day's question (in the app).
 7. Report and block (required by Apple for UGC).
 
-**Not in v1:** threads/chat, public communities, random drop timing, answering from the lock screen (iOS keeps lock-screen buttons inactive until unlock), Android, AI-generated questions.
+**Not in v1:** threads/chat, public communities, answering from the lock screen (iOS keeps lock-screen buttons inactive until unlock), Android, AI-generated questions.
 
 ## D-010: Public repo hygiene
 - The repo is public. No secrets ever; raw YouTube transcripts are gitignored (copyright); summaries with citations are fine.

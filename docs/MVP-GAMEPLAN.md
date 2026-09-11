@@ -3,7 +3,7 @@
 _Proposed 2026-09-10 (Noah's session), decision D-012 (revised the same day: Greg = backend, Noah + Tiago = front end + everything else). Builds on the MVP scope (D-008) and stack (D-005). Timelines are **targets**, not verified estimates. Adjust after the tech spike._
 
 ## The MVP (from D-008)
-Sign in → join a friend group → **answer today's question from the home-screen widget** → see your group's % split → react with emoji. Plus the App Store must-haves: age gate, report/block, account deletion, privacy policy.
+The question **drops at a random time each morning before school (same moment per time zone)** → sign in → join a friend group → **answer from the home-screen widget** → see your group's % split → react with emoji. Plus the App Store must-haves: age gate, report/block, account deletion, privacy policy.
 
 ## Roles
 
@@ -77,7 +77,7 @@ One PR per screen/feature. Screens start with dummy data, then switch to Greg's 
 |---|---|---|---|
 | G4 | Auth backend: Sign in with Apple via Supabase `signInWithIdToken` ([Supabase docs](https://supabase.com/docs/guides/auth/social-login/auth-apple)); profile + age stored server-side | Greg | Heavy |
 | G5 | Data layer + generated types (the contract above): questions, answers, results %, groups, invites, reactions | Greg | Heavy |
-| G6 | Question of the day: import Tiago's CSV; serve today's question | Greg | Medium |
+| G6 | Question of the day: import Tiago's CSV; serve today's question; **random morning drop scheduler** (one random time per time zone per day, inside the agreed window; the question stays hidden until then) | Greg | Heavy |
 | G7 | Widget ↔ backend: answer from the widget, refresh results, logged-out handling | Greg | Heavy |
 | T4 | Theme + shared components (buttons, cards, emoji bar) in code. **Do this first**, since Noah's screens use it | Tiago | Medium |
 | T5 | Screens: **today's question → results → reactions** (the core loop) | Tiago | Medium |
@@ -93,7 +93,7 @@ One PR per screen/feature. Screens start with dummy data, then switch to Greg's 
 |---|---|---|---|
 | N8 | Settings screen: **report user, block user, delete account** (required, [Guideline 1.2](https://developer.apple.com/app-store/review/guidelines/), [5.1.1(v)](https://developer.apple.com/app-store/review/guidelines/)), links to policy/terms | Noah | Medium |
 | G8 | Backend for report/block/delete; profanity filter on display and group names | Greg | Medium |
-| G9 | Daily push notification when the question drops + widget refresh | Greg | Heavy |
+| G9 | Push notification at each time zone's random drop moment + WidgetKit push to reload the widget ([Apple docs](https://developer.apple.com/documentation/WidgetKit/Updating-widgets-with-widgetkit-push-notifications)) | Greg | Heavy |
 | N9 | Analytics: define events (signup, joined group, answered, reacted, widget added) + the **week-1 retention** dashboard (Raroque's north star, `cXIWx1eYA9w @ 12:28`); add the event calls in the screens | Noah (+Greg sets up PostHog/Sentry) | Light |
 | G10 | **Security pass:** attack our own RLS with specific scenarios ("can I read another group's answers?", "can I change someone's reaction?") + backend rate limits (Raroque `tK4NQtzfZbM @ 04:08, 07:17`) | Greg | Heavy |
 | T8 | Polish pass: animations, empty states, loading states, dark mode | Tiago | Medium |

@@ -3,39 +3,34 @@
 _Rewrite this page (don't append) whenever things change. Last updated: 2026-09-10 by Noah's session._
 
 ## Current phase
-**Research & positioning. No app code yet** (D-001). The gate lifts when **D-005 (stack)** and **D-008 (MVP scope)** are signed off by all three of us. The plan for after that is **`docs/MVP-GAMEPLAN.md`**.
+**Research phase: about to lift.** Noah has signed off on every decision (D-001–D-013). Once **Tiago and Greg sign D-005 (stack) and D-008 (MVP scope)**, app coding can start. Use `docs/KICKOFF-AGENDA.md` for the call.
 
 ## The goal
 A learning project: prove the three of us can build and grow an app. Target: the smallest working MVP.
 
-## Roles (proposed, D-012)
-- **Greg:** backend + builds (Claude Max). Supabase, security, data layer, widget ↔ backend, EAS builds, tech spike.
+## The MVP (D-008)
+Each morning before school, the question drops at a random time (same moment for everyone in a time zone). You answer on the home-screen widget, see your friend group's % split, and react with emoji. Plus sign in with Apple, a 13+ age gate, one friend group, report/block, and account deletion.
+
+## Roles (D-012)
+- **Greg:** backend + builds (Claude Max). Supabase, security, data layer, widget ↔ backend, drop scheduler, EAS builds, widget test.
 - **Noah:** front end (onboarding, sign-in, age gate, groups, settings/safety) + misc (accounts, policies, waitlist, beta, App Store listing).
 - **Tiago:** front end (design system, question → results → reactions, widget look) + misc (designs, brand, question bank, screenshots).
 
-## What's been decided
-- Project rules: research-first, cite everything, repo is the shared memory (D-001–D-003)
-- Repo is public: no secrets, no raw transcripts (D-010)
-
-## Recommended, waiting on sign-off
-- **Stack:** Expo + expo-widgets + EAS cloud builds + Supabase (D-005). Native Swift is ruled out (needs a Mac).
-- **MVP:** one friend group, one question/day, answer on the home-screen widget, see group %, emoji reactions (D-008)
-- iOS-first (D-006) · 13+ for the MVP (D-007) · non-anonymous (D-004) · GitHub flow (D-011) · logging format (D-009) · roles + game plan (D-012)
+## Decisions (Noah ☑ on all; Tiago & Greg pending)
+Not anonymous (D-004) · Expo + expo-widgets + EAS + Supabase (D-005) · iOS-first (D-006) · 13+ (D-007) · MVP scope + random morning drop (D-008) · logging format (D-009) · public repo, no secrets (D-010) · GitHub flow (D-011) · roles (D-012) · test in simulators first, buy the Apple account before the beta (D-013)
 
 ## Waiting on
 | Who | What |
 |---|---|
-| Noah | Invite Tiago & Greg as repo collaborators |
-| Tiago, Greg | Clone the repo, read this page → `DECISIONS.md` → `MVP-GAMEPLAN.md`, then sign off or push back |
-| Team | Who holds the Apple Developer account ($99/yr, must be 18+). **No longer a blocker:** per D-013 we can test in simulators first and buy it before the beta |
-| Noah, Tiago | 1-minute check: does App Store **Expo Go** support SDK 57 on your iPhone? |
-| Team | Question drop timing (daily sync vs random): parked until after the MVP |
+| Tiago, Greg | Kickoff call → sign off on D-004–D-013 |
+| Team | Exact morning drop window (e.g. roughly 6–8am local), based on school start times |
+| Noah | Create Expo + Supabase team accounts and invite the others |
+| Noah | Waitlist page (another day) |
 
-## Next up (once the gate lifts), from MVP-GAMEPLAN Phase 1
-1. Noah: team accounts (Expo, Supabase, PostHog, Sentry); the Apple account can wait (D-013)
-2. Greg: Expo scaffold → **iOS simulator build** (no Apple account) → **tech spike in a simulator** (cloud Mac or Appetize) → schema + RLS
-3. Tiago: design system + screen/widget designs + question bank (60+)
-4. Noah & Tiago: set up Expo tooling on your PCs; start screens with dummy data once the scaffold exists
+## Next up (once the gate lifts)
+1. Greg: Expo scaffold → **iOS simulator build** (no Apple account) → **widget test in a simulator** (cloud Mac or Appetize) → schema + RLS
+2. Tiago: design system + screen/widget designs + question bank (60+)
+3. Noah & Tiago: set up Expo tooling on your PCs; build screens with dummy data; test in the browser / Android emulator
 
 ## Where things are
-Plan: `docs/MVP-GAMEPLAN.md` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`
+Plan: `docs/MVP-GAMEPLAN.md` · Kickoff: `docs/KICKOFF-AGENDA.md` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`
