@@ -19,6 +19,7 @@ A decision affecting the whole team isn't `DECIDED` until Noah, Tiago, and Greg 
 | D-010 | 2026-09-10 | Public repo hygiene: no secrets, no raw copyrighted transcripts | IN EFFECT (safety default; team can revisit) | Claude | ☐ Noah ☐ Tiago ☐ Greg |
 | D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☐ Noah ☐ Tiago ☐ Greg |
 | D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☐ Noah ☐ Tiago ☐ Greg |
+| D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☐ Noah ☐ Tiago ☐ Greg |
 
 ---
 
@@ -89,4 +90,13 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
   - Front end is feasible on Pro: with an Expo dev build installed, JS/TS changes load from each person's own PC without rebuilding ([Expo docs](https://docs.expo.dev/develop/development-builds/introduction/)).
   - Greg owns native builds because the Expo free plan allows 15 iOS builds/month ([Expo pricing](https://expo.dev/pricing)).
 - **Contract:** Greg provides generated Supabase types + a data-layer function list; screens only call those functions.
-- **Plan:** `docs/MVP-GAMEPLAN.md`. The #1 blocker is the Apple Developer account.
+- **Plan:** `docs/MVP-GAMEPLAN.md`.
+
+## D-013: Testing without the Apple account (for now)
+- **Question (Noah):** is there any way to test the early MVP without the paid Apple Developer account, ideally something iPhone-like on Windows?
+- **Findings:**
+  - EAS can make an **iOS simulator build with no Apple account** ([Expo docs](https://docs.expo.dev/build-reference/simulators/)).
+  - That build runs in a browser on **Appetize** ([Appetize docs](https://docs.appetize.io/platform/app-management/uploading-apps/ios)), or in Apple's real Simulator on a **rented cloud Mac** (MacinCloud ~$1/hr, [MacinCloud](https://www.macincloud.com/pages/payg.html)), which supports widgets.
+  - Day-to-day screen testing works in the web browser, the Android emulator, and (if the SDK 57 check passes) Expo Go.
+- **Proposal:** test this way through the MVP; buy the $99 account before the TestFlight beta (Phase 4).
+- **Details:** `research/testing-without-apple-account.md`

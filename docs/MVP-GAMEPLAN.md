@@ -35,14 +35,16 @@ This keeps the three of you out of each other's way:
 
 ## Critical path
 
+_Updated 2026-09-10: the Apple account no longer blocks the start. See `research/testing-without-apple-account.md` (D-013)._
+
 ```
-Noah: Apple Developer account ($99/yr; holder must be 18+)
-   └─► Greg: scaffold Expo app + first dev build on all 3 iPhones
-          ├─► Greg: TECH SPIKE: widget button saves an answer to Supabase
-          │      ├─ PASS → build as planned
-          │      └─ FAIL → fallback: widget shows the question; tap opens the app to answer
-          └─► Noah + Tiago: start screens with dummy data (no need to wait for the spike)
+Greg: scaffold Expo app + EAS iOS SIMULATOR build (no Apple account needed)
+   ├─► Greg: TECH SPIKE in a simulator (cloud Mac, ~$1/hr, or Appetize in a browser)
+   │      ├─ PASS → build as planned
+   │      └─ FAIL → fallback: widget shows the question; tap opens the app to answer
+   └─► Noah + Tiago: build screens, testing in web browser / Android emulator / Expo Go
 Tiago: designs + question bank ─► everyone builds from them
+Apple Developer account ($99/yr, holder 18+) ─► needed later: real-iPhone builds, TestFlight beta, App Store
 ```
 
 ---
@@ -57,11 +59,12 @@ Tiago: designs + question bank ─► everyone builds from them
 ## Phase 1: Foundations (target: week 1)
 | # | Task | Owner | Claude load |
 |---|---|---|---|
-| N1 | Enroll in Apple Developer ($99/yr); add Greg & Tiago in App Store Connect | Noah / holder | None |
+| N1 | Enroll in Apple Developer ($99/yr); add Greg & Tiago in App Store Connect. **Can wait until the MVP works in a simulator** (D-013), but it's needed before Phase 4 beta | Noah / holder | None |
+| N1b | 1-minute check: install **Expo Go** from the App Store on your iPhone and confirm it supports **SDK 57** (if yes, it's free screen testing on real iPhones) | Noah, Tiago | None |
 | N2 | Create team accounts and **invite** the others (never share passwords): Expo org (free plan supports teams, [Expo pricing](https://expo.dev/pricing)), Supabase, PostHog, Sentry | Noah | None |
 | N3 | Set up Node + Expo tooling on your PC; install the dev build on your iPhone once Greg has one | Noah, Tiago | Light |
-| G1 | Scaffold the Expo app (TypeScript) + EAS config; first dev build on all 3 iPhones (ad hoc builds need registered devices, [Expo docs](https://docs.expo.dev/tutorial/eas/ios-development-build-for-devices/)) | Greg | Heavy |
-| G2 | **Tech spike:** `expo-widgets` widget with 2 buttons → answer saved to Supabase → widget updates. Also find out: **do widget changes need a native rebuild?** (UNVERIFIED; it decides how Tiago iterates on the widget) | Greg | Heavy |
+| G1 | Scaffold the Expo app (TypeScript) + EAS config; an **iOS simulator build** (`"simulator": true`, no Apple account needed, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). Real-iPhone dev builds come later, once the Apple account exists (they need registered devices, [Expo docs](https://docs.expo.dev/tutorial/eas/ios-development-build-for-devices/)) | Greg | Heavy |
+| G2 | **Tech spike, in a simulator** (cloud Mac via MacinCloud ~$1/hr, or Appetize): `expo-widgets` widget with 2 buttons → answer saved to Supabase → widget updates. Also find out: **do widget changes need a native rebuild?** (UNVERIFIED; it decides how Tiago iterates on the widget) | Greg | Heavy |
 | G3 | Supabase schema + **RLS from day 1**: profiles, groups, memberships, questions, answers, reactions, reports, blocks. Never store fields users mustn't edit where users can write (Raroque `tK4NQtzfZbM @ 03:05`) | Greg | Heavy |
 | T1 | **Design system + all screen designs:** colors, type, buttons, cards; onboarding, age gate, create/join group, today's question, results, reactions, settings. Study real apps first (Raroque uses Mobbin, `oNRrjbKiF04 @ 05:15`) | Tiago | Light |
 | T2 | **Widget design:** small + medium + lock-screen; states: unanswered, answered + results, logged out, no group, offline. Tiny image assets (~2MB crashed Raroque's widget, `9sHd-VWssxw @ 02:04`) | Tiago | Light |

@@ -23,8 +23,15 @@
 - Verified for the revision: Expo dev builds load JS/TS changes from each person's own PC with no rebuild ([Expo docs](https://docs.expo.dev/develop/development-builds/introduction/)); the free EAS plan allows 15 iOS builds/month in a low-priority queue and supports teams ([Expo pricing](https://expo.dev/pricing)); Supabase generates TypeScript types ([Supabase docs](https://supabase.com/docs/guides/api/rest/generating-types)).
 - UNVERIFIED, to check in the spike: whether changes to `expo-widgets` widget code need a native rebuild.
 
+- **Testing research (same session):** Noah asked whether we can test without the $99 Apple account, ideally something iPhone-like on Windows. Findings are in `research/testing-without-apple-account.md`:
+  - EAS **iOS simulator builds need no Apple account** and run in a browser via **Appetize** (free tier is tiny: ~30 min/mo, 3-min sessions) or in Apple's Simulator on a **rented cloud Mac** (MacinCloud ~$1/hr, prepaid in 30-hr blocks). The Simulator supports widgets.
+  - For day-to-day screen work: web browser, the Android emulator, and Expo Go (confusing status: a May 2026 App Store gap, but the listing now shows 57.0.9; check on a phone).
+  - Not viable: free Apple ID signing (needs a Mac; 7-day expiry, no push) and real-device clouds (need a signed `.ipa`).
+  - Result: the Apple account is no longer the first blocker. The critical path and G1/G2 were updated.
+
 ## Decisions
 - D-012 roles + game plan → PROPOSED (revised split)
+- D-013 testing plan (simulators first, $99 account before the beta) → PROPOSED
 
 ## Open questions / next steps
 - All: sign off on D-004–D-012; decide who holds the Apple Developer account (18+).

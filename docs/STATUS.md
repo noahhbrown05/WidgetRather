@@ -27,12 +27,13 @@ A learning project: prove the three of us can build and grow an app. Target: the
 |---|---|
 | Noah | Invite Tiago & Greg as repo collaborators |
 | Tiago, Greg | Clone the repo, read this page → `DECISIONS.md` → `MVP-GAMEPLAN.md`, then sign off or push back |
-| Team | **Who holds the Apple Developer account** ($99/yr, must be 18+). This is the #1 blocker for testing on iPhones |
+| Team | Who holds the Apple Developer account ($99/yr, must be 18+). **No longer a blocker:** per D-013 we can test in simulators first and buy it before the beta |
+| Noah, Tiago | 1-minute check: does App Store **Expo Go** support SDK 57 on your iPhone? |
 | Team | Question drop timing (daily sync vs random): parked until after the MVP |
 
 ## Next up (once the gate lifts), from MVP-GAMEPLAN Phase 1
-1. Noah: Apple Developer enrollment + team accounts (Expo, Supabase, PostHog, Sentry)
-2. Greg: Expo scaffold → dev build on all 3 iPhones → **tech spike** (widget button saves an answer to Supabase) → schema + RLS
+1. Noah: team accounts (Expo, Supabase, PostHog, Sentry); the Apple account can wait (D-013)
+2. Greg: Expo scaffold → **iOS simulator build** (no Apple account) → **tech spike in a simulator** (cloud Mac or Appetize) → schema + RLS
 3. Tiago: design system + screen/widget designs + question bank (60+)
 4. Noah & Tiago: set up Expo tooling on your PCs; start screens with dummy data once the scaffold exists
 
