@@ -1,6 +1,6 @@
 # 2026-09-14 — Greg — Single-player first? → build in two passes (D-021)
 
-**Teammate:** Greg · **Model:** Claude Opus 5 · _(third session that day; follows the Plain-English explainer session)_
+**Teammate:** Greg · **Model:** Claude Opus 5 · _(same chat as `2026-09-14-greg-plain-english-explainer.md`, split into two files because the topics are separate — read that one first)_
 
 ## Asked for
 - Greg: *"what if we parked the social aspect for later and only made it single-player right now? just to push some sort of workable product out before introducing that and taking too much on at once."*
