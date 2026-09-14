@@ -1,6 +1,6 @@
 # MVP Spec: Widget Rather (draft v1)
 
-_ROADMAP step 1.1. Drafted 2026-09-11 from Noah's answers in his session. **Status: DRAFT, needs Greg's sign-off (D-017: Noah + Greg decide).** Items marked **[proposed default]** are Claude's recommendations Noah didn't explicitly choose; items marked **[OPEN]** need a team decision. This draft **changes D-008's scope** (see "Impact" at the end)._
+_ROADMAP step 1.1. Drafted 2026-09-11 from Noah's answers in his session. **Status: Greg signed 2026-09-14, conditional on D-018 (§9 Option A) + D-019 (friend-group size cap) — both need Noah.** Items marked **[proposed default]** are Claude's recommendations Noah didn't explicitly choose; items marked **[OPEN]** need a team decision. This draft **changes D-008's scope** (see "Impact" at the end)._
 
 ---
 
@@ -18,7 +18,7 @@ A daily "Would you rather?" that **drops at a random morning moment**, lives on 
 1. The question drops at a random morning moment (same moment for everyone in a time zone).
 2. The widget flips from yesterday's results to today's question.
 3. You tap an answer on the widget (or in the app).
-4. The results unlock: your groups' split, plus the insights (§5).
+4. The results unlock: your groups' split, plus the insights (§5). _(2026-09-14: when you answer **on the widget**, the numbers shown are as of the last push, not live — D-020.)_
 5. You react to friends' picks and talk about it at school.
 
 ## 4. The daily question: rules
@@ -54,7 +54,7 @@ You can be in **several** groups and communities. The widget shows the one you c
 |---|---|---|
 | What it is | Your people | School-wide, university, fan groups, interest groups |
 | How you join | Invite code / link only | **Public: browse or search** and join (Noah: in the MVP) |
-| Size | **No cap** (Noah) | **No cap** |
+| Size | **No cap** (Noah) — _cap of 50 proposed 2026-09-14, D-019_ | **No cap** |
 | Who's visible | Names + who picked what (after you vote) | **[OPEN]** see §9: recommend totals and insights only, no member list |
 | Reactions | Emoji on each friend's pick | **[OPEN]** see §9 |
 | Removing people | **Creator + moderators** can remove members; anyone can leave (Noah) | Same |
@@ -72,7 +72,7 @@ You can be in **several** groups and communities. The widget shows the one you c
 | **Lock screen** | Display only: "New question soon" / the question / "Answered ✓". Buttons don't work while locked, so a tap opens the app (`research/tech-stack.md`) |||
 
 - **Pick which group the widget shows** via "Edit widget", like Raroque's Ellie list picker (`m5cRcii3pec @ 01:03`, `avJ_gimBPHs @ 04:16`). Default = your first friend group.
-- **Unproven:** answering straight from the widget without opening the app is the G2 spike. If it fails, tapping an answer opens the app with it preselected.
+- **~~Unproven~~ RESOLVED 2026-09-14 (Greg's back-end read):** answering straight from the widget **cannot** reach the server. `expo-widgets` widget code "cannot perform asynchronous work" and a button's `onPress` only sets the widget's own props ([Expo SDK 57 docs](https://docs.expo.dev/versions/v57.0.0/sdk/widgets/)). The tap still works and the widget still flips to "answered" instantly — but the vote syncs when the app next runs, and the numbers shown are as of the last push. See **D-020** and `research/backend-read-mvp-spec.md`.
 
 ## 8. Reactions and profiles
 - **Reactions:** a fixed set of about 6 emoji on **each friend's pick** (Noah). No free text anywhere in the MVP, so there's nothing typed to moderate.
@@ -131,5 +131,6 @@ This draft adds **all three widget sizes, public communities with moderators, mu
 
 ## 16. Open questions for the team
 1. Morning drop window (exact hours).
-2. Public communities: option A, B, or C (§9).
+2. Public communities: option A, B, or C (§9). — **Greg proposes A (D-018), needs Noah.**
 3. Confirm or change the [proposed defaults] (answer lock-in, one answer everywhere, insight thresholds, drop-only notifications, Noah answers reports).
+4. _Added 2026-09-14 from Greg's back-end read:_ **friend-group size cap** (D-019, proposed 50) · **reword §3's core loop** now that widget votes sync late (D-020). Both are conditions on Greg's D-008 sign-off.

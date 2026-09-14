@@ -10,20 +10,23 @@ The single source of truth for what the Widget Rather team has decided.
 | D-001 | 2026-09-10 | Research phase first: no app code until stack (D-005) + MVP scope (D-008) are DECIDED | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☑ Greg |
 | D-002 | 2026-09-10 | Claude never relies on internal knowledge; everything is researched and cited | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☑ Greg |
 | D-003 | 2026-09-10 | GitHub repo is the shared memory (STATUS / DECISIONS / session summaries) | DECIDED (project rule) | Noah | ☑ Noah ☐ Tiago ☑ Greg |
-| D-004 | 2026-09-10 | Not anonymous: users are identified to their friend groups (anonymity was never part of the concept) | PROPOSED | Noah (clarified) | ☑ Noah ☐ Tiago ☑ Greg |
-| D-005 | 2026-09-10 | Stack: Expo (React Native) + expo-widgets + EAS cloud builds + Supabase | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
-| D-006 | 2026-09-10 | iOS-first launch; Android later | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
-| D-007 | 2026-09-10 | Age handling: 13+ for the MVP; revisit under-13 (6th graders) with a lawyer | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
-| D-008 | 2026-09-10 (revised 09-11) | MVP scope → **now defined by `docs/MVP-SPEC.md`**: random morning drop, all 3 widget sizes, friend groups + **public communities** (creator + mods), multiple memberships, insights (Rare pick / Your twin / Split meter), emoji avatars | PROPOSED (**revised, re-sign needed**) | Noah + Claude | ☑ Noah ☐ Tiago ☐ Greg |
-| D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | PROPOSED (already in use) | Claude, at Noah's request | ☑ Noah ☐ Tiago ☑ Greg |
-| D-010 | 2026-09-10 | Public repo (stays public) + hygiene: no secrets, no raw copyrighted transcripts | IN EFFECT | Claude | ☑ Noah ☐ Tiago ☑ Greg |
-| D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | PROPOSED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
-| D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | PROPOSED | Noah (direction) / Claude (plan) | ☑ Noah ☐ Tiago ☑ Greg |
-| D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | PROPOSED | Claude (from research) | ☑ Noah ☐ Tiago ☑ Greg |
-| D-014 | 2026-09-10 | Development on hold until ROADMAP Stages 1–3 (product spec, design, accounts/legal) are done; no timeline, follow `docs/ROADMAP.md` step by step | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
-| D-015 | 2026-09-11 | **Duo mode** (pairs for couples/best friends/siblings, anyone 13+) is the first feature after the MVP launch | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
-| D-016 | 2026-09-11 | Avatar direction: **Pastel Critters**: the 12-critter roster in `design/critters.md` (Noah: "I love the critter roster"); head-silhouette rules, bandana pick-tint, 8 colours, moods; no photos | PROPOSED | Noah | ☑ Noah ☐ Tiago ☐ Greg |
-| D-017 | 2026-09-11 | **Roles revised:** Greg = back end; **Noah = main front end + design + everything else**; Tiago = advisor only when Noah + Greg ask. **Decisions need Noah + Greg**. Replaces D-012's split | PROPOSED (needs Greg) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
+| D-004 | 2026-09-10 | Not anonymous: users are identified to their friend groups (anonymity was never part of the concept) | DECIDED | Noah (clarified) | ☑ Noah ☐ Tiago ☑ Greg |
+| D-005 | 2026-09-10 | Stack: Expo (React Native) + expo-widgets + EAS cloud builds + Supabase | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-006 | 2026-09-10 | iOS-first launch; Android later | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-007 | 2026-09-10 | Age handling: 13+ for the MVP; revisit under-13 (6th graders) with a lawyer | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-008 | 2026-09-10 (revised 09-11) | MVP scope → **now defined by `docs/MVP-SPEC.md`**: random morning drop, all 3 widget sizes, friend groups + **public communities** (creator + mods), multiple memberships, insights (Rare pick / Your twin / Split meter), emoji avatars | DECIDED (Greg conditional — see note) | Noah + Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | DECIDED | Claude, at Noah's request | ☑ Noah ☐ Tiago ☑ Greg |
+| D-010 | 2026-09-10 | Public repo (stays public) + hygiene: no secrets, no raw copyrighted transcripts | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-012 | 2026-09-10 | Roles + MVP game plan: Greg = backend + builds (Max); Noah + Tiago split front end + misc (Pro); see MVP-GAMEPLAN.md | SUPERSEDED by D-017 | Noah (direction) / Claude (plan) | ☑ Noah ☐ Tiago ☑ Greg |
+| D-013 | 2026-09-10 | Testing plan: test in simulators/web/Android first; delay the $99 Apple account until the MVP works in a simulator | DECIDED | Claude (from research) | ☑ Noah ☐ Tiago ☑ Greg |
+| D-014 | 2026-09-10 | Development on hold until ROADMAP Stages 1–3 (product spec, design, accounts/legal) are done; no timeline, follow `docs/ROADMAP.md` step by step | DECIDED | Noah | ☑ Noah ☐ Tiago ☑ Greg |
+| D-015 | 2026-09-11 | **Duo mode** (pairs for couples/best friends/siblings, anyone 13+) is the first feature after the MVP launch | DECIDED | Noah | ☑ Noah ☐ Tiago ☑ Greg |
+| D-016 | 2026-09-11 | Avatar direction: **Pastel Critters**: the 12-critter roster in `design/critters.md` (Noah: "I love the critter roster"); head-silhouette rules, bandana pick-tint, 8 colours, moods; no photos | DECIDED | Noah | ☑ Noah ☐ Tiago ☑ Greg |
+| D-017 | 2026-09-11 | **Roles revised:** Greg = back end; **Noah = main front end + design + everything else**; Tiago = advisor only when Noah + Greg ask. **Decisions need Noah + Greg**. Replaces D-012's split | DECIDED | Noah | ☑ Noah ☐ Tiago ☑ Greg |
+| D-018 | 2026-09-14 | **Public communities show totals only** (spec §9 **Option A**): the split, the insights and a member count; **no member list, no individual picks, no reactions between strangers** | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
+| D-019 | 2026-09-14 | **Friend groups get a size cap** (proposed: 50), replacing "no cap" in spec §6 | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
+| D-020 | 2026-09-14 | **Widget votes are local-only and sync late**: the widget cannot reach the server, so the backend accepts late/out-of-order votes with a client timestamp and rejects duplicates; the core loop is reworded so a widget tap doesn't promise live numbers | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
 
 ---
 
@@ -56,7 +59,7 @@ The single source of truth for what the Widget Rather team has decided.
 - **Practical consequences of no Mac:**
   - No iOS Simulator. You test on real iPhones via EAS cloud development builds, which need a **paid Apple Developer account ($99/yr)** ([Expo discussion](https://github.com/expo/expo/discussions/27489), [Apple](https://developer.apple.com/programs/)).
   - The Apple Developer account holder must be **of legal age (18+ in most places)**. Under-18s can use an account created by a parent/guardian ([Apple enrollment](https://developer.apple.com/programs/enroll/)).
-- **Biggest technical unknown (verify in the first coding spike):** can an `expo-widgets` button submit an answer to Supabase without opening the app? The widget is the product, so this gets tested first.
+- **Biggest technical unknown — ANSWERED 2026-09-14 (research finding, not a change to this decision):** can an `expo-widgets` button submit an answer to Supabase without opening the app? **No.** Widget code "cannot perform asynchronous work, import other modules, or access your app's runtime or in-memory state", and a button's `onPress` return value only "becomes the widget's new props... with no running app process required" ([Expo SDK 57 widgets docs](https://docs.expo.dev/versions/v57.0.0/sdk/widgets/)). **A widget tap is a local write** that reaches Supabase when the app next runs. The stack still stands — see **D-020** for the deferred-vote design and `research/backend-read-mvp-spec.md` for the native-target escape hatch.
 - **Details:** `research/tech-stack.md`
 
 ## D-006: iOS-first
@@ -124,3 +127,25 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
   - Day-to-day screen testing works in the web browser, the Android emulator, and (if the SDK 57 check passes) Expo Go.
 - **Proposal:** test this way through the MVP; buy the $99 account before the TestFlight beta (Phase 4).
 - **Details:** `research/testing-without-apple-account.md`
+
+## D-008: Greg's conditional sign-off (2026-09-14)
+- Greg re-signed the revised scope **conditional on D-018 (§9 Option A) and D-019 (a friend-group size cap)**. If Noah lands on §9 Option B or C, or keeps "no cap", Greg's signature doesn't stand and D-008 goes back to `PROPOSED`.
+- **Why those two conditions and not the widget sizes:** three widget sizes are near-free on the back end (three layouts over one payload). The costly part of the revision is **unbounded group size combined with "your twin"**, which is pairwise per user. Scoped to friend groups of ~50 it's a small SQL aggregate; across an uncapped 2,000-person school community it's a day-one scaling problem. Full reasoning and sources: `research/backend-read-mvp-spec.md`.
+
+## D-018: Public communities show totals only (§9 Option A)
+- **Proposed by Greg (2026-09-14), from the back-end read.** Arrives at the same answer the spec's §9 recommends, by a different route.
+- **Why A:** cheapest to build, cheapest to moderate, and the only option where a stranger never sees another user — so "public community full of mixed-age strangers" mostly stops being a risk surface. It also keeps D-019's twin calculation bounded.
+- **Why not B (age-banded):** it needs reliable age data we've already decided we can't get. The FTC is explicit that a self-declared checkbox isn't a valid screen ([FTC COPPA FAQ](https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions)); banding on unverified ages reads well and enforces nothing (D-007).
+- **Why not C (fully social):** needs real moderation staffing before launch. Apple requires filtering, reporting with "timely responses", blocking, and published contact info for any UGC app ([App Store Guidelines 1.2](https://developer.apple.com/app-store/review/guidelines/)) — that's an ongoing staffing cost, not a build task, and the spec currently assigns it to Noah by [proposed default].
+
+## D-019: Cap friend-group size
+- **Proposed by Greg (2026-09-14).** Spec §6 says "no cap" on friend groups (Noah). That's a decision with a cost: it hits the "your twin" calculation, the "who picked what" member list, and the reaction fan-out, all of which scale with group size.
+- **Proposed cap: 50.** [ESTIMATE] Large enough that no real friend group hits it, small enough that every per-group query stays trivial.
+
+## D-020: Widget votes are local-only and sync late
+- **Proposed by Greg (2026-09-14), forced by the D-005 finding above.** `expo-widgets` gives a widget button no way to reach the server, so a tap is a local write until the app runs.
+- **The design:** the widget tap stores a **pending vote** (question id + choice + timestamp) locally; the app flushes pending votes on next launch or background refresh; the server validates the client timestamp falls inside that question's open window and **rejects duplicates** (first write wins — which the spec already wants, "your first tap locks in"); tallies recompute as votes land.
+- **Consequence for the spec:** §3's core loop ("tap the widget → the results unlock") needs rewording. The widget can flip to "answered" instantly, but the numbers it shows are as of the **last push**, not as of your tap. A vote cast offline is the normal case, not an edge case.
+- **Consequence for the plan:** the G2 spike changes from "can we?" to "how late are votes?" — the number we need is the median delay between widget tap and app open.
+- **Escape hatch, if the team wants live widget writes:** a native Swift widget target via [`@bacons/apple-targets`](https://github.com/EvanBacon/expo-apple-targets) + App Intents, built on EAS from Windows ([Expo: iOS App Extensions](https://docs.expo.dev/build-reference/app-extensions/)). `perform()` supports async. **[UNVERIFIED]** developers report background network from widget extensions failing over cellular when the app isn't running ([Apple Developer Forums 737162](https://developer.apple.com/forums/thread/737162)). Confirming needs a device test, which needs the $99 account (D-013).
+- **Details:** `research/backend-read-mvp-spec.md`

@@ -56,7 +56,7 @@ _Roles updated 2026-09-11 (D-017): Greg = back end, Noah = front end + design + 
 |---|---|---|---|
 | 4.1 | **Lift the hold:** Stages 1–3 done, and D-005 + D-008 signed by Noah + Greg | All | Recorded in `DECISIONS.md` |
 | 4.2 | Scaffold the Expo app + EAS; first **iOS simulator build** (no Apple account needed) (G1) | Greg | Builds and runs |
-| 4.3 | **Widget spike** in a simulator (cloud Mac or Appetize, see `research/testing-without-apple-account.md`): can a widget button save an answer to Supabase without opening the app? Do widget changes need a native rebuild? (G2) | Greg | Written result: **pass**, or switch to the fallback (tap opens the app to answer) |
+| 4.3 | **Widget spike** in a simulator (cloud Mac or Appetize, see `research/testing-without-apple-account.md`). ~~Can a widget button save an answer to Supabase without opening the app?~~ **Answered 2026-09-14 by the docs: no** (D-020). What's left to spike: **do widget changes need a native rebuild?**, and **how late do votes actually arrive** (median delay between widget tap and app open) | Greg | Written result: the rebuild answer, plus a measured vote-delay number to size the staleness of widget numbers |
 | 4.4 | Supabase: schema, **row-level security from day 1**, generated TypeScript types, and the data-layer function list (the "contract") (G3, G5) | Greg | Function list published in the repo |
 | 4.5 | Front-end tooling on Noah's PC; screens run in the browser / Android emulator | Noah | Each can run the app |
 
