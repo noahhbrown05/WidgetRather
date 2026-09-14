@@ -24,6 +24,7 @@ _Rewrite this page (don't append) whenever things change. Last updated: 2026-09-
 | Who | What |
 |---|---|
 | **Noah** | Sign **D-018** (§9 Option A: communities show totals only) · **D-019** (cap friend groups at ~50) · **D-020** (widget votes sync late). D-018 + D-019 are **conditions on Greg's D-008 signature** — if they don't land, D-008 reverts to `PROPOSED` |
+| **Noah** | Sign or reject **D-021** — a different kind of call from the three above. Those unblock the *spec*; D-021 would unblock *starting to build*: build in two passes (pass 1 local-only, pass 2 adds the server), and give D-014's hold a **narrow exception** — plumbing may start, screens still wait for the design freeze. Plain-English version: `docs/PLAIN-ENGLISH.html` §05 |
 | Noah + Greg | ROADMAP 0.5 sync: **drop window** · who answers reports · the spec's [proposed defaults] · reword §3's core loop per D-020 |
 | Noah | 1.2 question bank · test the critter roster at 22px (Fen vs Mochi, Maple vs Beanie) · register the domain once agreed |
 | Greg | Revised **G2 spike** (ROADMAP 4.3): does a widget change need a native rebuild, and **how late do votes actually arrive**? Blocked by D-014 |

@@ -27,6 +27,7 @@ The single source of truth for what the Widget Rather team has decided.
 | D-018 | 2026-09-14 | **Public communities show totals only** (spec §9 **Option A**): the split, the insights and a member count; **no member list, no individual picks, no reactions between strangers** | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
 | D-019 | 2026-09-14 | **Friend groups get a size cap** (proposed: 50), replacing "no cap" in spec §6 | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
 | D-020 | 2026-09-14 | **Widget votes are local-only and sync late**: the widget cannot reach the server, so the backend accepts late/out-of-order votes with a client timestamp and rejects duplicates; the core loop is reworded so a widget tap doesn't promise live numbers | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
+| D-021 | 2026-09-14 | **Build in two passes**: pass 1 is local-only (widget + question file + local save, no accounts or server), pass 2 wires the server in behind it. Pass 1 is a **build step, never a release**. Asks D-014 for a **narrow exception**: plumbing may start now, front-end screens still wait for the design freeze | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
 
 ---
 
@@ -147,5 +148,47 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
 - **The design:** the widget tap stores a **pending vote** (question id + choice + timestamp) locally; the app flushes pending votes on next launch or background refresh; the server validates the client timestamp falls inside that question's open window and **rejects duplicates** (first write wins — which the spec already wants, "your first tap locks in"); tallies recompute as votes land.
 - **Consequence for the spec:** §3's core loop ("tap the widget → the results unlock") needs rewording. The widget can flip to "answered" instantly, but the numbers it shows are as of the **last push**, not as of your tap. A vote cast offline is the normal case, not an edge case.
 - **Consequence for the plan:** the G2 spike changes from "can we?" to "how late are votes?" — the number we need is the median delay between widget tap and app open.
+- **See also D-021**, which turns this constraint into a build order.
 - **Escape hatch, if the team wants live widget writes:** a native Swift widget target via [`@bacons/apple-targets`](https://github.com/EvanBacon/expo-apple-targets) + App Intents, built on EAS from Windows ([Expo: iOS App Extensions](https://docs.expo.dev/build-reference/app-extensions/)). `perform()` supports async. **[UNVERIFIED]** developers report background network from widget extensions failing over cellular when the app isn't running ([Apple Developer Forums 737162](https://developer.apple.com/forums/thread/737162)). Confirming needs a device test, which needs the $99 account (D-013).
 - **Details:** `research/backend-read-mvp-spec.md`
+
+## D-021: Build in two passes; a narrow exception to the D-014 hold
+- **Proposed by Greg (2026-09-14, second session).** Greg's question: *"what if we parked the social aspect for later and only made it single-player right now? just to push some sort of workable product out before introducing that and taking too much on at once"* — clarified immediately after as **a first build, not a launch**: *"i wouldnt launch it that way -- just as a first build."*
+
+### The proposal, in plain terms
+Build the app in two passes instead of all at once.
+
+| | **Pass 1 — just you** | **Pass 2 — everyone else** |
+|---|---|---|
+| Where it lives | Entirely on the phone | Phone + server |
+| What's in it | Question list shipped inside the app as a file · widget shows today's question · you tap · answer saved locally · your answer history | Everything from pass 1, plus sign-in, Supabase, friend groups, real results |
+| Results on screen | Dummy numbers | Real numbers from the group |
+| Needs | Nothing (simulator builds need no Apple account, D-013) | The back end proper |
+
+### Why pass 1 is not throwaway work
+Because of **D-020**, a widget tap is *always* a local write that syncs when the app next runs — that is how iOS widgets work, not a shortcut we chose. Pass 1 is therefore the genuine first half of the real architecture (steps 3–4 of the flow in `PLAIN-ENGLISH.html`), not a mock-up of it. Pass 2 adds the flush-to-server step and swaps dummy numbers for real ones. **Nothing built in pass 1 gets rewritten.** This is also just Raroque's per-feature order — UI with dummy data → data → connect → polish (`Q13QOgwoF0E @ 01:02`) — applied to the whole app instead of one screen.
+
+### Pass 1 is a build step, never a release
+Explicitly **not** an App Store launch, for three reasons:
+- **No reason to open it twice.** The reveal is the product (MVP-SPEC §3, §5); all three insights need other people's answers. Raroque's go/no-go is to launch only once beta users keep coming back for days (`MnF-zJhyUtE @ 07:15`) — pass 1 fails that by construction.
+- **App Review risk.** Guideline 4.2: "If your App doesn't provide some sort of lasting entertainment value or adequate utility, it may not be accepted" ([Apple](https://developer.apple.com/app-store/review/guidelines/)). A widget that shows a question and remembers your tap is squarely that shape.
+- **You only get one first launch,** and Apple's extra visibility for new apps goes with it (ROADMAP 9.2).
+
+### What it asks of D-014
+A **narrow exception, not a lifted hold.** Proposed wording:
+
+> *Back-end and native plumbing may start now. All front-end screens still wait for the design freeze (ROADMAP Stage 2).*
+
+**Why this fits D-014's own reasoning rather than working against it:** the hold exists so we don't build screens before the designs are settled. Pass 1 contains essentially no screens — a widget, a question file and a local save. Noah's screen work is untouched and still waits for Stage 2. If Noah reads the hold more strictly than that, this decision simply gets rejected and pass 1 waits; the build order still stands for whenever the hold does lift.
+
+### What it buys us
+- Turns **ROADMAP 4.3** from a throwaway spike into a real build that answers the same two open questions: *does a widget change need a native rebuild?* and *how late do votes actually arrive?*
+- Proves EAS-from-Windows works (G1) before anything depends on it.
+- Gives Noah a running app to design against instead of a static prototype.
+- **Cost: nothing up front.** Simulator builds need no Apple account (D-013). Measuring real vote delay needs real phones, so that part still waits for the $99 account, exactly as already planned.
+
+### [UNVERIFIED] A possible bonus, to be settled by building it
+Widgets are timeline-based — you pre-declare what shows when (`m5cRcii3pec @ 04:11`). If today's question *and* its drop time can both be computed on-device (e.g. derived deterministically from the date + time zone, so everyone in a zone lands on the same moment with nobody coordinating them), the **morning drop may not need the server at all**, leaving the server responsible only for the notification banner. That would shrink the back end meaningfully. Not confirmed — pass 1 is the cheapest way to find out.
+
+### Not included in this decision
+Greg separately raised **trimming MVP scope** back toward the original D-008 v1 — dropping public communities, the three insights, and two of the three widget sizes. That is **not proposed here** and would need its own decision. Noted so it isn't lost.

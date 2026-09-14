@@ -270,6 +270,45 @@ figcaption{
 .sig .t{font-size:14.5px; line-height:1.5; color:var(--ink-2); margin:0}
 .sig .t b{color:var(--ink); font-weight:800}
 
+/* ---------- two passes ---------- */
+.passes{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px}
+.pass{
+  border-radius:20px; border:1px solid var(--hairline); background:var(--surface);
+  padding:18px 19px 19px; box-shadow:var(--shadow); display:flex; flex-direction:column;
+}
+.pass .pn{font:800 11px/1 var(--f); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 7px}
+.pass h4{font:900 21px/1.2 var(--f); margin:0 0 5px; letter-spacing:-.015em}
+.pass .sub{font-size:13.5px; line-height:1.45; color:var(--ink-muted); margin:0 0 15px; max-width:none}
+.strip{border-radius:14px; padding:12px 13px 13px; border:1px solid}
+.strip .sl{font:800 9.5px/1 var(--f); letter-spacing:.13em; text-transform:uppercase; margin:0 0 10px}
+.strip.ph{background:var(--lilac-soft); border-color:var(--lilac-line)}
+.strip.ph .sl{color:var(--lilac-badge)}
+.strip.sv{background:var(--mint-soft); border-color:var(--mint-line)}
+.strip.sv .sl{color:var(--mint-badge)}
+.strip.empty{background:transparent; border-color:var(--hairline-2); border-style:dashed; flex:1}
+.strip.empty .sl{color:var(--ink-faint)}
+.strip.empty .none{font:600 13px/1.5 var(--f); color:var(--ink-faint); margin:0; max-width:none}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{font:700 12px/1.3 var(--f); padding:5px 9px; border-radius:8px; background:var(--surface); border:1px solid}
+.strip.ph .chip{border-color:var(--lilac-line); color:var(--lilac-ink)}
+.strip.sv .chip{border-color:var(--mint-line); color:var(--mint-ink)}
+.cross{
+  display:flex; align-items:center; gap:10px; padding:10px 2px;
+  font:700 11px/1.3 var(--f); color:var(--ink-muted); text-align:center;
+}
+.cross .ln{flex:1; height:1px; background:var(--hairline-2)}
+.cross.blank{padding:10px 2px}
+.pass .ft{
+  font-size:13px; line-height:1.5; color:var(--ink-muted);
+  margin:15px 0 0; padding-top:13px; border-top:1px dashed var(--hairline-2);
+}
+.pass .ft b{color:var(--ink); font-weight:800}
+.quoted{
+  margin:14px 0; padding:13px 16px; border-radius:12px;
+  background:var(--surface); border:1px solid var(--hairline);
+  font:700 15px/1.5 var(--f); color:var(--ink);
+}
+
 /* ---------- build steps ---------- */
 .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:22px}
 .step{
@@ -692,7 +731,7 @@ code{font:500 .9em var(--f-mono); background:var(--surface-2); border:1px solid 
     <div class="col c">
       <h5>In the way</h5>
       <ul>
-        <li><b>Three decisions are unsigned</b>, all waiting on Noah — see below</li>
+        <li><b>Three decisions are unsigned</b>, all waiting on Noah — see below. Plus <b>D-021</b>, proposed today (§05)</li>
         <li>Two of them are conditions on Greg's signature for the MVP scope. Until they land, the scope isn't truly settled</li>
         <li>Stage 2 (design freeze) and stage 3 (accounts, policies, privacy policy, waitlist) are both untouched</li>
         <li>Nothing here is blocked on money or on Apple yet</li>
@@ -718,12 +757,85 @@ code{font:500 .9em var(--f-mono); background:var(--surface-2); border:1px solid 
       </div>
     </div>
     <p style="margin:16px 0 0; font-size:14.5px"><strong>Why it matters:</strong> D-018 and D-019 are the conditions Greg attached to signing the MVP scope. If either goes the other way, D-008 drops back to <code>PROPOSED</code> and stage 1 isn't finished.</p>
+    <p style="margin:10px 0 0; font-size:14.5px">There's now a fourth, <strong>D-021</strong>, but it's a different kind of thing — those three unblock the <em>spec</em>; D-021 would unblock <em>starting to build</em>. It's explained in the next section.</p>
   </div>
 </section>
 
 <!-- ============================================================ -->
 <section>
-  <p class="sec-num">05 — What building actually looks like</p>
+  <p class="sec-num">05 — Proposed 2026-09-14 · needs Noah</p>
+  <h2>Build it in two passes</h2>
+  <p>Greg's idea, and the one new thing on the table. Instead of building the whole app at once, build the half that lives on the phone first, get it running on a real iPhone, then add everyone else behind it.</p>
+
+  <div class="passes">
+
+    <div class="pass">
+      <p class="pn">Pass 1 — build this first</p>
+      <h4>Just you</h4>
+      <p class="sub">Everything on the phone. No accounts, no database, nobody else involved.</p>
+      <div class="strip ph">
+        <p class="sl">On the phone</p>
+        <div class="chips">
+          <span class="chip">Question list, inside the app</span>
+          <span class="chip">Widget shows today's one</span>
+          <span class="chip">You tap</span>
+          <span class="chip">Saved on your phone</span>
+          <span class="chip">Your answer history</span>
+        </div>
+      </div>
+      <div class="cross blank"><span class="ln"></span></div>
+      <div class="strip empty">
+        <p class="sl">On the server</p>
+        <p class="none">Nothing here yet — and nothing missing. Where the group results would go, the screen just shows made-up numbers for now.</p>
+      </div>
+      <p class="ft"><b>What it proves:</b> the widget really works on an iPhone, and builds run from Windows. Costs nothing — simulator builds need no Apple account (D-013).</p>
+    </div>
+
+    <div class="pass">
+      <p class="pn">Pass 2 — then this</p>
+      <h4>Everyone else</h4>
+      <p class="sub">The same app, with the server wired in behind it.</p>
+      <div class="strip ph">
+        <p class="sl">On the phone</p>
+        <div class="chips">
+          <span class="chip">Everything from pass 1</span>
+          <span class="chip">Sign in</span>
+          <span class="chip">Your friend group</span>
+          <span class="chip">Real results</span>
+        </div>
+      </div>
+      <div class="cross"><span class="ln"></span>your vote goes up · the results come back<span class="ln"></span></div>
+      <div class="strip sv">
+        <p class="sl">On the server</p>
+        <div class="chips">
+          <span class="chip">Vote recorded</span>
+          <span class="chip">Counted per group</span>
+          <span class="chip">Results sent back</span>
+        </div>
+      </div>
+      <p class="ft"><b>What changes in pass 1's work:</b> the made-up numbers get swapped for real ones. That's close to all of it. Nothing gets rebuilt.</p>
+    </div>
+
+  </div>
+
+  <h3>Why pass 1 isn't wasted effort</h3>
+  <p>Because of the step-4 finding above. A widget tap is <em>always</em> saved to your phone first and sent up later — that's not a shortcut we picked, it's how iOS widgets work. So pass 1 isn't a practice version of the app; it's genuinely the first half of the real one. Pass 2 adds the sending-up step and swaps the fake numbers for real ones.</p>
+
+  <h3>But we wouldn't put pass 1 on the App Store</h3>
+  <p>On its own there's no reason to open it twice — seeing how your friends answered <em>is</em> the product. On top of that, Apple's Guideline 4.2 says an app that doesn't "provide some sort of lasting entertainment value or adequate utility… may not be accepted", and you only get one first launch, with the extra visibility Apple gives new apps attached to it. Pass 1 is a rung on the ladder, not the thing itself.</p>
+
+  <div class="callout">
+    <h3>Noah — the one thing this needs from you</h3>
+    <p>D-014 is your rule: no code until the designs are done. This asks for a <strong>narrow exception, not a lifted hold</strong>:</p>
+    <p class="quoted">"Back-end and native plumbing may start now. All front-end screens still wait for the design freeze."</p>
+    <p>Why that fits your rule rather than breaking it: the hold exists so nobody builds screens before the designs settle. <strong>Pass 1 has essentially no screens</strong> — it's a widget, a text file and a local save. Your screen work is untouched and still waits for Stage 2.</p>
+    <p style="margin-bottom:0">If you read the hold more strictly than that, this just gets rejected and pass 1 waits its turn — the build order still holds for whenever the hold does lift. Written up as <strong>D-021</strong> in <a href="DECISIONS.md">DECISIONS.md</a>.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <p class="sec-num">06 — What building actually looks like</p>
   <h2>How one feature gets made</h2>
   <p>When the hold lifts, every feature gets built the same four ways round. It's the order Chris Raroque uses, and the reason it works is that Noah never has to wait for Greg to start.</p>
 
