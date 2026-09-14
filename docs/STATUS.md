@@ -1,6 +1,6 @@
 # Status: Widget Rather
 
-_Rewrite this page (don't append) whenever things change. Last updated: 2026-09-14 by Greg's session._
+_Rewrite this page (don't append) whenever things change. Last updated: 2026-09-14 by Greg's sessions (two that day)._
 
 ## Current phase
 **Development is on hold (D-014, now DECIDED).** We're following **`docs/ROADMAP.md`** step by step, with no timeline, and are at **Stage 1: Define the product**.
@@ -8,6 +8,9 @@ _Rewrite this page (don't append) whenever things change. Last updated: 2026-09-
 - ✅ 1.3 Name check: "Widget Rather" looks available (`research/name-check.md`)
 - 🟡 1.4 Brand/avatars: **Pastel Critters** DECIDED (D-016); roster in `design/critters.md`; still needs the 22px test
 - ☐ 1.2 Question bank v1 (Noah)
+
+## New: if you're lost, start here
+**`docs/PLAIN-ENGLISH.html`** (Greg, 2026-09-14, second session) — a pastel one-pager written because neither Noah nor Greg has shipped an app before and the jargon is in the way. What "back end", "API", "RLS", "EAS Build" and eleven other terms actually mean; a diagram of the seven steps a question takes from the server to your widget and back; and an honest read on how far along we are. **Pull the repo and open the file in a browser.** It explains, it doesn't decide — if it ever disagrees with `DECISIONS.md`, the decision log wins.
 
 ## What changed on 2026-09-14 (Greg)
 **Greg signed everything that was waiting.** D-017 is DECIDED, so **Noah + Greg now decide on their own**, and the cascade it triggered landed: **D-004–D-007, D-009–D-011, D-013 are DECIDED, including D-005 (the stack)**. D-012 is `SUPERSEDED by D-017`.
@@ -37,4 +40,4 @@ A random morning drop (per time zone) → answer on the widget (all 3 sizes) →
 - **Decisions need Noah + Greg.**
 
 ## Where things are
-**Roadmap: `docs/ROADMAP.md`** · **Spec: `docs/MVP-SPEC.md`** · **Back-end read: `research/backend-read-mvp-spec.md`** · Critters: `design/critters.md` · Tasks/owners: `docs/MVP-GAMEPLAN.md` · Mockups: `design/mockups/` · Clickable mockup: `prototype/index.html` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`
+**Plain English (start here if lost): `docs/PLAIN-ENGLISH.html`** · **Roadmap: `docs/ROADMAP.md`** · **Spec: `docs/MVP-SPEC.md`** · **Back-end read: `research/backend-read-mvp-spec.md`** · Critters: `design/critters.md` · Tasks/owners: `docs/MVP-GAMEPLAN.md` · Mockups: `design/mockups/` · Clickable mockup: `prototype/index.html` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`

@@ -5,6 +5,7 @@ A home-screen widget that drops a "Would you rather?" question every morning. An
 A learning project. Greg = back end, Noah = front end + design, Tiago = advisor (D-017). **Current phase: Stage 1 of the roadmap. No app code yet** (D-014).
 
 ## Start here
+0. **`docs/PLAIN-ENGLISH.html`**: new to this? Start here. What "back end", "API", "EAS Build" and the rest actually mean, a diagram of how one morning's question travels, and an honest read on how far along we are. Pull the repo and open the file in a browser.
 1. **`docs/STATUS.md`**: one page on where we are. Read this first, every time.
 2. **`docs/ROADMAP.md`**: the step-by-step from here to launch and beyond (no timeline).
 3. **`docs/MVP-SPEC.md`**: exactly what the MVP does.

@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Widget Rather — Plain English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+/* ==================================================================
+   Widget Rather — Plain English
+   A one-page explainer for Noah and Greg: what the words mean, and
+   where the project actually is. Written 2026-09-14, Greg's session.
+
+   Palette lifted from prototype/index.html so this reads as the same
+   project. Two accent families, on purpose:
+     LILAC = the phone half (front end, Noah)
+     MINT  = the server half (back end, Greg)
+   Deliberately NOT pink/blue: in this project pink and blue already
+   mean "option A" and "option B", and reusing them here would lie.
+   ================================================================== */
+
+:root{
+  --ground:#F4F1FA;
+  --surface:#FFFFFF;
+  --surface-2:#FBF9FE;
+  --hairline:#E5DEF2;
+  --hairline-2:#D9D0EC;
+  --ink:#1C1030;
+  --ink-2:#3B2E52;
+  --ink-muted:#6B5F82;
+  --ink-faint:#9990AF;
+  --accent:#C04B9E;
+  --accent-soft:#FBE6F4;
+
+  /* the phone half — Noah */
+  --lilac-soft:#F0E9FC;
+  --lilac-line:#CDB9EE;
+  --lilac-ink:#4B3778;
+  --lilac-badge:#8C6DC9;
+
+  /* the server half — Greg */
+  --mint-soft:#E3F3EC;
+  --mint-line:#A5D6C1;
+  --mint-ink:#265643;
+  --mint-badge:#3E8E70;
+
+  --stop:#C4436B;
+  --stop-soft:#FBE7EC;
+  --warn:#8A5A12;
+  --warn-soft:#FBF0DC;
+  --ok:#2F7A58;
+
+  --f:"Nunito","Trebuchet MS",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --shadow:0 1px 2px rgba(28,16,48,.04), 0 12px 28px -18px rgba(28,16,48,.35);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#15101F;
+    --surface:#1F1830;
+    --surface-2:#251D38;
+    --hairline:#382D4E;
+    --hairline-2:#473A61;
+    --ink:#F0EAF8;
+    --ink-2:#DCD3EC;
+    --ink-muted:#ABA2C0;
+    --ink-faint:#7A6F95;
+    --accent:#EE8FCE;
+    --accent-soft:#3A2140;
+
+    --lilac-soft:#2E2445;
+    --lilac-line:#5C4A8A;
+    --lilac-ink:#D7C8F5;
+    --lilac-badge:#A98BE0;
+
+    --mint-soft:#1E3830;
+    --mint-line:#3C7360;
+    --mint-ink:#AEE0CB;
+    --mint-badge:#5FB893;
+
+    --stop:#F090A8;
+    --stop-soft:#3B2029;
+    --warn:#E0B266;
+    --warn-soft:#3A2E17;
+    --ok:#7FD0AA;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 28px -18px rgba(0,0,0,.8);
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font:400 16px/1.62 var(--f);
+  padding:0 20px 90px;
+}
+.wrap{max-width:940px;margin:0 auto}
+
+/* ---------- header ---------- */
+header{padding:56px 0 8px}
+.eyebrow{
+  font:800 11.5px/1 var(--f); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 16px;
+}
+h1{
+  font:900 clamp(34px,6vw,52px)/1.06 var(--f);
+  letter-spacing:-.022em; margin:0 0 14px;
+}
+h1 .soft{color:var(--ink-faint)}
+.lede{
+  font:400 clamp(17px,2.2vw,20px)/1.55 var(--f);
+  color:var(--ink-2); max-width:640px; margin:0 0 22px;
+}
+.byline{
+  font:600 13px/1.5 var(--f); color:var(--ink-faint);
+  border-top:1px solid var(--hairline); padding-top:14px;
+}
+.byline a{color:var(--ink-muted)}
+
+/* ---------- section scaffolding ---------- */
+section{margin-top:62px}
+.sec-num{
+  font:800 11.5px/1 var(--f); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-faint); margin:0 0 10px;
+}
+h2{
+  font:900 clamp(24px,3.4vw,31px)/1.18 var(--f);
+  letter-spacing:-.016em; margin:0 0 12px;
+}
+h3{font:800 17px/1.3 var(--f); margin:30px 0 8px; letter-spacing:-.008em}
+p{margin:0 0 14px; max-width:680px}
+a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:2px}
+strong{font-weight:800}
+.small{font-size:14px; color:var(--ink-muted)}
+
+/* ---------- the two halves ---------- */
+.halves{
+  display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:26px 0 8px;
+}
+.half{
+  border-radius:20px; padding:20px 22px 22px; border:1px solid;
+}
+.half.phone{background:var(--lilac-soft); border-color:var(--lilac-line)}
+.half.server{background:var(--mint-soft); border-color:var(--mint-line)}
+.half .who{
+  font:800 11.5px/1 var(--f); letter-spacing:.14em; text-transform:uppercase;
+  margin:0 0 10px;
+}
+.half.phone .who{color:var(--lilac-badge)}
+.half.server .who{color:var(--mint-badge)}
+.half h4{font:900 22px/1.2 var(--f); margin:0 0 8px; letter-spacing:-.015em}
+.half.phone h4{color:var(--lilac-ink)}
+.half.server h4{color:var(--mint-ink)}
+.half p{margin:0 0 10px; font-size:15px; max-width:none}
+.half.phone p{color:var(--lilac-ink)}
+.half.server p{color:var(--mint-ink)}
+.half .eg{
+  font-size:13.5px; line-height:1.5; opacity:.82; margin:0;
+  padding-top:10px; border-top:1px dashed;
+}
+.half.phone .eg{border-color:var(--lilac-line); color:var(--lilac-ink)}
+.half.server .eg{border-color:var(--mint-line); color:var(--mint-ink)}
+
+blockquote{
+  margin:24px 0; padding:2px 0 2px 20px;
+  border-left:3px solid var(--accent);
+  font:600 18px/1.5 var(--f); color:var(--ink-2); max-width:660px;
+}
+blockquote cite{display:block; font:600 13px/1.5 var(--f); color:var(--ink-faint); font-style:normal; margin-top:8px}
+
+.punch{
+  background:var(--surface); border:1px solid var(--hairline);
+  border-radius:18px; padding:20px 22px; margin:24px 0 0; box-shadow:var(--shadow);
+}
+.punch p:last-child{margin-bottom:0}
+.punch .k{font:900 15px/1.4 var(--f); color:var(--accent); margin:0 0 6px}
+
+/* ---------- diagram ---------- */
+.figure{
+  margin:26px 0 0; background:var(--surface); border:1px solid var(--hairline);
+  border-radius:20px; padding:20px; box-shadow:var(--shadow);
+}
+.figscroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+.figure svg{display:block; width:100%; min-width:780px; height:auto}
+figcaption{
+  font:600 13px/1.55 var(--f); color:var(--ink-muted);
+  margin-top:14px; padding-top:12px; border-top:1px solid var(--hairline);
+}
+
+/* ---------- glossary ---------- */
+.gloss-group{margin-top:26px}
+.gloss-head{
+  font:800 11.5px/1 var(--f); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-faint); margin:0 0 12px;
+  display:flex; align-items:center; gap:12px;
+}
+.gloss-head::after{content:""; flex:1; height:1px; background:var(--hairline)}
+.gloss{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.term{
+  background:var(--surface); border:1px solid var(--hairline);
+  border-radius:16px; padding:15px 17px 16px;
+}
+.term .w{font:900 16.5px/1.25 var(--f); margin:0 0 5px; letter-spacing:-.01em}
+.term .w .alt{font-weight:600; color:var(--ink-faint); font-size:13.5px}
+.term .d{font-size:14.5px; line-height:1.52; color:var(--ink-2); margin:0}
+.term .ours{
+  font-size:13.5px; line-height:1.5; color:var(--ink-muted);
+  margin:9px 0 0; padding-top:9px; border-top:1px dashed var(--hairline-2);
+}
+.term .ours b{color:var(--ink); font-weight:800}
+.term .src{font-size:12px; color:var(--ink-faint); margin:7px 0 0}
+.tag{
+  display:inline-block; font:800 10px/1 var(--f); letter-spacing:.09em;
+  text-transform:uppercase; padding:4px 7px; border-radius:6px; vertical-align:2px;
+  margin-left:7px;
+}
+.tag.n{background:var(--lilac-soft); color:var(--lilac-badge); border:1px solid var(--lilac-line)}
+.tag.g{background:var(--mint-soft); color:var(--mint-badge); border:1px solid var(--mint-line)}
+.tag.both{background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent)}
+
+/* ---------- roadmap rail ---------- */
+.rail{
+  display:flex; flex-wrap:wrap; gap:7px; margin:24px 0 18px; align-items:stretch;
+}
+.stage{
+  flex:1 1 60px; min-width:58px; border-radius:12px; padding:9px 7px 10px;
+  text-align:center; border:1px solid var(--hairline); background:var(--surface);
+}
+.stage .n{font:900 17px/1 var(--f); display:block; margin-bottom:4px}
+.stage .l{font:700 9.5px/1.25 var(--f); letter-spacing:.03em; text-transform:uppercase; color:var(--ink-faint); display:block}
+.stage.done{background:var(--mint-soft); border-color:var(--mint-line)}
+.stage.done .n{color:var(--mint-badge)}
+.stage.done .l{color:var(--mint-ink); opacity:.8}
+.stage.now{background:var(--accent-soft); border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+.stage.now .n,.stage.now .l{color:var(--accent)}
+.stage.gate{border-color:var(--warn); border-style:dashed; background:var(--warn-soft)}
+.stage.gate .n{color:var(--warn)} .stage.gate .l{color:var(--warn); opacity:.9}
+
+.cols{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px}
+.col{background:var(--surface); border:1px solid var(--hairline); border-radius:16px; padding:16px 17px 18px}
+.col h5{font:900 12px/1 var(--f); letter-spacing:.11em; text-transform:uppercase; margin:0 0 12px}
+.col.a h5{color:var(--ok)} .col.b h5{color:var(--accent)} .col.c h5{color:var(--warn)}
+.col ul{margin:0; padding:0; list-style:none}
+.col li{font-size:14px; line-height:1.48; margin:0 0 9px; padding-left:19px; position:relative; color:var(--ink-2)}
+.col li::before{position:absolute; left:0; top:0; font-weight:900}
+.col.a li::before{content:"✓"; color:var(--ok)}
+.col.b li::before{content:"→"; color:var(--accent)}
+.col.c li::before{content:"!"; color:var(--warn)}
+.col li b{font-weight:800; color:var(--ink)}
+
+/* ---------- callout ---------- */
+.callout{
+  margin-top:26px; border-radius:20px; padding:22px 24px 24px;
+  background:var(--warn-soft); border:1px solid var(--warn);
+}
+.callout h3{margin:0 0 6px; color:var(--warn); font-size:20px}
+.callout > p{color:var(--ink-2); max-width:none}
+.sign{display:grid; gap:10px; margin-top:16px}
+.sig{
+  background:var(--surface); border:1px solid var(--hairline); border-radius:14px;
+  padding:13px 15px; display:grid; grid-template-columns:auto 1fr; gap:13px; align-items:start;
+}
+.sig .id{
+  font:900 12px/1 var(--f-mono); color:var(--warn); background:var(--warn-soft);
+  border:1px solid var(--warn); border-radius:7px; padding:6px 8px; white-space:nowrap;
+}
+.sig .t{font-size:14.5px; line-height:1.5; color:var(--ink-2); margin:0}
+.sig .t b{color:var(--ink); font-weight:800}
+
+/* ---------- build steps ---------- */
+.steps{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:22px}
+.step{
+  border-radius:16px; padding:15px 16px 17px; border:1px solid var(--hairline);
+  background:var(--surface);
+}
+.step .sn{
+  font:800 11px/1 var(--f); letter-spacing:.1em; color:var(--ink-faint);
+  display:block; margin-bottom:7px;
+}
+.step .sh{font:900 15.5px/1.25 var(--f); margin:0 0 5px; letter-spacing:-.01em}
+.step p{font-size:13.5px; line-height:1.48; color:var(--ink-muted); margin:0; max-width:none}
+.step.n{background:var(--lilac-soft); border-color:var(--lilac-line)}
+.step.n .sh{color:var(--lilac-ink)} .step.n p{color:var(--lilac-ink); opacity:.85}
+.step.n .sn{color:var(--lilac-badge)}
+.step.g{background:var(--mint-soft); border-color:var(--mint-line)}
+.step.g .sh{color:var(--mint-ink)} .step.g p{color:var(--mint-ink); opacity:.85}
+.step.g .sn{color:var(--mint-badge)}
+
+/* ---------- sources ---------- */
+.sources{margin-top:26px; border-top:1px solid var(--hairline); padding-top:20px}
+.sources ul{margin:0; padding:0; list-style:none; columns:2; column-gap:30px}
+.sources li{font-size:13px; line-height:1.55; margin:0 0 8px; break-inside:avoid; color:var(--ink-muted)}
+
+footer{
+  margin-top:56px; padding-top:20px; border-top:1px solid var(--hairline);
+  font-size:13px; line-height:1.6; color:var(--ink-faint);
+}
+code{font:500 .9em var(--f-mono); background:var(--surface-2); border:1px solid var(--hairline); border-radius:5px; padding:1px 5px}
+
+@media (max-width:760px){
+  .halves,.gloss,.cols,.steps{grid-template-columns:1fr}
+  .sources ul{columns:1}
+  header{padding-top:38px}
+  section{margin-top:48px}
+}
+</style>
+
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Widget Rather · start here if you're lost</p>
+  <h1>Plain English.<br><span class="soft">What the words mean, and where we actually are.</span></h1>
+  <p class="lede">Neither of us has shipped an app before. This page is the ground floor: no jargon without a translation, and a straight answer on how far along we really are.</p>
+  <p class="byline">Written 2026-09-14 by Greg's session · Everything here is either quoted from a source linked at the bottom, or taken from our own docs. Nothing is from memory (<a href="../CLAUDE.md">CLAUDE.md</a>, Rule 1).</p>
+</header>
+
+<!-- ============================================================ -->
+<section>
+  <p class="sec-num">01 — The thing you asked about</p>
+  <h2>An app is two halves</h2>
+
+  <p>Every app is split in two, and the split is what "front end" and "back end" are naming. Amazon's own explainer puts it like this:</p>
+
+  <blockquote>
+    "You can think of the frontend as the exterior of a car and the backend as all the machinery inside. A beautifully designed car will only run optimally if the internal machinery works properly."
+    <cite>Amazon Web Services, <em>Front End vs Back End</em></cite>
+  </blockquote>
+
+  <div class="halves">
+    <div class="half phone">
+      <p class="who">Noah's half</p>
+      <h4>Front end</h4>
+      <p>"The frontend is what your users see and includes visual elements like buttons, checkboxes, graphics, and text messages."</p>
+      <p class="eg"><strong>In Widget Rather:</strong> every screen, the widget's look, the Pastel Critters, the pink and blue option pills, the results bars, the emoji reaction row. It lives <em>on each person's phone</em>.</p>
+    </div>
+    <div class="half server">
+      <p class="who">Greg's half</p>
+      <h4>Back end</h4>
+      <p>"The backend is the data and infrastructure that make your application work. It stores and processes application data."</p>
+      <p class="eg"><strong>In Widget Rather:</strong> the question schedule, everybody's votes, the group percentages, and the rules about who's allowed to see what. It lives on <em>one computer that all the phones talk to</em>.</p>
+    </div>
+  </div>
+
+  <h3>The test that always works</h3>
+  <p><strong>If it happens on your phone, it's front end. If it happens on one shared computer that every phone talks to, it's back end.</strong> That's it. That's the whole distinction.</p>
+
+  <p>AWS points out the consequence that actually matters: on the front end "every user has their own copy of an application in their browser or mobile app", while "the backend may have to handle thousands of requests simultaneously." One copy each, versus one copy for everyone.</p>
+
+  <div class="punch">
+    <p class="k">So why do we need a back end at all?</p>
+    <p>Because Widget Rather is about <em>other people</em>. A calculator app needs no back end — everything happens on your phone and nobody else is involved. But <strong>"how did my friends answer?" is information that is not on your phone.</strong> Something has to hold everyone's answers in one place and do the counting. That something is the back end.</p>
+    <p style="margin-top:12px">The back end exists because the app is social. If we ever cut the social part, most of Greg's job disappears with it.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <p class="sec-num">02 — The mechanism</p>
+  <h2>One morning, start to finish</h2>
+  <p>This is the entire product in seven steps. Follow the numbers and watch where the line gets crossed — and, at step 4, where it doesn't.</p>
+
+  <figure class="figure">
+    <div class="figscroll">
+    <svg viewBox="0 0 914 372" role="img" aria-labelledby="digt digd">
+      <title id="digt">How one morning's question travels between the phone and the server</title>
+      <desc id="digd">Steps 1 and 2 happen on the server: the question waits in the database and a push is sent. Steps 3 to 5 happen on the phone: the widget wakes, you tap, and your vote is stored locally because the widget cannot reach the server. Step 6 happens on the server: the vote is recorded and counted. Step 7 returns the results to your screen.</desc>
+
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--ink-faint)"/>
+        </marker>
+      </defs>
+
+      <!-- band tints -->
+      <rect x="0" y="8" width="914" height="160" rx="16" fill="var(--lilac-soft)" opacity=".45"/>
+      <rect x="0" y="212" width="914" height="160" rx="16" fill="var(--mint-soft)" opacity=".5"/>
+
+      <!-- the dividing line -->
+      <line x1="10" y1="190" x2="904" y2="190" stroke="var(--hairline-2)" stroke-width="1.5" stroke-dasharray="7 6"/>
+
+      <!-- band labels, sitting in the space the story leaves empty -->
+      <text x="26" y="52" font-family="Nunito,sans-serif" font-size="11" font-weight="800" letter-spacing="1.6" fill="var(--lilac-badge)">ON THE PHONE</text>
+      <text x="26" y="78" font-family="Nunito,sans-serif" font-size="19" font-weight="900" fill="var(--lilac-ink)">Noah's half</text>
+      <text x="26" y="100" font-family="Nunito,sans-serif" font-size="12.5" fill="var(--lilac-ink)" opacity=".8">Everything you can see</text>
+      <text x="26" y="117" font-family="Nunito,sans-serif" font-size="12.5" fill="var(--lilac-ink)" opacity=".8">and tap. One copy per</text>
+      <text x="26" y="134" font-family="Nunito,sans-serif" font-size="12.5" fill="var(--lilac-ink)" opacity=".8">person, on their phone.</text>
+
+      <text x="332" y="256" font-family="Nunito,sans-serif" font-size="11" font-weight="800" letter-spacing="1.6" fill="var(--mint-badge)">ON THE SERVER</text>
+      <text x="332" y="282" font-family="Nunito,sans-serif" font-size="19" font-weight="900" fill="var(--mint-ink)">Greg's half</text>
+      <text x="332" y="304" font-family="Nunito,sans-serif" font-size="12.5" fill="var(--mint-ink)" opacity=".8">One computer that every phone talks to. Nobody</text>
+      <text x="332" y="321" font-family="Nunito,sans-serif" font-size="12.5" fill="var(--mint-ink)" opacity=".8">ever opens it or looks at it — not us, not users.</text>
+      <text x="332" y="338" font-family="Nunito,sans-serif" font-size="12.5" fill="var(--mint-ink)" opacity=".8">Supabase rents it to us and runs it (D-005).</text>
+
+      <!-- ===== step 1 ===== -->
+      <g>
+        <rect x="19" y="228" width="126" height="100" rx="14" fill="var(--surface)" stroke="var(--mint-line)" stroke-width="1.5"/>
+        <circle cx="38" cy="247" r="11" fill="var(--mint-badge)"/>
+        <text x="38" y="251" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">1</text>
+        <text x="55" y="251" font-family="Nunito,sans-serif" font-size="12.5" font-weight="900" fill="var(--mint-ink)">Night before</text>
+        <text x="32" y="275" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">Tomorrow's question</text>
+        <text x="32" y="289" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">sits in the database,</text>
+        <text x="32" y="303" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">with a random drop</text>
+        <text x="32" y="317" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">time per time zone.</text>
+      </g>
+      <line x1="147" y1="278" x2="165" y2="278" stroke="var(--ink-faint)" stroke-width="1.6" marker-end="url(#ah)"/>
+
+      <!-- ===== step 2 ===== -->
+      <g>
+        <rect x="169" y="228" width="126" height="100" rx="14" fill="var(--surface)" stroke="var(--mint-line)" stroke-width="1.5"/>
+        <circle cx="188" cy="247" r="11" fill="var(--mint-badge)"/>
+        <text x="188" y="251" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">2</text>
+        <text x="205" y="251" font-family="Nunito,sans-serif" font-size="12.5" font-weight="900" fill="var(--mint-ink)">Around 7am</text>
+        <text x="182" y="275" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">The server sends the</text>
+        <text x="182" y="289" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">push notification. It</text>
+        <text x="182" y="303" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">also tells the widget</text>
+        <text x="182" y="317" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">to reload itself.</text>
+      </g>
+      <path d="M232,228 C232,172 342,196 342,132" fill="none" stroke="var(--ink-faint)" stroke-width="1.6" marker-end="url(#ah)"/>
+      <text x="258" y="215" font-family="Nunito,sans-serif" font-size="10" font-weight="700" fill="var(--ink-faint)">crosses over</text>
+
+      <!-- ===== step 3 ===== -->
+      <g>
+        <rect x="319" y="24" width="126" height="100" rx="14" fill="var(--surface)" stroke="var(--lilac-line)" stroke-width="1.5"/>
+        <circle cx="338" cy="43" r="11" fill="var(--lilac-badge)"/>
+        <text x="338" y="47" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">3</text>
+        <text x="355" y="47" font-family="Nunito,sans-serif" font-size="12.5" font-weight="900" fill="var(--lilac-ink)">It appears</text>
+        <text x="332" y="71" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">The widget wakes up</text>
+        <text x="332" y="85" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">on the home screen</text>
+        <text x="332" y="99" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">showing the question:</text>
+        <text x="332" y="113" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">pink or blue.</text>
+      </g>
+      <line x1="447" y1="74" x2="465" y2="74" stroke="var(--ink-faint)" stroke-width="1.6" marker-end="url(#ah)"/>
+
+      <!-- ===== step 4 ===== -->
+      <g>
+        <rect x="469" y="24" width="126" height="100" rx="14" fill="var(--surface)" stroke="var(--lilac-line)" stroke-width="1.5"/>
+        <circle cx="488" cy="43" r="11" fill="var(--lilac-badge)"/>
+        <text x="488" y="47" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">4</text>
+        <text x="505" y="47" font-family="Nunito,sans-serif" font-size="12.5" font-weight="900" fill="var(--lilac-ink)">You tap</text>
+        <text x="482" y="71" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">Your answer is saved</text>
+        <text x="482" y="85" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">on your phone —</text>
+        <text x="482" y="99" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">and nowhere else,</text>
+        <text x="482" y="113" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">not yet.</text>
+      </g>
+      <!-- the arrow that does NOT make it across -->
+      <line x1="532" y1="124" x2="532" y2="142" stroke="var(--stop)" stroke-width="1.6" stroke-dasharray="3 3"/>
+      <circle cx="532" cy="156" r="9.5" fill="var(--stop-soft)" stroke="var(--stop)" stroke-width="1.5"/>
+      <path d="M528.2,152.2 L535.8,159.8 M535.8,152.2 L528.2,159.8" stroke="var(--stop)" stroke-width="1.7" stroke-linecap="round"/>
+      <text x="549" y="154" font-family="Nunito,sans-serif" font-size="11" font-weight="800" fill="var(--stop)">Can't reach the server.</text>
+      <text x="549" y="168" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--stop)" opacity=".85">This is the surprise. D-020.</text>
+
+      <!-- ===== step 5 ===== -->
+      <g>
+        <rect x="619" y="24" width="126" height="100" rx="14" fill="var(--surface)" stroke="var(--lilac-line)" stroke-width="1.5"/>
+        <circle cx="638" cy="43" r="11" fill="var(--lilac-badge)"/>
+        <text x="638" y="47" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">5</text>
+        <text x="655" y="47" font-family="Nunito,sans-serif" font-size="12.5" font-weight="900" fill="var(--lilac-ink)">App opens</text>
+        <text x="632" y="71" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">Later, when you open</text>
+        <text x="632" y="85" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">the app, the saved</text>
+        <text x="632" y="99" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">vote finally travels</text>
+        <text x="632" y="113" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">up to the server.</text>
+      </g>
+      <path d="M735,124 C735,182 800,168 800,226" fill="none" stroke="var(--ink-faint)" stroke-width="1.6" marker-end="url(#ah)"/>
+
+      <!-- ===== step 6 ===== -->
+      <g>
+        <rect x="769" y="228" width="126" height="100" rx="14" fill="var(--surface)" stroke="var(--mint-line)" stroke-width="1.5"/>
+        <circle cx="788" cy="247" r="11" fill="var(--mint-badge)"/>
+        <text x="788" y="251" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">6</text>
+        <text x="805" y="251" font-family="Nunito,sans-serif" font-size="12.5" font-weight="900" fill="var(--mint-ink)">The count</text>
+        <text x="782" y="275" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">First tap wins; any</text>
+        <text x="782" y="289" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">duplicate is thrown</text>
+        <text x="782" y="303" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">away. Totals worked</text>
+        <text x="782" y="317" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">out per group.</text>
+      </g>
+      <path d="M860,228 L860,134" fill="none" stroke="var(--ink-faint)" stroke-width="1.6" marker-end="url(#ah)"/>
+
+      <!-- ===== step 7 ===== -->
+      <g>
+        <rect x="769" y="24" width="126" height="100" rx="14" fill="var(--surface)" stroke="var(--lilac-line)" stroke-width="1.5"/>
+        <circle cx="788" cy="43" r="11" fill="var(--lilac-badge)"/>
+        <text x="788" y="47" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">7</text>
+        <text x="805" y="47" font-family="Nunito,sans-serif" font-size="12.5" font-weight="900" fill="var(--lilac-ink)">The payoff</text>
+        <text x="782" y="71" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">Your screen draws the</text>
+        <text x="782" y="85" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">split, the insights, the</text>
+        <text x="782" y="99" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">critters and the emoji</text>
+        <text x="782" y="113" font-family="Nunito,sans-serif" font-size="10.5" fill="var(--ink-2)">reactions.</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>Steps 1, 2 and 6 are Greg's. Steps 3, 4, 5 and 7 are Noah's. The whole middle of the story happens on the phone, which is why the bottom of the diagram is empty there.</figcaption>
+  </figure>
+
+  <h3>Step 4 is the thing that just changed</h3>
+  <p>We assumed a widget button could talk straight to the server. Expo's own documentation says it can't: widget code "cannot perform asynchronous work, import other modules, or access your app's runtime or in-memory state", and the value a button's <code>onPress</code> returns just "becomes the widget's new props."</p>
+  <p>Translated: <strong>tapping the widget writes to your own phone, and the vote only reaches everyone else the next time you open the app.</strong> The widget can flip to "answered" instantly, but any numbers it shows are from the last push, not from your tap. That's what decision <strong>D-020</strong> is about, and it's why the spec's core loop needs one sentence reworded.</p>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <p class="sec-num">03 — Translations</p>
+  <h2>The word list</h2>
+  <p>Fourteen words that come up constantly. Top line is what it means anywhere; bottom line is what it is <em>for us</em>.</p>
+
+  <div class="gloss-group">
+    <p class="gloss-head">The two halves</p>
+    <div class="gloss">
+
+      <div class="term">
+        <p class="w">Client <span class="alt">also: front end</span><span class="tag n">Noah</span></p>
+        <p class="d">The copy of the app running on one person's device. It asks for things; it doesn't own anything.</p>
+        <p class="ours"><b>Ours:</b> the iPhone app and the widget.</p>
+      </div>
+
+      <div class="term">
+        <p class="w">Server <span class="alt">also: back end</span><span class="tag g">Greg</span></p>
+        <p class="d">A computer that sits there waiting. Servers "wait for client request messages, process them when they arrive, and reply."</p>
+        <p class="ours"><b>Ours:</b> we don't own or touch one. Supabase runs it for us.</p>
+        <p class="src">MDN, <em>Client-Server overview</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">Database<span class="tag g">Greg</span></p>
+        <p class="d">The part of the server that actually remembers things, organised into tables — like a huge, very strict spreadsheet.</p>
+        <p class="ours"><b>Ours:</b> tables for questions, users, groups, votes, reactions. It's PostgreSQL, which is what Supabase is built on.</p>
+        <p class="src">Supabase, <em>Architecture</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">API <span class="alt">the data layer</span><span class="tag both">the handshake</span></p>
+        <p class="d">"A set of features and rules… can be seen as a simple contract (the interface)" between two pieces of software. A menu: you order from it, you don't walk into the kitchen.</p>
+        <p class="ours"><b>Ours:</b> Greg writes functions like <code>getTodaysQuestion()</code>, <code>submitAnswer()</code>, <code>joinGroup(code)</code>. Noah's screens call <em>only</em> those and never touch the database directly. That rule is already in <a href="MVP-GAMEPLAN.md">MVP-GAMEPLAN.md</a>, "the contract".</p>
+        <p class="src">MDN Glossary, <em>API</em></p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="gloss-group">
+    <p class="gloss-head">Our tools, and what each one is for</p>
+    <div class="gloss">
+
+      <div class="term">
+        <p class="w">Expo <span class="alt">React Native</span><span class="tag both">both</span></p>
+        <p class="d">"A React Native framework that makes developing Android and iOS apps easier."</p>
+        <p class="ours"><b>Ours:</b> how we write one app in TypeScript and get a real iPhone app out of it. Decided in D-005.</p>
+        <p class="src">Expo docs, <em>Introduction</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">expo-widgets<span class="tag n">Noah</span></p>
+        <p class="d">"A library to build iOS home screen widgets and Live Activities using Expo UI components."</p>
+        <p class="ours"><b>Ours:</b> the home-screen widget itself — and the source of the step-4 limit above.</p>
+        <p class="src">Expo SDK 57 docs, <em>Widgets</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">EAS Build<span class="tag g">Greg</span></p>
+        <p class="d">"A hosted service for building app binaries" — you send your code up, a machine in the cloud turns it into an installable app and sends it back. iOS builds run on "macOS runners hosted in Expo's macOS cloud."</p>
+        <p class="ours"><b>Ours:</b> this is the reason none of us needs to buy a Mac. Greg runs every build.</p>
+        <p class="src">Expo docs, <em>EAS Build</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">Supabase<span class="tag g">Greg</span></p>
+        <p class="d">A back end in a box: a PostgreSQL database, plus sign-in ("a JWT-based API for managing users and issuing access tokens"), realtime updates, file storage and small server functions.</p>
+        <p class="ours"><b>Ours:</b> effectively all of Greg's half, rented rather than built. D-005.</p>
+        <p class="src">Supabase, <em>Architecture</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">RLS <span class="alt">row level security</span><span class="tag g">Greg</span></p>
+        <p class="d">"Granular authorization rules that run inside the database" — the rules live with the data, not in the app, so they hold even if someone gets at the database another way.</p>
+        <p class="ours"><b>Ours:</b> the thing that stops a stranger reading your friend group's answers. The roadmap says it goes in from day one, not later (step 4.4).</p>
+        <p class="src">Supabase, <em>Row Level Security</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">Push notification<span class="tag g">Greg</span></p>
+        <p class="d">A message the server sends to a phone without the phone asking. It can wake an app up.</p>
+        <p class="ours"><b>Ours:</b> the morning drop. One push per time zone tells every phone "there's a question", and the same push tells the widget to reload. Step 2 in the diagram; D-008 §3.</p>
+      </div>
+
+      <div class="term">
+        <p class="w">Simulator<span class="tag both">both</span></p>
+        <p class="d">A fake iPhone running on a normal computer. It behaves like the real thing for most purposes and costs nothing.</p>
+        <p class="ours"><b>Ours:</b> how we test everything before paying Apple $99. D-013 and <a href="../research/testing-without-apple-account.md">testing-without-apple-account.md</a>.</p>
+      </div>
+
+      <div class="term">
+        <p class="w">TestFlight<span class="tag both">both</span></p>
+        <p class="d">Apple's beta system. It "makes it easy for testers to give feedback on your apps… before you publish" — up to 100 internal testers and up to 10,000 external ones.</p>
+        <p class="ours"><b>Ours:</b> stage 7, how the app gets onto our friends' real phones before the App Store. Needs the paid account first.</p>
+        <p class="src">Apple, <em>TestFlight</em></p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="gloss-group">
+    <p class="gloss-head">How we work</p>
+    <div class="gloss">
+
+      <div class="term">
+        <p class="w">Branch<span class="tag both">both</span></p>
+        <p class="d">Your own copy of the project to work in — "a space to work without affecting the default branch."</p>
+        <p class="ours"><b>Ours:</b> you branch, you build one thing, you don't break anyone else while you do it. D-011.</p>
+        <p class="src">GitHub docs, <em>GitHub flow</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">Pull request <span class="alt">PR</span><span class="tag both">both</span></p>
+        <p class="d">How you hand your branch back: it's how you "ask collaborators for feedback on your changes" before they get merged in.</p>
+        <p class="ours"><b>Ours:</b> one PR per feature, reviewed by the other person, then merged. <a href="COLLABORATION.md">COLLABORATION.md</a>.</p>
+        <p class="src">GitHub docs, <em>GitHub flow</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">MVP <span class="alt">minimum viable product</span><span class="tag both">both</span></p>
+        <p class="d">"That version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort." Eric Ries adds the warning: "MVP, despite the name, is not about creating minimal products."</p>
+        <p class="ours"><b>Ours:</b> <a href="MVP-SPEC.md">MVP-SPEC.md</a>. The smallest thing that answers "will teenagers come back tomorrow?" — not the smallest thing we can be bothered to build.</p>
+        <p class="src">Lean Startup Co., <em>What is an MVP?</em></p>
+      </div>
+
+      <div class="term">
+        <p class="w">Spike<span class="tag g">Greg</span></p>
+        <p class="d">A short throwaway experiment whose only job is to answer one question before you build on the answer.</p>
+        <p class="ours"><b>Ours:</b> the widget spike, roadmap step 4.3. It used to ask "can a widget button reach the server?" — the docs answered that (no), so now it asks "how late do votes actually turn up?"</p>
+      </div>
+
+      <div class="term">
+        <p class="w">Decision <span class="alt">D-001, D-018…</span><span class="tag both">both</span></p>
+        <p class="d">Our own invention, not an industry term. A numbered, dated, signed entry in <a href="DECISIONS.md">DECISIONS.md</a>.</p>
+        <p class="ours"><b>Ours:</b> saying something in a chat doesn't make it true for the team. It's <code>PROPOSED</code> until Noah <em>and</em> Greg both tick it, then it's <code>DECIDED</code>. That's D-017.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <p class="sec-num">04 — The honest answer</p>
+  <h2>Where we actually are</h2>
+
+  <p><strong>There is no app code. Not one line — and that's on purpose, not because we're behind.</strong> Noah's own call (D-014) was that we finish defining, designing and setting up the accounts before anyone writes code. The roadmap has thirteen stages; writing code starts at stage 4.</p>
+
+  <div class="rail">
+    <div class="stage done"><span class="n">0</span><span class="l">Found&shy;ations</span></div>
+    <div class="stage now"><span class="n">1</span><span class="l">You are here</span></div>
+    <div class="stage"><span class="n">2</span><span class="l">Design</span></div>
+    <div class="stage"><span class="n">3</span><span class="l">Accounts &amp; legal</span></div>
+    <div class="stage gate"><span class="n">4</span><span class="l">Code starts</span></div>
+    <div class="stage"><span class="n">5</span><span class="l">Build MVP</span></div>
+    <div class="stage"><span class="n">6</span><span class="l">Harden</span></div>
+    <div class="stage"><span class="n">7</span><span class="l">Beta</span></div>
+    <div class="stage"><span class="n">8</span><span class="l">Submit</span></div>
+    <div class="stage"><span class="n">9</span><span class="l">Launch</span></div>
+    <div class="stage"><span class="n">10</span><span class="l">Run it</span></div>
+    <div class="stage"><span class="n">11</span><span class="l">Grow</span></div>
+    <div class="stage"><span class="n">12</span><span class="l">Expand</span></div>
+  </div>
+  <p class="small">Stage 1 is "define the product". Three stages stand between us and the first line of code, and all three are things only we can do — no coding skill required for any of them. Full detail: <a href="ROADMAP.md">ROADMAP.md</a>.</p>
+
+  <div class="cols">
+    <div class="col a">
+      <h5>Already done</h5>
+      <ul>
+        <li><b>The stack is chosen and signed</b> — Expo + expo-widgets + EAS + Supabase (D-005)</li>
+        <li>D-001 to D-017 all signed and <code>DECIDED</code> (bar D-012, replaced by D-017)</li>
+        <li>Concept mockups and a clickable prototype you can open in a browser</li>
+        <li><b>The MVP spec is drafted</b> (Greg signed it, with two conditions)</li>
+        <li>"Widget Rather" looks available as a name</li>
+        <li>Pastel Critters chosen as the avatar direction, 12-critter roster written</li>
+        <li>Roles settled: Greg back end, Noah front end + everything else</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h5>On right now</h5>
+      <ul>
+        <li><b>Noah:</b> question bank v1 — 60+ questions, hypotheticals only, never about real people</li>
+        <li><b>Noah:</b> test the critters at 22px (Fen vs Mochi, Maple vs Beanie)</li>
+        <li><b>Noah:</b> brand — wordmark, app icon, colours, fonts</li>
+        <li><b>Both:</b> the stage 0.5 sync — settle the exact drop window, who answers moderation reports, and reword the core loop for D-020</li>
+        <li><b>Greg:</b> the revised widget spike, once the hold lifts</li>
+      </ul>
+    </div>
+    <div class="col c">
+      <h5>In the way</h5>
+      <ul>
+        <li><b>Three decisions are unsigned</b>, all waiting on Noah — see below</li>
+        <li>Two of them are conditions on Greg's signature for the MVP scope. Until they land, the scope isn't truly settled</li>
+        <li>Stage 2 (design freeze) and stage 3 (accounts, policies, privacy policy, waitlist) are both untouched</li>
+        <li>Nothing here is blocked on money or on Apple yet</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>Noah — this is the shortest path forward</h3>
+    <p>Three boxes to tick in <a href="DECISIONS.md">DECISIONS.md</a>. In plain terms:</p>
+    <div class="sign">
+      <div class="sig">
+        <span class="id">D-018</span>
+        <p class="t"><b>Public communities show numbers only.</b> You'd see the split, the insights and how many people are in it — but no list of members, no individual strangers' picks, no reactions between strangers. Cheapest to build, and much less to moderate.</p>
+      </div>
+      <div class="sig">
+        <span class="id">D-019</span>
+        <p class="t"><b>Cap a friend group at 50 people.</b> The spec currently says no cap. "Your twin" compares you against every other member, so an uncapped group gets expensive fast. Fifty is big enough that no real friend group hits it.</p>
+      </div>
+      <div class="sig">
+        <span class="id">D-020</span>
+        <p class="t"><b>A widget tap is saved on your phone and syncs later.</b> Step 4 of the diagram. Not a choice we get to make — it's what Expo's documentation says a widget can do — but the spec's wording needs to match reality.</p>
+      </div>
+    </div>
+    <p style="margin:16px 0 0; font-size:14.5px"><strong>Why it matters:</strong> D-018 and D-019 are the conditions Greg attached to signing the MVP scope. If either goes the other way, D-008 drops back to <code>PROPOSED</code> and stage 1 isn't finished.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <p class="sec-num">05 — What building actually looks like</p>
+  <h2>How one feature gets made</h2>
+  <p>When the hold lifts, every feature gets built the same four ways round. It's the order Chris Raroque uses, and the reason it works is that Noah never has to wait for Greg to start.</p>
+
+  <div class="steps">
+    <div class="step n">
+      <span class="sn">STEP 1</span>
+      <p class="sh">Screen with fake data</p>
+      <p>Noah builds the results screen with made-up numbers typed straight into the code. It looks finished. It's connected to nothing.</p>
+    </div>
+    <div class="step g">
+      <span class="sn">STEP 2</span>
+      <p class="sh">Real data behind it</p>
+      <p>Greg builds the tables and writes <code>getGroupResults()</code>, which returns numbers in exactly the shape Noah's fake ones had.</p>
+    </div>
+    <div class="step n">
+      <span class="sn">STEP 3</span>
+      <p class="sh">Swap one for the other</p>
+      <p>Noah deletes the fake numbers and calls Greg's function instead. If step 1 and step 2 agreed on the shape, this is nearly a one-line change.</p>
+    </div>
+    <div class="step n">
+      <span class="sn">STEP 4</span>
+      <p class="sh">Polish and edge cases</p>
+      <p>What if you're offline? What if the group is empty? What if nobody's voted yet? This part takes longer than you'd think.</p>
+    </div>
+  </div>
+
+  <p style="margin-top:20px">Then: one branch, one pull request, the other person reads it, merge. Raroque's own summary of the sequence is "UI with dummy data → data model/backend → connect → polish" (<code>Q13QOgwoF0E @ 01:02</code>, via <a href="../research/raroque-playbook.md">raroque-playbook.md</a>).</p>
+
+  <div class="punch">
+    <p class="k">The one habit worth stealing now</p>
+    <p>Agree the <em>shape</em> of the data before either of you starts. If Noah's fake results and Greg's real results have the same field names, connecting them is trivial. If they don't, it's a day of arguing. That's the entire reason the "contract" rule exists in <a href="MVP-GAMEPLAN.md">MVP-GAMEPLAN.md</a>.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="sources">
+  <p class="sec-num">Sources</p>
+  <p class="small">Per CLAUDE.md Rule 1, every definition above is quoted from one of these, not written from memory. Project facts come from our own docs, linked inline.</p>
+  <ul>
+    <li>AWS — <a href="https://aws.amazon.com/compare/the-difference-between-frontend-and-backend/">Front End vs Back End</a> (front end, back end, the car analogy, concurrency)</li>
+    <li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview">Client-Server overview</a> (client, server, request/response)</li>
+    <li>MDN Glossary — <a href="https://developer.mozilla.org/en-US/docs/Glossary/API">API</a></li>
+    <li>Supabase — <a href="https://supabase.com/docs/guides/getting-started/architecture">Architecture</a> (Postgres, auth, realtime, storage, edge functions)</li>
+    <li>Supabase — <a href="https://supabase.com/docs/guides/database/postgres/row-level-security">Row Level Security</a></li>
+    <li>Expo — <a href="https://docs.expo.dev/get-started/introduction/">Introduction</a> (what Expo is)</li>
+    <li>Expo — <a href="https://docs.expo.dev/versions/v57.0.0/sdk/widgets/">SDK 57 Widgets</a> (the step-4 limit; D-020)</li>
+    <li>Expo — <a href="https://docs.expo.dev/build/introduction/">EAS Build</a> (cloud builds, macOS runners)</li>
+    <li>Apple — <a href="https://developer.apple.com/testflight/">TestFlight</a> (beta testing, tester limits)</li>
+    <li>GitHub — <a href="https://docs.github.com/en/get-started/using-github/github-flow">GitHub flow</a> (branch, pull request)</li>
+    <li>Lean Startup Co. — <a href="https://leanstartup.co/resources/articles/what-is-an-mvp/">What Is an MVP? Eric Ries Explains</a></li>
+    <li>Chris Raroque, <code>Q13QOgwoF0E @ 01:02</code> — the four-step build order, summarised in <a href="../research/raroque-playbook.md">raroque-playbook.md</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p><strong>Widget Rather — Plain English.</strong> Written 2026-09-14 in Greg's session, from <a href="STATUS.md">STATUS.md</a>, <a href="DECISIONS.md">DECISIONS.md</a>, <a href="ROADMAP.md">ROADMAP.md</a>, <a href="MVP-SPEC.md">MVP-SPEC.md</a> and <a href="MVP-GAMEPLAN.md">MVP-GAMEPLAN.md</a> as they stood that day.</p>
+  <p>This page explains; it doesn't decide. If something here disagrees with <a href="DECISIONS.md">DECISIONS.md</a>, the decision log wins. Re-read this after any decision changes, and update it.</p>
+</footer>
+
+</div>
+</body>
+</html>

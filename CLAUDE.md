@@ -66,6 +66,7 @@ Noah wants us to follow the approach of Chris Raroque (https://www.youtube.com/@
 | Path | What's there |
 |---|---|
 | `CLAUDE.md` | These rules |
+| `docs/PLAIN-ENGLISH.html` | Jargon-free explainer for Noah and Greg: what the words mean, how a question travels phone↔server, where we are. Open in a browser |
 | `docs/STATUS.md` | One-page current state. Read first |
 | `docs/DECISIONS.md` | Decision log: the single source of truth for what the team has decided |
 | `docs/COLLABORATION.md` | How the three of us work together (git, branches, PRs, accounts) |
