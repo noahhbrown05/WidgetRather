@@ -28,6 +28,7 @@ The single source of truth for what the Widget Rather team has decided.
 | D-019 | 2026-09-14 | **Friend groups get a size cap of 50**, replacing "no cap" in spec §6 | DECIDED | Greg | ☑ Noah ☐ Tiago ☑ Greg |
 | D-020 | 2026-09-14 | **Widget votes are local-only and sync late**: the widget cannot reach the server, so the backend accepts late/out-of-order votes with a client timestamp and rejects duplicates; the core loop is reworded so a widget tap doesn't promise live numbers | DECIDED (independently verified against the Expo SDK 57 docs, 2026-09-14) | Greg | ☑ Noah ☐ Tiago ☑ Greg |
 | D-021 | 2026-09-14 | **Build in two passes**: pass 1 is local-only (widget + question file + local save, no accounts or server), pass 2 wires the server in behind it. Pass 1 is a **build step, never a release**. Grants D-014 a **narrow exception**: plumbing may start now, front-end screens still wait for the design freeze | DECIDED | Greg | ☑ Noah ☐ Tiago ☑ Greg |
+| D-022 | 2026-09-14 | **Bundle identifier `com.widgetrather.app`** (widget extension `.widgets`, App Group `group.com.widgetrather.app`), set while scaffolding pass 1. Permanent once the app ships; depends on the domain Noah still has to register | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
 
 ---
 
@@ -188,8 +189,20 @@ A **narrow exception, not a lifted hold.** Proposed wording:
 - Gives Noah a running app to design against instead of a static prototype.
 - **Cost: nothing up front.** Simulator builds need no Apple account (D-013). Measuring real vote delay needs real phones, so that part still waits for the $99 account, exactly as already planned.
 
-### [UNVERIFIED] A possible bonus, to be settled by building it
+### [PARTLY VERIFIED 2026-09-14] A possible bonus, settled by building it
 Widgets are timeline-based — you pre-declare what shows when (`m5cRcii3pec @ 04:11`). If today's question *and* its drop time can both be computed on-device (e.g. derived deterministically from the date + time zone, so everyone in a zone lands on the same moment with nobody coordinating them), the **morning drop may not need the server at all**, leaving the server responsible only for the notification banner. That would shrink the back end meaningfully. Not confirmed — pass 1 is the cheapest way to find out.
+
+**Result (Greg, 2026-09-14, building pass 1):** the maths half is confirmed and the scheduling half is not, so this stays open but is now much narrower.
+- **Confirmed on Windows, no Mac or simulator needed:** today's question and its drop minute can both be derived from the device's *local calendar date* alone, so every phone in a time zone agrees with no server, no clock sync and no shared secret. `app/src/schedule.ts` is pure and `npm run check:schedule` proves it over 3,650 simulated days.
+- **Still UNVERIFIED:** that iOS actually fires a scheduled timeline entry at the drop minute. `updateTimeline` accepts future-dated entries ([SDK 57 docs](https://docs.expo.dev/versions/v57.0.0/sdk/widgets/)), but whether the system honours the exact minute needs a simulator build (ROADMAP 4.3). WidgetKit budgets refreshes, so it may fire late.
+- **One real bug came out of it, worth knowing:** the first version drifted the drop time by a single minute per day (07:31, 07:30, 07:29...) because a plain FNV-1a hash avalanches weakly when inputs differ only in the last character - and consecutive dates do. A user would have learned the pattern inside a week, quietly breaking MVP-SPEC section 4's promise of a random moment. Fixed with a hash finalizer; two regression checks now guard it.
+- **If the scheduling half holds,** the server's only job at drop time is the notification banner, which is a meaningfully smaller back end.
 
 ### Not included in this decision
 Greg separately raised **trimming MVP scope** back toward the original D-008 v1 — dropping public communities, the three insights, and two of the three widget sizes. That is **not proposed here** and would need its own decision. Noted so it isn't lost.
+
+## D-022: Bundle identifier and App Group
+- **Set by Greg (2026-09-14)** while scaffolding pass 1, because the widget cannot be configured without one: `expo-widgets` needs an App Group to share data between the app and the widget extension.
+- **The values:** app `com.widgetrather.app` · widget extension `com.widgetrather.app.widgets` · App Group `group.com.widgetrather.app`.
+- **Why it needs a signature rather than being a detail:** the bundle identifier is permanent once the app is on the App Store — it is how Apple identifies the app forever. It is also normally derived from a domain we own, and **Noah has not registered the domain yet** (ROADMAP 3.2, still open). Changing it today is one line; changing it after launch is not possible.
+- **What Noah is being asked:** confirm these values, or name different ones once the domain is settled. Pass 1 runs either way — nothing outside `app/app.json` depends on it.

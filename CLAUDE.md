@@ -10,14 +10,16 @@ Every fact, number, recommendation, and decision must be backed by **external, c
 - This includes library versions, APIs, pricing, laws, platform limits, and "best practices". Things change; check.
 - Don't claim you can't do something (e.g. "I can't read YouTube") without checking the tools and skills in this repo first.
 
-## RULE 2 — Research phase: no production code yet
+## RULE 2 — Plumbing may start; screens still wait
 
-Noah's direction (2026-09-10): **no coding or production work until the tech stack and positioning are decided.** This is a **learning project**: the goal is to prove the three of us can build and grow an app, so the first target is the smallest working MVP, not a long-lived company.
+_Updated 2026-09-14. This rule used to read "no production code yet". Both gates it named have now been passed, so it has been rewritten to say what is actually true. It is a record of decisions Noah and Greg already signed, not a new decision._
 
-- Allowed right now: research, writing docs, comparing options, mockups on paper, research tooling (like the transcript script).
-- Not allowed yet: scaffolding the app, installing app frameworks, writing app code.
-- The gate lifts only when `docs/DECISIONS.md` has the tech stack (D-005) and MVP scope/positioning (D-008) marked `DECIDED`, signed off by **Noah and Greg** (D-017).
-- **Also (D-014, Noah 2026-09-10):** development stays on hold until `docs/ROADMAP.md` Stages 1–3 are done (MVP spec, design freeze, accounts/legal). Follow the roadmap in order; don't propose timelines.
+Noah's original direction (2026-09-10) was **no coding until the tech stack and positioning are decided.** That gate has lifted: `docs/DECISIONS.md` now has **D-005 (stack) and D-008 (MVP scope) both `DECIDED`**, signed by Noah and Greg. This is still a **learning project** — the first target is the smallest working MVP, not a long-lived company.
+
+- **Allowed now:** research and docs as always, **plus back-end and native plumbing** — the Expo app in `app/`, the widget, the data layer, EAS builds. This is D-021's narrow exception to D-014, approved by Noah on 2026-09-14.
+- **Still not allowed:** **front-end screens.** They wait for the design freeze (`docs/ROADMAP.md` Stage 2) and they are Noah's (D-017). `app/App.tsx` is a dev harness, deliberately unstyled — don't grow it into a real screen.
+- **Follow the roadmap in order; don't propose timelines** (D-014).
+- **Pass 1 is a build step, never a release** (D-021). Don't prepare a launch of it.
 
 ## RULE 3 — Three-person team, three machines
 
@@ -74,6 +76,7 @@ Noah wants us to follow the approach of Chris Raroque (https://www.youtube.com/@
 | `docs/MVP-GAMEPLAN.md` | Roles and every MVP task ID with its owner |
 | `docs/sessions/` | One short summary per Claude session, per teammate |
 | `design/mockups/` | Concept mockups (direction, not final designs) |
+| `app/` | **The app (pass 1, D-021).** Expo SDK 57 + `expo-widgets`. Plumbing only — see `app/README.md`. `App.tsx` is a dev harness, not a design |
 | `prototype/` | Clickable form-only mockup of the MVP (`index.html`, open it in a browser). Not the app |
 | `research/` | Research write-ups (market, tech stack, safety/legal, Raroque playbook) |
 | `research/testing-without-apple-account.md` | How to test on Windows without the paid Apple account |
