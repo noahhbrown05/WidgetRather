@@ -1,6 +1,6 @@
 # MVP Spec: Widget Rather (draft v1)
 
-_ROADMAP step 1.1. Drafted 2026-09-11 from Noah's answers in his session. **Status: Greg signed 2026-09-14, conditional on D-018 (§9 Option A) + D-019 (friend-group size cap) — both need Noah.** Items marked **[proposed default]** are Claude's recommendations Noah didn't explicitly choose; items marked **[OPEN]** need a team decision. This draft **changes D-008's scope** (see "Impact" at the end)._
+_ROADMAP step 1.1. Drafted 2026-09-11; **D-008 is now DECIDED** (Noah + Greg, 2026-09-14) after Noah approved D-018 (communities = totals only), D-019 (friend-group cap 50), D-020 (widget votes sync late) and D-021 (two-pass build). Items marked **[proposed default]** are Claude's recommendations Noah hasn't explicitly confirmed; **[OPEN]** items still need a decision._
 
 ---
 
@@ -17,8 +17,8 @@ A daily "Would you rather?" that **drops at a random morning moment**, lives on 
 ## 3. The core loop
 1. The question drops at a random morning moment (same moment for everyone in a time zone).
 2. The widget flips from yesterday's results to today's question.
-3. You tap an answer on the widget (or in the app).
-4. The results unlock: your groups' split, plus the insights (§5). _(2026-09-14: when you answer **on the widget**, the numbers shown are as of the last push, not live — D-020.)_
+3. You tap an answer on the widget (or in the app). **On the widget this is a local save** — it reaches the server when the app next opens (D-020).
+4. The results unlock: your groups' split, plus the insights (§5). **On the widget the numbers are as of the last push, not live**; open the app for current numbers (D-020).
 5. You react to friends' picks and talk about it at school.
 
 ## 4. The daily question: rules
@@ -41,7 +41,7 @@ Noah asked for something more interesting than a plain global %. The MVP ships t
 | Insight | What you see | How it works **[proposed default thresholds]** |
 |---|---|---|
 | **Rare pick** | "Only 18% picked this. You're rare." / "You're with 71% of people." | Compares your pick to everyone who answered. ≤25% → "rare"; ≥75% → "with the crowd"; otherwise "Split: 54/46" |
-| **Your twin** | "You and Maya agree the most: 8 of the last 10." | The person in your groups whose picks matched yours most over the last 14 questions you both answered; needs at least 5 shared answers. Ties → the most recent match |
+| **Your twin** | "You and Maya agree the most: 8 of the last 10." | The person in your **friend groups** (not communities — D-018 keeps this bounded) whose picks matched yours most over the last 14 questions you both answered; needs at least 5 shared answers. Ties → the most recent match |
 | **Split meter** | "Today split the world 51/49, the most divisive question this week." | How close everyone's answers are to 50/50. "Most divisive this week" = the closest to 50/50 of the last 7 questions |
 
 - Plus the basics: **your group's % split** and **who picked what** in friend groups (non-anonymous, D-004), shown only after you vote.
@@ -54,9 +54,9 @@ You can be in **several** groups and communities. The widget shows the one you c
 |---|---|---|
 | What it is | Your people | School-wide, university, fan groups, interest groups |
 | How you join | Invite code / link only | **Public: browse or search** and join (Noah: in the MVP) |
-| Size | **No cap** (Noah) — _cap of 50 proposed 2026-09-14, D-019_ | **No cap** |
-| Who's visible | Names + who picked what (after you vote) | **[OPEN]** see §9: recommend totals and insights only, no member list |
-| Reactions | Emoji on each friend's pick | **[OPEN]** see §9 |
+| Size | **Cap: 50** (D-019) | **No cap** |
+| Who's visible | Names + who picked what (after you vote) | **Totals only** (D-018): split, insights, member count. No member list, no individual picks |
+| Reactions | Emoji on each friend's pick | **None** between strangers (D-018) |
 | Removing people | **Creator + moderators** can remove members; anyone can leave (Noah) | Same |
 | Moderators | The creator can appoint moderators (Noah) | Same |
 | Name / description | Filtered for profanity; reportable | Same |
@@ -92,10 +92,10 @@ You can be in **several** groups and communities. The widget shows the one you c
 | Contact | A published support email (1.2) |
 | Delete account | In the app (5.1.1(v)) |
 
-**[OPEN] Public communities with strangers of all ages: the biggest safety call in this spec.** Noah chose public communities in the MVP and mixed ages in invite-only groups. Strangers meeting in public communities is the scenario that platforms like Discord and Instagram now lock down for teens by default: no stranger contact, age-gated spaces ([Childhelp](https://childhelp.org/the-latest-apps-parents-should-know-about-a-2026-guide-to-kids-online-safety/), [NTIA](https://www.ntia.gov/report/2024/kids-online-health-and-safety/online-health-and-safety-for-children-and-youth/taskforce-guidance/recommended-practices-for-industry)). Options for the team:
-- **A (recommended): communities show totals only.** In a public community you see the split, the insights, and the member count, but **no member list, no individual picks, no reactions**. Strangers never see each other, so mixed ages carry little risk. Names and reactions stay inside invite-only friend groups.
-- **B: age-banded communities.** Under-18s only see and join teen communities; adults only adult ones. Needs reliable age info.
-- **C: fully social communities.** Member lists, picks, and reactions visible to strangers. Needs real moderation staffing before launch.
+**✅ RESOLVED 2026-09-14 — Option A (D-018): public communities show totals only.**
+A public community shows the split, the insights and a member count. **No member list, no individual picks, no reactions between strangers.** Names, "who picked what" and reactions live only in invite-only friend groups (capped at 50, D-019).
+
+Why: it's the cheapest to build and moderate, it keeps "Your twin" bounded to small groups, and **a stranger never sees another user**, so "public community full of mixed-age strangers" mostly stops being a risk surface. Option B (age-banded) was rejected because it needs age data we've decided we can't verify ([FTC COPPA FAQ](https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions)); Option C (fully social) was rejected because it needs real moderation staffing before launch. Both Claude (from safety) and Greg (from back-end cost) landed on A independently — see `research/backend-read-mvp-spec.md`. This is also the direction big platforms took for teens: no stranger contact by default ([Childhelp](https://childhelp.org/the-latest-apps-parents-should-know-about-a-2026-guide-to-kids-online-safety/), [NTIA](https://www.ntia.gov/report/2024/kids-online-health-and-safety/online-health-and-safety-for-children-and-youth/taskforce-guidance/recommended-practices-for-industry)).
 
 ## 10. Legal flags (research, not legal advice; lawyer review before public launch, ROADMAP 8.5)
 - **Apple:** apps with social media capabilities get at least a 13+ rating; the question is required from Sept 2026 ([Apple](https://developer.apple.com/news/?id=tlur8uvi)). Public communities make "yes" certain.

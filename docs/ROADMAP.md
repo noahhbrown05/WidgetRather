@@ -15,8 +15,8 @@ _Roles updated 2026-09-11 (D-017): Greg = back end, Noah = front end + design + 
 | 0.1 | ✅ Research, project rules, shared repo, logging system | Noah | — |
 | 0.2 | ✅ Decisions D-001–D-013 signed by Noah and Greg | Noah, Greg | — |
 | 0.3 | ✅ Concept mockups (`design/mockups/`) + clickable prototype (`prototype/`) | Noah, Greg | — |
-| 0.4 | ☐ Greg signs D-014–D-017 and re-signs the revised D-008 (decisions now need **Noah + Greg**; Tiago advises when asked, D-017) | Greg | Both ticks in `DECISIONS.md` |
-| 0.5 | ☐ **Noah + Greg sync** to settle what's still open: (a) the exact morning drop window; (b) public-community safety (MVP-SPEC §9: option A/B/C); (c) who answers reports (recommend Noah); (d) the spec's [proposed defaults]. _Already settled by Noah in the spec: all 3 widget sizes, insights instead of a plain "Everyone %", picks hidden until you vote._ | Noah, Greg | Each answer recorded as a decision |
+| 0.4 | ✅ **All sign-offs in.** Greg signed D-014–D-017 + D-008 (2026-09-14); Noah approved D-018–D-021 (2026-09-14). Decisions need Noah + Greg (D-017) | Noah, Greg | ✅ Done |
+| 0.5 | 🟡 **Noah + Greg sync** — settled: public-community safety (**Option A**, D-018), friend-group cap (**50**, D-019), widget vote sync (D-020), two-pass build (D-021). Still open: **(a) the exact morning drop window · (b) who answers reports (recommend Noah) · (c) the spec's remaining [proposed defaults]** | Noah, Greg | Each answer recorded as a decision |
 
 ## Stage 1: Define the product (no code) 👉 YOU ARE HERE
 
@@ -57,7 +57,7 @@ _Roles updated 2026-09-11 (D-017): Greg = back end, Noah = front end + design + 
 | 4.1 | **Lift the hold:** Stages 1–3 done, and D-005 + D-008 signed by Noah + Greg | All | Recorded in `DECISIONS.md` |
 | 4.2 | Scaffold the Expo app + EAS; first **iOS simulator build** (no Apple account needed) (G1) | Greg | Builds and runs |
 | 4.3 | **Widget spike** in a simulator (cloud Mac or Appetize, see `research/testing-without-apple-account.md`). ~~Can a widget button save an answer to Supabase without opening the app?~~ **Answered 2026-09-14 by the docs: no** (D-020). What's left to spike: **do widget changes need a native rebuild?**, and **how late do votes actually arrive** (median delay between widget tap and app open) | Greg | Written result: the rebuild answer, plus a measured vote-delay number to size the staleness of widget numbers |
-| 4.3b | **[PROPOSED, D-021]** Rather than a throwaway spike, build **pass 1**: a local-only app — question list shipped inside the app, widget, tap, local save, answer history. No accounts, no server, dummy numbers where group results go. Answers both of 4.3's questions by building the real first half. Needs D-021's narrow exception to the D-014 hold | Greg | Pass 1 runs in a simulator; 4.3's two questions answered |
+| 4.3b | **[APPROVED, D-021 — Noah 2026-09-14; may start now under D-014's narrow exception]** Rather than a throwaway spike, build **pass 1**: a local-only app — question list shipped inside the app, widget, tap, local save, answer history. No accounts, no server, dummy numbers where group results go. Answers both of 4.3's questions by building the real first half. Runs under D-021's narrow exception: plumbing only, no front-end screens until the design freeze | Greg | Pass 1 runs in a simulator; 4.3's two questions answered |
 | 4.4 | Supabase: schema, **row-level security from day 1**, generated TypeScript types, and the data-layer function list (the "contract") (G3, G5) | Greg | Function list published in the repo |
 | 4.5 | Front-end tooling on Noah's PC; screens run in the browser / Android emulator | Noah | Each can run the app |
 

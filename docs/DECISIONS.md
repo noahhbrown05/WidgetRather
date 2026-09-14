@@ -14,7 +14,7 @@ The single source of truth for what the Widget Rather team has decided.
 | D-005 | 2026-09-10 | Stack: Expo (React Native) + expo-widgets + EAS cloud builds + Supabase | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-006 | 2026-09-10 | iOS-first launch; Android later | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-007 | 2026-09-10 | Age handling: 13+ for the MVP; revisit under-13 (6th graders) with a lawyer | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
-| D-008 | 2026-09-10 (revised 09-11) | MVP scope → **now defined by `docs/MVP-SPEC.md`**: random morning drop, all 3 widget sizes, friend groups + **public communities** (creator + mods), multiple memberships, insights (Rare pick / Your twin / Split meter), emoji avatars | DECIDED (Greg conditional — see note) | Noah + Claude | ☑ Noah ☐ Tiago ☑ Greg |
+| D-008 | 2026-09-10 (revised 09-11) | MVP scope → **now defined by `docs/MVP-SPEC.md`**: random morning drop, all 3 widget sizes, friend groups + **public communities** (creator + mods), multiple memberships, insights (Rare pick / Your twin / Split meter), emoji avatars | **DECIDED** (Greg's conditions D-018 + D-019 both approved by Noah 2026-09-14) | Noah + Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-009 | 2026-09-10 | Logging format: STATUS.md + DECISIONS.md + short session summaries (no transcripts) | DECIDED | Claude, at Noah's request | ☑ Noah ☐ Tiago ☑ Greg |
 | D-010 | 2026-09-10 | Public repo (stays public) + hygiene: no secrets, no raw copyrighted transcripts | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
 | D-011 | 2026-09-10 | Collaboration workflow: GitHub flow (branch → PR → review → merge); see COLLABORATION.md | DECIDED | Claude | ☑ Noah ☐ Tiago ☑ Greg |
@@ -24,10 +24,10 @@ The single source of truth for what the Widget Rather team has decided.
 | D-015 | 2026-09-11 | **Duo mode** (pairs for couples/best friends/siblings, anyone 13+) is the first feature after the MVP launch | DECIDED | Noah | ☑ Noah ☐ Tiago ☑ Greg |
 | D-016 | 2026-09-11 | Avatar direction: **Pastel Critters**: the 12-critter roster in `design/critters.md` (Noah: "I love the critter roster"); head-silhouette rules, bandana pick-tint, 8 colours, moods; no photos | DECIDED | Noah | ☑ Noah ☐ Tiago ☑ Greg |
 | D-017 | 2026-09-11 | **Roles revised:** Greg = back end; **Noah = main front end + design + everything else**; Tiago = advisor only when Noah + Greg ask. **Decisions need Noah + Greg**. Replaces D-012's split | DECIDED | Noah | ☑ Noah ☐ Tiago ☑ Greg |
-| D-018 | 2026-09-14 | **Public communities show totals only** (spec §9 **Option A**): the split, the insights and a member count; **no member list, no individual picks, no reactions between strangers** | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
-| D-019 | 2026-09-14 | **Friend groups get a size cap** (proposed: 50), replacing "no cap" in spec §6 | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
-| D-020 | 2026-09-14 | **Widget votes are local-only and sync late**: the widget cannot reach the server, so the backend accepts late/out-of-order votes with a client timestamp and rejects duplicates; the core loop is reworded so a widget tap doesn't promise live numbers | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
-| D-021 | 2026-09-14 | **Build in two passes**: pass 1 is local-only (widget + question file + local save, no accounts or server), pass 2 wires the server in behind it. Pass 1 is a **build step, never a release**. Asks D-014 for a **narrow exception**: plumbing may start now, front-end screens still wait for the design freeze | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
+| D-018 | 2026-09-14 | **Public communities show totals only** (spec §9 **Option A**): the split, the insights and a member count; **no member list, no individual picks, no reactions between strangers** | DECIDED | Greg | ☑ Noah ☐ Tiago ☑ Greg |
+| D-019 | 2026-09-14 | **Friend groups get a size cap of 50**, replacing "no cap" in spec §6 | DECIDED | Greg | ☑ Noah ☐ Tiago ☑ Greg |
+| D-020 | 2026-09-14 | **Widget votes are local-only and sync late**: the widget cannot reach the server, so the backend accepts late/out-of-order votes with a client timestamp and rejects duplicates; the core loop is reworded so a widget tap doesn't promise live numbers | DECIDED (independently verified against the Expo SDK 57 docs, 2026-09-14) | Greg | ☑ Noah ☐ Tiago ☑ Greg |
+| D-021 | 2026-09-14 | **Build in two passes**: pass 1 is local-only (widget + question file + local save, no accounts or server), pass 2 wires the server in behind it. Pass 1 is a **build step, never a release**. Grants D-014 a **narrow exception**: plumbing may start now, front-end screens still wait for the design freeze | DECIDED | Greg | ☑ Noah ☐ Tiago ☑ Greg |
 
 ---
 
@@ -118,6 +118,7 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
 ## D-014: Hold development; follow the roadmap
 - **Noah (2026-09-10):** "hold off on development right now." Wants a step-by-step from here to production and past launch, with **no timeline**.
 - **What it means:** even after D-005/D-008 are signed, no app code until ROADMAP Stages 1–3 are done: the one-page MVP spec, finished designs (design freeze), and accounts/legal setup. Clickable mockups and design work are fine.
+- **Narrow exception (D-021, approved by Noah 2026-09-14):** **back-end and native plumbing may start now. All front-end screens still wait for the design freeze (ROADMAP Stage 2).**
 - **Plan:** `docs/ROADMAP.md` (Stages 0–12). `MVP-GAMEPLAN.md` keeps the task IDs and owners; its week targets were removed.
 
 ## D-013: Testing without the Apple account (for now)
@@ -129,8 +130,8 @@ Goal: prove the three of us can build and ship it. Keep scope as small as possib
 - **Proposal:** test this way through the MVP; buy the $99 account before the TestFlight beta (Phase 4).
 - **Details:** `research/testing-without-apple-account.md`
 
-## D-008: Greg's conditional sign-off (2026-09-14)
-- Greg re-signed the revised scope **conditional on D-018 (§9 Option A) and D-019 (a friend-group size cap)**. If Noah lands on §9 Option B or C, or keeps "no cap", Greg's signature doesn't stand and D-008 goes back to `PROPOSED`.
+## D-008: Greg's conditional sign-off (2026-09-14) — conditions met ✅
+- Greg re-signed the revised scope **conditional on D-018 (§9 Option A) and D-019 (a friend-group size cap)**. **Noah approved both on 2026-09-14, so the condition is satisfied and D-008 is `DECIDED`.**
 - **Why those two conditions and not the widget sizes:** three widget sizes are near-free on the back end (three layouts over one payload). The costly part of the revision is **unbounded group size combined with "your twin"**, which is pairwise per user. Scoped to friend groups of ~50 it's a small SQL aggregate; across an uncapped 2,000-person school community it's a day-one scaling problem. Full reasoning and sources: `research/backend-read-mvp-spec.md`.
 
 ## D-018: Public communities show totals only (§9 Option A)
