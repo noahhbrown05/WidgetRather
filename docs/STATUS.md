@@ -11,7 +11,7 @@ D-014's hold still stands for **front-end screens**; D-021's narrow exception le
 - ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
 
 ## New on 2026-10-01: front-end coding starts (D-023, needs Greg)
-Noah proposed **D-023: design in code, on a branch.** Screens no longer wait for a separate design freeze; the design is worked out in code from the mockups + Greg's prototype. **Everything front-end goes on feature branches and reaches `main` only through a pull request Greg reviews**; his first approval is his sign-off on D-023. First branch: **`noah/theme-shared-components`** (ROADMAP 5.1).
+Noah proposed **D-023: design in code, on a branch.** Screens no longer wait for a separate design freeze; the design is worked out in code from the mockups + Greg's prototype. **Everything front-end goes on feature branches and reaches `main` only through a pull request Greg reviews**; his first approval is his sign-off on D-023. Queued for Greg: **`noah/theme-shared-components`** (ROADMAP 5.1) and the **Today screen mockup** `noah/today-screen-mock` (ROADMAP 5.6, dummy data, stacked on the first).
 
 ## What changed on 2026-09-14
 **Noah** approved all four of Greg's proposals (D-018–D-021), which made **D-008 fully DECIDED**.
@@ -34,7 +34,7 @@ For the code specifically: **`app/README.md`**.
 ## Waiting on
 | Who | What |
 |---|---|
-| **Greg** | **Review Noah's first front-end PR** (`noah/theme-shared-components`) = sign-off on D-023 · The **EAS simulator build**, then a cloud Mac or Appetize to answer ROADMAP 4.3: does a widget change need a native rebuild, and does the timeline fire on time? |
+| **Greg** | **Review Noah's two front-end PRs, in order:** (1) `noah/theme-shared-components` = sign-off on D-023, then (2) `noah/today-screen-mock` (stacked on 1) · The **EAS simulator build**, then a cloud Mac or Appetize to answer ROADMAP 4.3: does a widget change need a native rebuild, and does the timeline fire on time? |
 | **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · 22px critter test (Fen vs Mochi, Maple vs Beanie) · Stage 2 designs |
 | Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
 | Noah | Register the domain once agreed (needed for the privacy policy, ROADMAP 3.2 — and it decides D-022) |
