@@ -29,6 +29,7 @@ The single source of truth for what the Widget Rather team has decided.
 | D-020 | 2026-09-14 | **Widget votes are local-only and sync late**: the widget cannot reach the server, so the backend accepts late/out-of-order votes with a client timestamp and rejects duplicates; the core loop is reworded so a widget tap doesn't promise live numbers | DECIDED (independently verified against the Expo SDK 57 docs, 2026-09-14) | Greg | ☑ Noah ☐ Tiago ☑ Greg |
 | D-021 | 2026-09-14 | **Build in two passes**: pass 1 is local-only (widget + question file + local save, no accounts or server), pass 2 wires the server in behind it. Pass 1 is a **build step, never a release**. Grants D-014 a **narrow exception**: plumbing may start now, front-end screens still wait for the design freeze | DECIDED | Greg | ☑ Noah ☐ Tiago ☑ Greg |
 | D-022 | 2026-09-14 | **Bundle identifier `com.widgetrather.app`** (widget extension `.widgets`, App Group `group.com.widgetrather.app`), set while scaffolding pass 1. Permanent once the app ships; depends on the domain Noah still has to register | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
+| D-023 | 2026-10-01 | **Design in code, on a branch.** Front-end screens may start before a separate design freeze: the design is worked out in code from the mockups + Greg's prototype, on feature branches. **Greg approving each front-end pull request is his sign-off.** Amends D-014's "screens wait for the design freeze" | PROPOSED (needs Greg) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 
 ---
 
@@ -200,6 +201,15 @@ Widgets are timeline-based — you pre-declare what shows when (`m5cRcii3pec @ 0
 
 ### Not included in this decision
 Greg separately raised **trimming MVP scope** back toward the original D-008 v1 — dropping public communities, the three insights, and two of the three widget sizes. That is **not proposed here** and would need its own decision. Noted so it isn't lost.
+
+## D-023: Design in code, on a branch (amends D-014)
+- **Noah (2026-10-01):** start front-end coding now rather than doing a separate design phase first. Chose "design in code, on a branch" over "design first, then code".
+- **What changes:** D-014 (with D-021's exception) said front-end screens wait for a design freeze (ROADMAP Stage 2). Under D-023, the **design freeze happens in code**: screens are built with dummy data from the existing design references — the two concept mockups (`design/mockups/`) and Greg's clickable prototype, which already pins down the palette, the Nunito wordmark, the pink/blue answer pills, cards and result bars (`prototype/index.html`).
+- **Guard rail:** all front-end work goes on **feature branches** and reaches `main` only through a **pull request Greg reviews** (D-011). Greg's first approval doubles as his sign-off on this decision; if he'd rather keep the original hold, he rejects the PR and the branch waits.
+- **Why:**
+  - Raroque builds features **UI with dummy data first**, then data, then connect, then polish (`Q13QOgwoF0E @ 01:02`), and iterates on the UI in small prompts with screenshots as reference (`Q13QOgwoF0E @ 03:08`).
+  - The team has no dedicated designer (D-017). Claude Design shares Noah's Pro usage limit with Claude Code ([VentureBeat](https://venturebeat.com/technology/anthropic-ships-major-claude-design-overhaul-with-design-system-imports-code-round-trips-and-a-fix-for-its-token-burning-problem)), so designing twice — once in a design tool, again in code — spends the same budget twice.
+- **First branch:** `noah/theme-shared-components` — ROADMAP 5.1 (theme + shared components), viewed in a web browser on Windows.
 
 ## D-022: Bundle identifier and App Group
 - **Set by Greg (2026-09-14)** while scaffolding pass 1, because the widget cannot be configured without one: `expo-widgets` needs an App Group to share data between the app and the widget extension.
