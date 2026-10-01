@@ -121,8 +121,8 @@ export function Gallery() {
       <Section title="Result bars">
         <ResultBar label="Card style" percent={68} option="a" />
         <ResultBar label="Card style" percent={32} option="b" />
-        <ResultBar label="Plain (widget)" percent={54} option="a" variant="plain" />
-        <ResultBar label="Plain (widget)" percent={46} option="b" variant="plain" />
+        <ResultBar label="Stacked (widget)" percent={54} option="a" variant="stacked" />
+        <ResultBar label="Stacked (widget)" percent={46} option="b" variant="stacked" />
       </Section>
 
       <Section title="Critter avatars: body colours (placeholder art)">
