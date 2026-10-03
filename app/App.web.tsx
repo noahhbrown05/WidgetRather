@@ -13,16 +13,18 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 
+import { CritterLab } from './src/dev/CritterLab';
 import { Gallery } from './src/dev/Gallery';
 import { TodayScreen } from './src/screens/today/TodayScreen';
 import { colors, fonts, useAppFonts } from './src/ui';
 
-type View_ = 'today-before' | 'today-open' | 'today-voted' | 'gallery';
+type View_ = 'today-before' | 'today-open' | 'today-voted' | 'critters' | 'gallery';
 
 const VIEWS: { id: View_; label: string }[] = [
   { id: 'today-before', label: 'Before drop' },
   { id: 'today-open', label: 'Open' },
   { id: 'today-voted', label: 'Voted' },
+  { id: 'critters', label: 'Critters' },
   { id: 'gallery', label: 'Components' },
 ];
 
@@ -55,6 +57,8 @@ export default function App() {
       </View>
       {view === 'gallery' ? (
         <Gallery />
+      ) : view === 'critters' ? (
+        <CritterLab />
       ) : (
         <TodayScreen
           key={view}

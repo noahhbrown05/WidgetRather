@@ -9,3 +9,6 @@ export { CritterAvatar, AvatarStack, type CritterAvatarProps } from './CritterAv
 export { Screen } from './Screen';
 export { Chip } from './Chip';
 export { TabBar, type Tab } from './TabBar';
+export { ROSTER, type CritterName } from './critters/roster';
+export { MOODS, MOOD_MEANING, type Mood } from './critters/faces';
+export { HEADS } from './critters/heads';

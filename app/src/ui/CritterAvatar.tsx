@@ -1,28 +1,49 @@
 import { Text, View } from 'react-native';
+import Svg from 'react-native-svg';
 
+import { mix, tonesFor } from './critters/color';
+import { Face, type Mood } from './critters/faces';
+import { HEADS } from './critters/heads';
+import type { CritterName } from './critters/roster';
 import { bandana, colors, critterBodies, fonts, type CritterBody, type Option } from './theme';
 
 /**
- * Placeholder for a Pastel Critter avatar (D-016, design/critters.md) until
- * the critters are drawn. It already follows the roster's rules:
- *  - a round head on one of the 8 pastel body colours,
- *  - a bandana ring that's neutral lavender before you vote and takes your
- *    option's colour after (pink = A, blue = B): "your pick tints your avatar",
- *  - readable down to ~22px (the large widget's face stack).
- * Swap the inner letter for the real critter art later; the props stay the same.
+ * A Pastel Critter avatar (D-016, D-024; design/critters.md).
+ *  - Pick any critter in any of 8 body colours.
+ *  - The RING around the circle is neutral lavender before you vote and takes
+ *    your option's colour after (pink = A, blue = B): "your pick tints your avatar".
+ *  - `mood` swaps the shared face parts: sleepy (before the drop), happy
+ *    (after voting), chaotic (rare pick).
+ *  - Critters that don't have art yet fall back to a letter placeholder, so
+ *    callers never need to know which ones are drawn.
+ *
+ * In-app only. The iPhone widget can't render SVG (Expo SDK 57 widgets docs), so
+ * the widget will use small PNGs exported from this same art (see D-024).
  */
 export type CritterAvatarProps = {
-  /** e.g. 'Capy', 'Axie'. The first letter is shown until the art exists. */
+  /** A roster name ('Capy', 'Axie', ...). Unknown names show the placeholder. */
   critter: string;
   body: CritterBody;
   /** Today's pick, or undefined before voting. */
   pick?: Option;
+  mood?: Mood;
   size?: number;
 };
 
-export function CritterAvatar({ critter, body, pick, size = 36 }: CritterAvatarProps) {
-  const ring = Math.max(2, Math.round(size * 0.09));
+/**
+ * The circle behind the head is a much lighter tint of the critter's own body
+ * colour, so the head is always the darker shape and its silhouette reads,
+ * even for pale bodies like lilac or cloud. (A shared lavender background made
+ * lilac critters disappear in review, 2026-10-02.)
+ */
+const bgFor = (body: string) => mix(body, '#FFFFFF', 0.72);
+
+export function CritterAvatar({ critter, body, pick, mood = 'happy', size = 36 }: CritterAvatarProps) {
+  const ring = Math.max(2, Math.round(size * 0.08));
+  const head = HEADS[critter as CritterName];
   const pickText = pick ? `, picked the ${pick === 'a' ? 'pink' : 'blue'} option` : '';
+  const inner = size - ring * 2;
+
   return (
     <View
       accessibilityLabel={`${critter}${pickText}`}
@@ -32,14 +53,22 @@ export function CritterAvatar({ critter, body, pick, size = 36 }: CritterAvatarP
         borderRadius: size / 2,
         borderWidth: ring,
         borderColor: pick ? bandana[pick] : bandana.neutral,
-        backgroundColor: critterBodies[body],
+        backgroundColor: head ? bgFor(critterBodies[body]) : critterBodies[body],
+        overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center',
       }}
     >
-      <Text style={{ fontFamily: fonts.black, fontSize: size * 0.42, color: colors.plum2, lineHeight: size * 0.55 }}>
-        {critter.charAt(0).toUpperCase()}
-      </Text>
+      {head ? (
+        <Svg width={inner} height={inner} viewBox="0 0 100 100">
+          {head.draw(tonesFor(critterBodies[body]))}
+          <Face mood={mood} y={head.faceY} mouthY={head.mouthY} />
+        </Svg>
+      ) : (
+        <Text style={{ fontFamily: fonts.black, fontSize: size * 0.42, color: colors.plum2, lineHeight: size * 0.55 }}>
+          {critter.charAt(0).toUpperCase()}
+        </Text>
+      )}
     </View>
   );
 }
