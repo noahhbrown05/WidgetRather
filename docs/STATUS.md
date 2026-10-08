@@ -11,12 +11,12 @@ D-014's hold still stands for **front-end screens**; D-021's narrow exception le
 - ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
 
 ## Tonight's plan (2026-10-07, Noah + Greg)
-**Found in the status check:** the GitHub API shows **no pull request has ever been opened** on this repo (still 0 at the end of the session), so the three front-end branches were pushed but **Greg had nothing to review**. Also, nothing from Greg has reached GitHub since 2026-09-14 (pass 1, `87a74fa`); he may have unpushed local work.
+**Found in the status check:** the GitHub API shows **no pull request has ever been opened** on this repo. **Fixed later that night: PRs [#2](https://github.com/noahhbrown05/WidgetRather/pull/2), [#3](https://github.com/noahhbrown05/WidgetRather/pull/3), [#4](https://github.com/noahhbrown05/WidgetRather/pull/4) are open with Greg (`SaaSmonster`) as reviewer.** Previously, so the three front-end branches were pushed but **Greg had nothing to review**. Also, nothing from Greg has reached GitHub since 2026-09-14 (pass 1, `87a74fa`); he may have unpushed local work.
 
 | Who | Tonight |
 |---|---|
-| **Noah** | 1. **Open the 3 PRs** in order (theme -> `main`, Today -> theme branch, critters -> Today branch). 2. ✅ **Critters done:** all 12 drawn on `noah/critters-svg`; 6 animals swapped (Kip, Oreo, Truffle, Chomp, Tux replace Axie, Maple, Mochi, Beanie, Rascal) |
-| **Greg** | 1. **Review + merge the PRs in order** (= sign-off on D-023, D-024). 2. **Then the EAS iOS simulator build from `main`**, so `react-native-svg` + `expo-font` land in one native build (no Apple account needed with `"ios": { "simulator": true }`, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). 3. **While it builds: ROADMAP 4.4**, the Supabase schema + data-layer function list (the contract the screens call; it moves the front end off dummy data) |
+| **Noah** | 1. ✅ **PRs opened:** #2 theme -> `main`, #3 Today -> theme branch, #4 critters -> Today branch. 2. ✅ **Critters done:** all 12 drawn on `noah/critters-svg`; 6 animals swapped (Kip, Oreo, Truffle, Chomp, Tux replace Axie, Maple, Mochi, Beanie, Rascal) |
+| **Greg** | 1. **Review + merge #2, then #3, then #4** (= sign-off on D-023, D-024). After each merge, change the next PR's base to `main`. 2. **Then the EAS iOS simulator build from `main`**, so `react-native-svg` + `expo-font` land in one native build (no Apple account needed with `"ios": { "simulator": true }`, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). 3. **While it builds: ROADMAP 4.4**, the Supabase schema + data-layer function list (the contract the screens call; it moves the front end off dummy data) |
 | **Both (~15 min)** | Morning drop window · who answers reports · D-022 bundle id (depends on the domain) · the spec's remaining `[proposed defaults]` |
 
 ## 2026-10-01: front-end coding starts (D-023, needs Greg)
@@ -44,7 +44,7 @@ For the code specifically: **`app/README.md`**.
 | Who | What |
 |---|---|
 | **Greg** | **Review Noah's three front-end PRs, in order** (Noah opens them 2026-10-07): (1) `noah/theme-shared-components` = sign-off on D-023 · (2) `noah/today-screen-mock` · (3) `noah/critters-svg` = sign-off on D-024 (adds `react-native-svg` to your next native build) · The **EAS simulator build**, then a cloud Mac or Appetize to answer ROADMAP 4.3: does a widget change need a native rebuild, and does the timeline fire on time? |
-| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · **open the 3 PRs** · Stage 2 designs |
+| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · Stage 2 designs |
 | Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
 | Noah | Register the domain once agreed (needed for the privacy policy, ROADMAP 3.2 — and it decides D-022) |
 

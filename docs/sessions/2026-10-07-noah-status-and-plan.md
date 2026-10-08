@@ -1,7 +1,7 @@
 # 2026-10-07 — Noah — Status check, tonight's plan, all 12 critters
 **Teammate:** Noah · **Model:** Claude Opus 5.5 · **Status:** wrapped
 
-> **Where we are now:** all 12 critters are drawn on `noah/critters-svg`. Front end = three stacked branches (theme, Today mockup, critters). **No PR has been opened yet**, so Greg still has nothing to review. Back end is at pass 1 (2026-09-14), never built on iOS.
+> **Where we are now:** all 12 critters are drawn on `noah/critters-svg`. Front end = three stacked branches (theme, Today mockup, critters). PRs **#2, #3, #4** are open for Greg (`SaaSmonster`) to review, in that order. Back end is at pass 1 (2026-09-14), never built on iOS.
 
 ## Asked for
 - A full status update, a plan for Noah + Greg tonight, then finishing the critter avatars.
@@ -25,6 +25,8 @@
 - `noah/critters-svg`: commits `8955fda`..`94c9fb8` (heads, faces, roster, lab, mock data). Typecheck clean; checked in the web preview.
 - `main`: STATUS + this log (morning), then `design/critters.md` final roster, D-024 review note, STATUS (evening).
 
+- Installed GitHub CLI (`gh` 2.102.0, via winget) on Noah's PC; Noah signed in himself. Opened PRs #2-#4 with `gh pr create`, Greg as reviewer. No CI is configured on the repo.
+
 ## Next steps
-- **Noah:** open PRs 1-3 (links in STATUS). Then: D-022, question bank v1, wordmark + app icon.
+- **Noah:** D-022, question bank v1, wordmark + app icon.
 - **Greg:** see STATUS "Tonight's plan". D-024's widget PNG export now covers 12 critters x 3 moods.
