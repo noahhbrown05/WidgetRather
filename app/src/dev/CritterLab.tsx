@@ -21,7 +21,7 @@ import {
  * 22px checks (the widget's face stack), then every body colour.
  */
 const BODIES = Object.keys(critterBodies) as CritterBody[];
-const SAMPLE_BODY: Record<string, CritterBody> = { Capy: 'butter', Axie: 'lilac', Fen: 'peach' };
+const SAMPLE_BODY: Record<string, CritterBody> = { Capy: 'butter', Kip: 'skyGrey', Fen: 'peach' };
 
 export function CritterLab() {
   const drawn = ROSTER.filter((r) => HEADS[r.name as CritterName]);
@@ -74,7 +74,7 @@ export function CritterLab() {
             <CritterAvatar key={c.name} critter={c.name} body={BODIES[i % BODIES.length]} pick={i % 2 ? 'b' : 'a'} size={22} />
           ))}
         </View>
-        <T v="caption">Can you tell Capy, Axie and Fen apart by outline alone at 22px?</T>
+        <T v="caption">Can you tell Capy, Kip and Fen apart by outline alone at 22px?</T>
       </Card>
 
       <Card style={{ gap: 12 }}>

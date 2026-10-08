@@ -1,4 +1,4 @@
-import { Circle, G, Path } from 'react-native-svg';
+import { Circle, Ellipse, G, Path } from 'react-native-svg';
 
 /**
  * Modular faces (D-024): ONE set of eyes + mouth per mood, placed on every
@@ -50,16 +50,32 @@ export function Face({ mood, y, mouthY }: { mood: Mood; y: number; mouthY?: numb
         </G>
       );
     case 'chaotic':
+      // Pushed further (Noah, 2026-10-07): big eye + squint wink, tongue out, sweat drop,
+      // so it reads as clearly unhinged, not just "happy but uneven".
       return (
         <G>
-          {/* uneven eyes: one huge, one tiny */}
-          <Circle cx={39} cy={y} r={4.6} fill={INK} />
-          <Circle cx={40.6} cy={y - 1.6} r={1.4} fill="#FFFFFF" />
-          <Circle cx={61} cy={y + 0.5} r={2.1} fill={INK} />
-          {/* one raised brow over the big eye */}
-          <Path d={`M33 ${y - 9} Q38 ${y - 12} 44 ${y - 9.5}`} stroke={INK} strokeWidth={2.2} strokeLinecap="round" fill="none" />
-          {/* crooked open grin */}
-          <Path d={`M42 ${m - 1} Q49 ${m + 9} 59 ${m - 3} Q50 ${m + 2} 42 ${m - 1} Z`} fill={INK} />
+          {/* one huge wide-open eye */}
+          <Circle cx={39} cy={y} r={5.2} fill={INK} />
+          <Circle cx={40.9} cy={y - 1.9} r={1.6} fill="#FFFFFF" />
+          {/* squeezed-shut wink on the right (Noah, 2026-10-07: replaced a spiral eye) */}
+          <Path
+            d={`M65 ${y - 3.8} L57 ${y} L65 ${y + 3.8}`}
+            stroke={INK}
+            strokeWidth={2.6}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+          {/* raised brow over the big eye */}
+          <Path d={`M32 ${y - 10} Q37 ${y - 14} 45 ${y - 10.5}`} stroke={INK} strokeWidth={2.4} strokeLinecap="round" fill="none" />
+          {/* sweat drop */}
+          <Path
+            d={`M73 ${y - 15} C76 ${y - 10.5} 76.5 ${y - 7.5} 73 ${y - 7} C69.5 ${y - 7.5} 70 ${y - 10.5} 73 ${y - 15} Z`}
+            fill="#9CC3F0"
+          />
+          {/* wide crooked grin with the tongue out */}
+          <Path d={`M40 ${m - 2} Q50 ${m + 11} 61 ${m - 4} Q50 ${m + 2} 40 ${m - 2} Z`} fill={INK} />
+          <Ellipse cx={54} cy={m + 5} rx={3.4} ry={2.8} fill="#F07BB5" />
         </G>
       );
   }

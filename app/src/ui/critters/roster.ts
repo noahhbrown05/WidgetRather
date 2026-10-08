@@ -5,7 +5,7 @@
  */
 export const ROSTER = [
   { name: 'Capy', animal: 'Capybara', silhouette: 'flat loaf head, tiny round ears', line: 'Would rather nap through the apocalypse.' },
-  { name: 'Axie', animal: 'Axolotl', silhouette: 'three frilly gills each side', line: 'Would rather stay up till 4am than explain why.' },
+  { name: 'Kip', animal: 'Koala', silhouette: 'huge fuzzy side ears, big dark nose', line: 'Would rather cling to a bad idea than let it go.' },
   { name: 'Bun', animal: 'Bunny', silhouette: 'two tall ears, one flopped', line: 'Would rather have snacks than be right. Actually, both.' },
   { name: 'Ribbs', animal: 'Frog', silhouette: 'two eye bumps on top', line: 'Would rather jump first and never ask questions.' },
   { name: 'Fen', animal: 'Fox', silhouette: 'big pointy ears, pointed muzzle', line: 'Would rather be clever than lucky. Is somehow both.' },

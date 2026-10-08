@@ -29,7 +29,7 @@ const ICON_B = <Text style={{ fontSize: 17 }}>{'🔮'}</Text>; // crystal ball
 
 const FRIENDS: CritterAvatarProps[] = [
   { critter: 'Capy', body: 'butter', pick: 'a' },
-  { critter: 'Axie', body: 'lilac', pick: 'a' },
+  { critter: 'Kip', body: 'skyGrey', pick: 'a' },
   { critter: 'Bun', body: 'peach', pick: 'b' },
   { critter: 'Ribbs', body: 'mint', pick: 'a' },
   ...Array.from({ length: 8 }, (_, i): CritterAvatarProps => ({ critter: 'Mochi', body: 'skyGrey', pick: i % 3 ? 'a' : 'b' })),
@@ -84,7 +84,7 @@ export function Gallery() {
             <T v="label" style={{ marginTop: 6 }}>
               {'🫶'} Your twin
             </T>
-            <T v="body">You and Axie agree the most: 8 of the last 10.</T>
+            <T v="body">You and Kip agree the most: 8 of the last 10.</T>
             <T v="label" style={{ marginTop: 6 }}>
               {'⚖️'} Split meter
             </T>

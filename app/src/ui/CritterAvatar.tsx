@@ -21,7 +21,7 @@ import { bandana, colors, critterBodies, fonts, type CritterBody, type Option } 
  * the widget will use small PNGs exported from this same art (see D-024).
  */
 export type CritterAvatarProps = {
-  /** A roster name ('Capy', 'Axie', ...). Unknown names show the placeholder. */
+  /** A roster name ('Capy', 'Kip', ...). Unknown names show the placeholder. */
   critter: string;
   body: CritterBody;
   /** Today's pick, or undefined before voting. */

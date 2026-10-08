@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { Ellipse, G, Path, Rect } from 'react-native-svg';
+import { Circle, Ellipse, G, Path, Rect } from 'react-native-svg';
 
 import type { Tones } from './color';
 import type { CritterName } from './roster';
@@ -12,7 +12,7 @@ import type { CritterName } from './roster';
  *    (ears / frills / muzzle), because the widget face stack is ~22px
  *  - faces are NOT drawn here; faces.tsx puts the mood's eyes + mouth at `faceY`
  *
- * Status: 3 test critters (Capy, Axie, Fen) for Noah's review before the other 9.
+ * Status: 3 test critters (Capy, Kip, Fen; Kip replaced Axie 2026-10-07) for Noah's review before the other 9.
  * Critters without art fall back to the letter placeholder in CritterAvatar.
  */
 export type HeadArt = { faceY: number; mouthY?: number; draw: (t: Tones) => ReactElement };
@@ -40,30 +40,42 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
     ),
   },
 
-  /** Axolotl: wide round head with three frilly gills on each side. */
-  Axie: {
-    faceY: 55,
+  /**
+   * Koala (replaced Axie the axolotl, Noah 2026-10-07): huge fuzzy ears set out
+   * to the SIDES (Beanie the bear's are small and on top) + a big dark nose.
+   */
+  Kip: {
+    faceY: 50,
+    mouthY: 73,
     draw: (t) => (
       <G>
-        {[
-          [17, 40, -35],
-          [13, 54, -5],
-          [18, 68, 28],
-        ].map(([x, y, r]) => (
-          <G key={`g${x}${y}`}>
-            <Ellipse cx={x} cy={y} rx={11.5} ry={4.8} fill={t.shade} transform={`rotate(${r} ${x} ${y})`} />
-            <Ellipse cx={100 - x} cy={y} rx={11.5} ry={4.8} fill={t.shade} transform={`rotate(${-r} ${100 - x} ${y})`} />
-          </G>
-        ))}
-        <Ellipse cx={50} cy={57} rx={31} ry={28} fill={t.body} />
-        <Sheen cx={35} cy={44} />
+        {[20, 80].map((x) => {
+          const out = x < 50 ? -1 : 1; // which way is "outward" for this ear
+          return (
+            <G key={`ear${x}`}>
+              {/* fluff tufts on the outer edge */}
+              <Circle cx={x + out * 14} cy={33} r={4.5} fill={t.body} />
+              <Circle cx={x + out * 16} cy={43} r={4.5} fill={t.body} />
+              <Circle cx={x + out * 12} cy={52} r={4.5} fill={t.body} />
+              <Circle cx={x} cy={40} r={16.5} fill={t.body} />
+              <Circle cx={x + out * 1.5} cy={41} r={9.5} fill={t.light} />
+            </G>
+          );
+        })}
+        <Ellipse cx={50} cy={59} rx={32} ry={29} fill={t.body} />
+        {/* the big koala nose */}
+        <Ellipse cx={50} cy={61.5} rx={6.8} ry={7.8} fill={t.deep} />
+        <Ellipse cx={47.8} cy={58.5} rx={1.9} ry={2.6} fill="#FFFFFF" opacity={0.35} />
+        <Sheen cx={36} cy={45} />
       </G>
     ),
   },
 
   /** Fox: big pointy ears and a pointed light muzzle. */
   Fen: {
-    faceY: 54,
+    // Eyes up a touch; mouth sits ON the light muzzle patch (Noah, 2026-10-07)
+    faceY: 52,
+    mouthY: 74,
     draw: (t) => (
       <G>
         <Path d="M20 50 Q11 22 18 11 Q25 9 47 34 Z" fill={t.body} />
