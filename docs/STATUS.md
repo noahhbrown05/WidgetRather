@@ -1,6 +1,6 @@
 # Status: Widget Rather
 
-_Rewrite this page (don't append) whenever things change. Last updated: 2026-10-02 by Noah's session (critter art, D-024)._
+_Rewrite this page (don't append) whenever things change. Last updated: 2026-10-07 by Noah's session (status check + tonight's plan)._
 
 ## Current phase
 **Stage 1 of `docs/ROADMAP.md`, no timeline** — and, for the first time, **code exists**.
@@ -10,7 +10,16 @@ D-014's hold still stands for **front-end screens**; D-021's narrow exception le
 - 🟡 1.4 Brand/avatars: Pastel Critters (D-016); roster in `design/critters.md`; still needs the 22px test
 - ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
 
-## New on 2026-10-01: front-end coding starts (D-023, needs Greg)
+## Tonight's plan (2026-10-07, Noah + Greg)
+**Found in the status check:** the GitHub API shows **no pull request has ever been opened** on this repo, so the three front-end branches were pushed but **Greg had nothing to review**. Also, nothing from Greg has reached GitHub since 2026-09-14 (pass 1, `87a74fa`); he may have unpushed local work.
+
+| Who | Tonight |
+|---|---|
+| **Noah** | 1. **Open the 3 PRs** in order (theme -> `main`, Today -> theme branch, critters -> Today branch). 2. **Finish the critters:** feedback on Capy / Axie / Fen, then the other 9 on `noah/critters-svg` |
+| **Greg** | 1. **Review + merge the PRs in order** (= sign-off on D-023, D-024). 2. **Then the EAS iOS simulator build from `main`**, so `react-native-svg` + `expo-font` land in one native build (no Apple account needed with `"ios": { "simulator": true }`, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). 3. **While it builds: ROADMAP 4.4**, the Supabase schema + data-layer function list (the contract the screens call; it moves the front end off dummy data) |
+| **Both (~15 min)** | Morning drop window · who answers reports · D-022 bundle id (depends on the domain) · the spec's remaining `[proposed defaults]` |
+
+## 2026-10-01: front-end coding starts (D-023, needs Greg)
 Noah proposed **D-023: design in code, on a branch.** Screens no longer wait for a separate design freeze; the design is worked out in code from the mockups + Greg's prototype. **Everything front-end goes on feature branches and reaches `main` only through a pull request Greg reviews**; his first approval is his sign-off on D-023. Queued for Greg, stacked in order: **`noah/theme-shared-components`** (ROADMAP 5.1), then **`noah/today-screen-mock`** (ROADMAP 5.6, dummy data), then **`noah/critters-svg`** (D-024: SVG critters; test set Capy, Axie, Fen drawn).
 
 ## What changed on 2026-09-14
@@ -34,7 +43,7 @@ For the code specifically: **`app/README.md`**.
 ## Waiting on
 | Who | What |
 |---|---|
-| **Greg** | **Review Noah's three front-end PRs, in order:** (1) `noah/theme-shared-components` = sign-off on D-023 · (2) `noah/today-screen-mock` · (3) `noah/critters-svg` = sign-off on D-024 (adds `react-native-svg` to your next native build) · The **EAS simulator build**, then a cloud Mac or Appetize to answer ROADMAP 4.3: does a widget change need a native rebuild, and does the timeline fire on time? |
+| **Greg** | **Review Noah's three front-end PRs, in order** (Noah opens them 2026-10-07): (1) `noah/theme-shared-components` = sign-off on D-023 · (2) `noah/today-screen-mock` · (3) `noah/critters-svg` = sign-off on D-024 (adds `react-native-svg` to your next native build) · The **EAS simulator build**, then a cloud Mac or Appetize to answer ROADMAP 4.3: does a widget change need a native rebuild, and does the timeline fire on time? |
 | **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · 22px critter test (Fen vs Mochi, Maple vs Beanie) · Stage 2 designs |
 | Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
 | Noah | Register the domain once agreed (needed for the privacy policy, ROADMAP 3.2 — and it decides D-022) |
