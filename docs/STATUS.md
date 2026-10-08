@@ -1,17 +1,28 @@
 # Status: Widget Rather
 
-_Rewrite this page (don't append) whenever things change. Last updated: 2026-10-01 by Noah's session (front-end coding starts, D-023)._
+_Rewrite this page (don't append) whenever things change. Last updated: 2026-10-07 by Greg's session (review + interaction polish, on a review branch)._
 
 ## Current phase
 **Stage 1 of `docs/ROADMAP.md`, no timeline** — and, for the first time, **code exists**.
-D-014's hold still stands for **front-end screens**; D-021's narrow exception lets back-end and native plumbing start, and it has.
+D-023 now allows **front-end design in code on feature branches**, with review before merging. Greg's approval is recorded on this branch. D-021 allows back-end and native plumbing.
 - ✅ 1.1 MVP spec: **`docs/MVP-SPEC.md`** — **D-008 fully DECIDED**
 - ✅ 1.3 Name check (`research/name-check.md`)
-- 🟡 1.4 Brand/avatars: Pastel Critters (D-016); roster in `design/critters.md`; still needs the 22px test
+- 🟡 1.4 Brand/avatars: **all 12 critters drawn in code (D-024)**, final roster in `design/critters.md`. Still to do: wordmark + app icon
 - ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
 
-## New on 2026-10-01: front-end coding starts (D-023, needs Greg)
-Noah proposed **D-023: design in code, on a branch.** Screens no longer wait for a separate design freeze; the design is worked out in code from the mockups + Greg's prototype. **Everything front-end goes on feature branches and reaches `main` only through a pull request Greg reviews**; his first approval is his sign-off on D-023. First branch: **`noah/theme-shared-components`** (ROADMAP 5.1).
+## Tonight's plan (2026-10-07, Noah + Greg)
+**Current review status:** [PR #1](https://github.com/noahhbrown05/WidgetRather/pull/1) is ready for review, with Noah requested. The separate theme, Today, and critter branches still need their own pull requests and reviews before reaching main.
+
+| Who | Tonight |
+|---|---|
+| **Noah** | 1. **Open the 3 PRs** in order (theme -> `main`, Today -> theme branch, critters -> Today branch). 2. ✅ **Critters done:** all 12 drawn on `noah/critters-svg`; 6 animals swapped (Kip, Oreo, Truffle, Chomp, Tux replace Axie, Maple, Mochi, Beanie, Rascal) |
+| **Greg** | 1. **Review + merge the PRs in order** (= sign-off on D-023, D-024). 2. **Then the EAS iOS simulator build from `main`**, so `react-native-svg` + `expo-font` land in one native build (no Apple account needed with `"ios": { "simulator": true }`, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). 3. **While it builds: ROADMAP 4.4**, the Supabase schema + data-layer function list (the contract the screens call; it moves the front end off dummy data) |
+| **Both (~15 min)** | Morning drop window · who answers reports · D-022 bundle id (depends on the domain) · the spec's remaining `[proposed defaults]` |
+
+## Front-end review and motion pass (2026-10-07)
+Greg approved the shared-components foundation and **D-023** in chat; the signature is recorded in this branch's `DECISIONS.md`, pending merge. **All front-end work still reaches `main` through review.** Today and the critter implementation remain separate review items; liking the art does not complete D-024's native dependency/widget-export review.
+
+Greg likes the existing critters and colors. `greg/interaction-polish` adds short press/release springs, vote/result reveals, animated result bars, reaction feedback, 44px chip/reaction targets, reduced-motion handling, and a web-only Replay control. The voted card now sizes to its content so results sit higher. [PR #1](https://github.com/noahhbrown05/WidgetRather/pull/1) includes the pass and review instructions, synced with Noah's completed critters at `94c9fb8` and main documentation at `6c4cb62`. Typecheck and browser flows pass; iOS behavior is still unverified. No backend or native dependency changes.
 
 ## What changed on 2026-09-14
 **Noah** approved all four of Greg's proposals (D-018–D-021), which made **D-008 fully DECIDED**.
@@ -34,8 +45,9 @@ For the code specifically: **`app/README.md`**.
 ## Waiting on
 | Who | What |
 |---|---|
-| **Greg** | **Review Noah's first front-end PR** (`noah/theme-shared-components`) = sign-off on D-023 · The **EAS simulator build**, then a cloud Mac or Appetize to answer ROADMAP 4.3: does a widget change need a native rebuild, and does the timeline fire on time? |
-| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · 22px critter test (Fen vs Mochi, Maple vs Beanie) · Stage 2 designs |
+| **Greg** | Shared-components foundation and D-023 approved in chat; merge still pending. Continue reviewing (2) `noah/today-screen-mock` and (3) `noah/critters-svg` / D-024 (new native dependency + widget PNG export). Then the **EAS simulator build** to verify widget/native behavior. |
+| **Noah + Greg** | Review the interaction-polish pass on `greg/interaction-polish`; verify motion on iOS before adopting it. |
+| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · **open the 3 PRs** · Stage 2 designs |
 | Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
 | Noah | Register the domain once agreed (needed for the privacy policy, ROADMAP 3.2 — and it decides D-022) |
 
