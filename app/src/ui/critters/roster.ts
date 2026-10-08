@@ -10,7 +10,7 @@ export const ROSTER = [
   { name: 'Ribbs', animal: 'Frog', silhouette: 'two eye bumps on top', line: 'Would rather jump first and never ask questions.' },
   { name: 'Fen', animal: 'Fox', silhouette: 'big pointy ears, pointed muzzle', line: 'Would rather be clever than lucky. Is somehow both.' },
   { name: 'Ollie', animal: 'Otter', silhouette: 'small round ears, whisker dots', line: 'Would rather hold hands than hold grudges. Holds snacks too.' },
-  { name: 'Maple', animal: 'Red panda', silhouette: 'round ears, white eyebrow markings', line: 'Would rather be cozy than cool, and is cooler for it.' },
+  { name: 'Oreo', animal: 'Panda', silhouette: 'dark round ears, dark eye patches', line: 'Would rather eat dessert first. And second.' },
   { name: 'Puddle', animal: 'Duckling', silhouette: 'flat beak, one hair tuft', line: 'Would rather splash first and apologise never.' },
   { name: 'Burr', animal: 'Hedgehog', silhouette: 'spiky crown', line: 'Would rather be honest than polite. Sorry. Not sorry.' },
   { name: 'Mochi', animal: 'Cat', silhouette: 'triangle ears, forehead stripe', line: 'Would rather knock it off the table and see.' },

@@ -61,7 +61,7 @@ export const CIRCLES: Circle[] = [
     members: people([
       ['Ava', 'Puddle', 'butter', 'b'],
       ['Eli', 'Beanie', 'peach', 'b'],
-      ['Zoe', 'Maple', 'mint', 'a'],
+      ['Zoe', 'Oreo', 'mint', 'a'],
     ]),
   },
   { id: 'c1', kind: 'community', name: 'Lincoln High', memberCount: 412, percentA: 61 },

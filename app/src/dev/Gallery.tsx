@@ -146,10 +146,10 @@ export function Gallery() {
 
       <Section title="22px check (large widget face stack)">
         <View style={{ flexDirection: 'row', gap: 10, alignItems: 'center' }}>
-          {(['Fen', 'Mochi', 'Maple', 'Beanie'] as const).map((c) => (
+          {(['Fen', 'Mochi', 'Oreo', 'Beanie'] as const).map((c) => (
             <CritterAvatar key={c} critter={c} body="lilac" pick="a" size={22} />
           ))}
-          <T v="caption">Fen · Mochi · Maple · Beanie: retest with real art</T>
+          <T v="caption">Fen · Mochi · Oreo · Beanie: retest with real art</T>
         </View>
       </Section>
     </Screen>
