@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { boxShadow, gradient } from './gradient';
+import { MotionPressable, Reveal } from './motion';
 import { colors, fonts, optionColors, radius, shadow, type Option } from './theme';
 
 type Size = 'sm' | 'md' | 'lg';
@@ -35,13 +36,13 @@ export function AnswerPill({ option, label, icon, picked, dimmed, size = 'md', o
   const c = optionColors[option];
   const inactive = disabled || !onPress;
   return (
-    <Pressable
+    <MotionPressable
       onPress={onPress}
       disabled={inactive}
       accessibilityRole="button"
       accessibilityState={{ selected: !!picked, disabled: inactive }}
       accessibilityLabel={picked ? `${label}, your pick` : label}
-      style={({ pressed }) => [
+      style={[
         {
           flexDirection: 'row',
           alignItems: 'center',
@@ -50,14 +51,13 @@ export function AnswerPill({ option, label, icon, picked, dimmed, size = 'md', o
           paddingHorizontal: s.padH,
           borderRadius: s.radius,
           opacity: dimmed ? 0.45 : 1,
-          transform: [{ scale: pressed ? 0.98 : 1 }],
         },
         gradient(`linear-gradient(96deg, ${c.light}, ${c.deep})`),
         boxShadow(shadow.pill),
       ]}
     >
       {picked ? (
-        <CheckDisc size={s.icon + 2} />
+        <Reveal pop><CheckDisc size={s.icon + 2} /></Reveal>
       ) : icon ? (
         <View style={{ width: s.icon, alignItems: 'center' }}>{icon}</View>
       ) : null}
@@ -66,7 +66,7 @@ export function AnswerPill({ option, label, icon, picked, dimmed, size = 'md', o
       >
         {label}
       </Text>
-    </Pressable>
+    </MotionPressable>
   );
 }
 

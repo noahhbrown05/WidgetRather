@@ -1,64 +1,36 @@
 # Status: Widget Rather
 
-_Rewrite this page (don't append) whenever things change. Last updated: 2026-10-07 by Greg's session (review + interaction polish, on a review branch)._
+_Last updated 2026-10-07 by Greg's review session. Summarizes the approved front-end integration in PR #4._
 
 ## Current phase
-**Stage 1 of `docs/ROADMAP.md`, no timeline** — and, for the first time, **code exists**.
-D-023 now allows **front-end design in code on feature branches**, with review before merging. Greg's approval is recorded on this branch. D-021 allows back-end and native plumbing.
-- ✅ 1.1 MVP spec: **`docs/MVP-SPEC.md`** — **D-008 fully DECIDED**
-- ✅ 1.3 Name check (`research/name-check.md`)
-- 🟡 1.4 Brand/avatars: **all 12 critters drawn in code (D-024)**, final roster in `design/critters.md`. Still to do: wordmark + app icon
-- ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
+Pass 1 remains a build step, not a release (D-021). D-023 allows front-end design in code on feature branches, reviewed before merging. The Today screen uses mock data; the native entry point is still the widget/data harness.
 
-## Tonight's plan (2026-10-07, Noah + Greg)
-**Review status (end of 2026-10-07):** ✅ [#1](https://github.com/noahhbrown05/WidgetRather/pull/1) Greg's interaction polish: approved by Noah, merged into `noah/critters-svg` · ✅ [#2](https://github.com/noahhbrown05/WidgetRather/pull/2) theme + shared components: approved by Greg (= **D-023 signed**), merged into `main` · ✅ [#3](https://github.com/noahhbrown05/WidgetRather/pull/3) Today mockup: approved + merged into `main` by Greg · ⏳ [#4](https://github.com/noahhbrown05/WidgetRather/pull/4) critters + Greg's polish: now targets `main`, **needs Greg's approval** (= **D-024** sign-off; Noah can't approve his own PR).
+## Review completed
+- [#2: shared components](https://github.com/noahhbrown05/WidgetRather/pull/2): approved by Greg and merged into `main`; D-023 signed.
+- [#3: Today mockup](https://github.com/noahhbrown05/WidgetRather/pull/3): approved by Greg and merged into `main`.
+- [#4: all 12 critters](https://github.com/noahhbrown05/WidgetRather/pull/4): Greg approved Noah's work and D-024. This PR brings the critters and the already-reviewed interaction polish into `main`.
+- [#1: interaction polish](https://github.com/noahhbrown05/WidgetRather/pull/1): Noah approved and merged it into the critter branch. Keeps the palette/art, adds press feedback, reveals, result-bar motion, reactions, reduced-motion support, and a compact voted card.
 
-| Who | Tonight |
+The final roster and art are in `design/critters.md` and `app/src/ui/critters/`. The user approved the current colors and critters; interaction polish is the focus.
+
+## Verified and still unverified
+- TypeScript passes for the exact foundation, Today and critter snapshots. The foundation's nine scheduler checks pass. Locked installs succeeded; the SVG version matches Expo SDK 57's documented recommendation.
+- The final critter integration's app tree matches the browser-tested polish snapshot. Browser checks cover both votes, result percentages, reactions, group/community views and narrow layouts.
+- **Still unverified:** iOS builds/rendering, OS reduced-motion behavior, widget timeline timing and whether widget changes require a native rebuild.
+- **Still to implement:** PNG exports of the critters for widgets. Accepting D-024 approves this architecture; it does not mean the export pipeline exists.
+
+## Next up
+| Owner | Work |
 |---|---|
-| **Noah** | 1. ✅ **PRs opened:** #2 theme -> `main`, #3 Today -> theme branch, #4 critters -> Today branch. 2. ✅ **Critters done:** all 12 drawn on `noah/critters-svg`; 6 animals swapped (Kip, Oreo, Truffle, Chomp, Tux replace Axie, Maple, Mochi, Beanie, Rascal) |
-| **Greg** | 1. ✅ #2 and #3 approved + merged (D-023 signed); **#4 still to review** (= D-024). 2. **Then the EAS iOS simulator build from `main`**, so `react-native-svg` + `expo-font` land in one native build (no Apple account needed with `"ios": { "simulator": true }`, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). 3. **While it builds: ROADMAP 4.4**, the Supabase schema + data-layer function list (the contract the screens call; it moves the front end off dummy data) |
-| **Both (~15 min)** | Morning drop window · who answers reports · D-022 bundle id (depends on the domain) · the spec's remaining `[proposed defaults]` |
+| Greg | EAS iOS simulator build from integrated `main`; ensure the native preview can show the reviewed screens before claiming iOS UI/motion coverage (`App.tsx` is still the harness). Include `expo-font` and `react-native-svg` in the build. |
+| Greg | ROADMAP 4.4: Supabase schema + data-layer function contract; screens call these functions rather than querying the database. |
+| Greg | Export critter PNGs for the widget/App Group container and verify all three widget sizes. |
+| Noah | Real question bank (current questions are placeholders), wordmark/app icon, D-022 bundle identifier and domain. |
+| Noah + Greg | Morning drop window (07:00–08:30 is a placeholder), who answers reports, remaining proposed spec defaults. |
 
-## Front-end review and motion pass (2026-10-07)
-Greg approved the shared-components foundation and **D-023** (PR #2, merged 2026-10-07). **All front-end work still reaches `main` through review.** Today and the critter implementation remain separate review items; liking the art does not complete D-024's native dependency/widget-export review.
+## Product and roles
+MVP: a random morning question per time zone, local widget voting with later sync, friend groups capped at 50, public communities showing totals only, three insights, and fixed emoji reactions. Your twin stays scoped to friend groups. Duo mode follows the MVP.
 
-Greg likes the existing critters and colors. `greg/interaction-polish` adds short press/release springs, vote/result reveals, animated result bars, reaction feedback, 44px chip/reaction targets, reduced-motion handling, and a web-only Replay control. The voted card now sizes to its content so results sit higher. [PR #1](https://github.com/noahhbrown05/WidgetRather/pull/1) includes the pass and review instructions, synced with Noah's completed critters at `94c9fb8` and main documentation at `6c4cb62`. Typecheck and browser flows pass; iOS behavior is still unverified. No backend or native dependency changes.
+Greg owns backend/native builds; Noah owns front end/design; Tiago advises when asked. Decisions need Noah + Greg. No release is authorized by these prototype reviews.
 
-## What changed on 2026-09-14
-**Noah** approved all four of Greg's proposals (D-018–D-021), which made **D-008 fully DECIDED**.
-**Greg** then started **pass 1** — see `app/README.md`.
-
-| Now true | What it means |
-|---|---|
-| **`app/` exists** | Expo SDK 57 + `expo-widgets` + `@expo/ui` + `expo-sqlite`. Question file, on-device scheduler, local answer store, the widget, and the widget↔app seam |
-| **`App.tsx` is a harness, not a screen** | Unstyled on purpose. All screens are Noah's and wait for the design freeze (D-017, D-014) |
-| **Verified so far** | Typecheck clean · 9 scheduler checks over 3,650 days · Expo config + App Group entitlement resolve. **All on Windows — nothing has been built or run on iOS yet** |
-| **D-021's on-device drop** | **Partly verified.** Question + drop time can be derived on-device from the local date, so a time zone agrees with no server. Whether iOS fires the entry *on time* still needs a simulator |
-| **D-022 (new, PROPOSED)** | Bundle identifier `com.widgetrather.app`. **Needs Noah.** Permanent once shipped, and tied to a domain we haven't registered |
-
-**CLAUDE.md RULE 2 was rewritten** — it said "no production code yet", but both gates it named (D-005, D-008) have passed. It now reads: plumbing allowed, screens not.
-
-## If you're lost
-**`docs/PLAIN-ENGLISH.html`** — what the jargon means and how one morning's question travels. Open it in a browser. If it ever disagrees with `DECISIONS.md`, the decision log wins.
-For the code specifically: **`app/README.md`**.
-
-## Waiting on
-| Who | What |
-|---|---|
-| **Greg** | **Review + merge #4** (= sign-off on D-024: `react-native-svg` in the next native build + the widget PNG export later) · then the **EAS simulator build** from `main` (picks up `expo-font` + `react-native-svg`) to verify widget/native behavior and the motion pass on iOS · ROADMAP 4.4 data-layer contract |
-| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · wordmark + app icon |
-| Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
-| Noah | Register the domain once agreed (needed for the privacy policy, ROADMAP 3.2 — and it decides D-022) |
-
-## The MVP (D-008, DECIDED)
-A random morning drop (per time zone) → answer on the widget (all 3 sizes, local save) → friend groups (≤50, names + who picked what) and public communities (totals only) → insights (Rare pick, Your twin, Split meter) → emoji reactions on friends' picks in groups. Pastel Critter avatars, no photos. Duo mode right after launch (D-015).
-
-**Known constraints to design around:** widget votes arrive late (D-020) · the per-time-zone drop is a traffic spike, so push to devices rather than letting every device pull (Supabase Free caps at 200 peak Realtime connections) · "Your twin" stays scoped to friend groups.
-
-**Pass 1 is a build step, never a release** (D-021). It has no reason to be opened twice — the reveal is the product.
-
-## Roles (D-017, DECIDED)
-- **Greg:** back end + builds (Claude Max). **Noah:** the main front end + design + everything else. **Tiago:** advisor when asked. **Decisions need Noah + Greg.**
-
-## Where things are
-**Plain English: `docs/PLAIN-ENGLISH.html`** · **The code: `app/README.md`** · **Roadmap: `docs/ROADMAP.md`** · **Spec: `docs/MVP-SPEC.md`** · **Back-end read: `research/backend-read-mvp-spec.md`** · Critters: `design/critters.md` · Tasks/owners: `docs/MVP-GAMEPLAN.md` · Mockups: `design/mockups/` · Clickable mockup: `prototype/index.html` · Decisions: `docs/DECISIONS.md` · How we work: `docs/COLLABORATION.md` · Research: `research/` · Session summaries: `docs/sessions/`
+References: `docs/DECISIONS.md`, `docs/ROADMAP.md`, `docs/MVP-SPEC.md`, `app/README.md`, `docs/reviews/README.md`, `docs/sessions/2026-10-07-greg-noah-pr-reviews.md`.

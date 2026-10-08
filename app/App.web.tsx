@@ -13,22 +13,25 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 
+import { CritterLab } from './src/dev/CritterLab';
 import { Gallery } from './src/dev/Gallery';
 import { TodayScreen } from './src/screens/today/TodayScreen';
 import { colors, fonts, useAppFonts } from './src/ui';
 
-type View_ = 'today-before' | 'today-open' | 'today-voted' | 'gallery';
+type View_ = 'today-before' | 'today-open' | 'today-voted' | 'critters' | 'gallery';
 
 const VIEWS: { id: View_; label: string }[] = [
   { id: 'today-before', label: 'Before drop' },
   { id: 'today-open', label: 'Open' },
   { id: 'today-voted', label: 'Voted' },
+  { id: 'critters', label: 'Critters' },
   { id: 'gallery', label: 'Components' },
 ];
 
 export default function App() {
   const fontsReady = useAppFonts();
   const [view, setView] = useState<View_>('today-open');
+  const [replay, setReplay] = useState(0);
 
   if (!fontsReady) {
     return (
@@ -46,18 +49,32 @@ export default function App() {
         {VIEWS.map((v) => (
           <Pressable
             key={v.id}
+            accessibilityRole="button"
+            accessibilityState={{ selected: view === v.id }}
             onPress={() => setView(v.id)}
             style={{ paddingVertical: 4, paddingHorizontal: 10, borderRadius: 999, backgroundColor: view === v.id ? colors.pink2 : 'rgba(255,255,255,0.12)' }}
           >
             <Text style={{ fontFamily: fonts.bold, fontSize: 11, color: view === v.id ? colors.plum : colors.white }}>{v.label}</Text>
           </Pressable>
         ))}
+        {view.startsWith('today-') && (
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Replay vote demo"
+            onPress={() => { setView('today-open'); setReplay((value) => value + 1); }}
+            style={{ paddingVertical: 4, paddingHorizontal: 10, borderRadius: 999, backgroundColor: 'rgba(255,255,255,0.12)' }}
+          >
+            <Text style={{ fontFamily: fonts.bold, fontSize: 11, color: colors.white }}>↻ Replay</Text>
+          </Pressable>
+        )}
       </View>
       {view === 'gallery' ? (
         <Gallery />
+      ) : view === 'critters' ? (
+        <CritterLab />
       ) : (
         <TodayScreen
-          key={view}
+          key={`${view}-${replay}`}
           phase={view === 'today-before' ? 'beforeDrop' : 'open'}
           initialPick={view === 'today-voted' ? 'a' : undefined}
         />

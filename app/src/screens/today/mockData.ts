@@ -34,7 +34,7 @@ export const EVERYONE_PERCENT_A = 54;
 /** True if today's split is the closest to 50/50 of the last 7 questions (MVP-SPEC §5). */
 export const MOST_DIVISIVE_THIS_WEEK = false;
 
-export const TWIN = { name: 'Maya', critter: 'Axie', body: 'lilac' as CritterBody, matched: 8, of: 10 };
+export const TWIN = { name: 'Maya', critter: 'Kip', body: 'skyGrey' as CritterBody, matched: 8, of: 10 };
 
 const people = (rows: [string, string, CritterBody, Option | undefined][]): Friend[] =>
   rows.map(([name, critter, body, pick]) => ({ name, critter, body, pick }));
@@ -45,11 +45,11 @@ export const CIRCLES: Circle[] = [
     kind: 'friends',
     name: 'Lunch table',
     members: people([
-      ['Maya', 'Axie', 'lilac', 'a'],
+      ['Maya', 'Kip', 'skyGrey', 'a'],
       ['Jordan', 'Fen', 'peach', 'b'],
       ['Priya', 'Bun', 'mint', 'a'],
-      ['Diego', 'Rascal', 'skyGrey', 'a'],
-      ['Nia', 'Mochi', 'blushSand', 'b'],
+      ['Diego', 'Tux', 'skyGrey', 'a'],
+      ['Nia', 'Truffle', 'blushSand', 'b'],
       ['Sam', 'Ribbs', 'sage', 'a'],
       ['Leo', 'Capy', 'butter', undefined], // hasn't answered yet
     ]),
@@ -60,8 +60,8 @@ export const CIRCLES: Circle[] = [
     name: 'Cousins',
     members: people([
       ['Ava', 'Puddle', 'butter', 'b'],
-      ['Eli', 'Beanie', 'peach', 'b'],
-      ['Zoe', 'Maple', 'mint', 'a'],
+      ['Eli', 'Chomp', 'peach', 'b'],
+      ['Zoe', 'Oreo', 'mint', 'a'],
     ]),
   },
   { id: 'c1', kind: 'community', name: 'Lincoln High', memberCount: 412, percentA: 61 },

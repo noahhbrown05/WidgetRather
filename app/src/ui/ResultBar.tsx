@@ -1,7 +1,8 @@
-import { View } from 'react-native';
+import { Animated, View } from 'react-native';
 
 import { T } from './T';
 import { gradient } from './gradient';
+import { useMotionValue } from './motion';
 import { colors, optionColors, radius, type Option } from './theme';
 
 export type ResultBarProps = {
@@ -62,10 +63,11 @@ export function ResultBar({ label, percent, option, variant = 'card' }: ResultBa
 
 function Track({ pct, option, height, style }: { pct: number; option: Option; height: number; style?: object }) {
   const [from, to] = optionColors[option].bar;
+  const fill = useMotionValue(pct, { duration: 440, layout: true });
   return (
     <View style={[{ height, borderRadius: radius.pill, backgroundColor: colors.track, overflow: 'hidden' }, style]}>
-      <View
-        style={[{ width: `${pct}%`, height: '100%', borderRadius: radius.pill }, gradient(`linear-gradient(90deg, ${from}, ${to})`)]}
+      <Animated.View
+        style={[{ width: fill.interpolate({ inputRange: [0, 100], outputRange: ['0%', '100%'], extrapolate: 'clamp' }), height: '100%', borderRadius: radius.pill }, gradient(`linear-gradient(90deg, ${from}, ${to})`)]}
       />
     </View>
   );

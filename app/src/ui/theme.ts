@@ -65,7 +65,7 @@ export const critterBodies = {
   skyGrey: '#D9E0EA',
   sage: '#DCE5CF',
   blushSand: '#EEDDD3',
-  cloudWhite: '#F7F5FA',
+  cloudWhite: '#E9E5EF', // a soft cloud grey; pure near-white had no silhouette on light backgrounds
 } as const;
 export type CritterBody = keyof typeof critterBodies;
 
