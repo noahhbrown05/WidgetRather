@@ -7,15 +7,15 @@ _Rewrite this page (don't append) whenever things change. Last updated: 2026-10-
 D-023 now allows **front-end design in code on feature branches**, with review before merging. Greg's approval is recorded on this branch. D-021 allows back-end and native plumbing.
 - ✅ 1.1 MVP spec: **`docs/MVP-SPEC.md`** — **D-008 fully DECIDED**
 - ✅ 1.3 Name check (`research/name-check.md`)
-- 🟡 1.4 Brand/avatars: Pastel Critters (D-016); roster in `design/critters.md`; still needs the 22px test
+- 🟡 1.4 Brand/avatars: **all 12 critters drawn in code (D-024)**, final roster in `design/critters.md`. Still to do: wordmark + app icon
 - ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
 
 ## Tonight's plan (2026-10-07, Noah + Greg)
-**Found in the status check:** the GitHub API shows **no pull request has ever been opened** on this repo, so the three front-end branches were pushed but **Greg had nothing to review**. Also, nothing from Greg has reached GitHub since 2026-09-14 (pass 1, `87a74fa`); he may have unpushed local work.
+**Found in the status check:** the GitHub API shows **no pull request has ever been opened** on this repo (still 0 at the end of the session), so the three front-end branches were pushed but **Greg had nothing to review**. Also, nothing from Greg has reached GitHub since 2026-09-14 (pass 1, `87a74fa`); he may have unpushed local work.
 
 | Who | Tonight |
 |---|---|
-| **Noah** | 1. **Open the 3 PRs** in order (theme -> `main`, Today -> theme branch, critters -> Today branch). 2. **Finish the critters:** feedback on Capy / Axie / Fen, then the other 9 on `noah/critters-svg` |
+| **Noah** | 1. **Open the 3 PRs** in order (theme -> `main`, Today -> theme branch, critters -> Today branch). 2. ✅ **Critters done:** all 12 drawn on `noah/critters-svg`; 6 animals swapped (Kip, Oreo, Truffle, Chomp, Tux replace Axie, Maple, Mochi, Beanie, Rascal) |
 | **Greg** | 1. **Review + merge the PRs in order** (= sign-off on D-023, D-024). 2. **Then the EAS iOS simulator build from `main`**, so `react-native-svg` + `expo-font` land in one native build (no Apple account needed with `"ios": { "simulator": true }`, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). 3. **While it builds: ROADMAP 4.4**, the Supabase schema + data-layer function list (the contract the screens call; it moves the front end off dummy data) |
 | **Both (~15 min)** | Morning drop window · who answers reports · D-022 bundle id (depends on the domain) · the spec's remaining `[proposed defaults]` |
 
@@ -47,8 +47,7 @@ For the code specifically: **`app/README.md`**.
 |---|---|
 | **Greg** | Shared-components foundation and D-023 approved in chat; merge still pending. Continue reviewing (2) `noah/today-screen-mock` and (3) `noah/critters-svg` / D-024 (new native dependency + widget PNG export). Then the **EAS simulator build** to verify widget/native behavior. |
 | **Noah + Greg** | Review the interaction-polish pass on `greg/interaction-polish`; verify motion on iOS before adopting it. |
-| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · 22px critter test (Fen vs Mochi, Maple vs Beanie) · Stage 2 designs |
-| Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
+| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · **open the 3 PRs** · Stage 2 designs || Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
 | Noah | Register the domain once agreed (needed for the privacy policy, ROADMAP 3.2 — and it decides D-022) |
 
 ## The MVP (D-008, DECIDED)
