@@ -30,6 +30,7 @@ The single source of truth for what the Widget Rather team has decided.
 | D-021 | 2026-09-14 | **Build in two passes**: pass 1 is local-only (widget + question file + local save, no accounts or server), pass 2 wires the server in behind it. Pass 1 is a **build step, never a release**. Grants D-014 a **narrow exception**: plumbing may start now, front-end screens still wait for the design freeze | DECIDED | Greg | ☑ Noah ☐ Tiago ☑ Greg |
 | D-022 | 2026-09-14 | **Bundle identifier `com.widgetrather.app`** (widget extension `.widgets`, App Group `group.com.widgetrather.app`), set while scaffolding pass 1. Permanent once the app ships; depends on the domain Noah still has to register | PROPOSED (needs Noah) | Greg | ☐ Noah ☐ Tiago ☑ Greg |
 | D-023 | 2026-10-01 | **Design in code, on a branch.** Front-end screens may start before a separate design freeze: the design is worked out in code from the mockups + Greg's prototype, on feature branches. **Greg approving each front-end pull request is his sign-off.** Amends D-014's "screens wait for the design freeze" | PROPOSED (needs Greg) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
+| D-024 | 2026-10-02 | **Critter art system:** drawn by Claude as **SVG code** from shared soft shapes; **modular faces** (one eyes+mouth set per mood on every head); soft & round, no outlines, dot eyes, head-only circle, "cute but a bit chaotic"; any critter x 8 colours; **pick ring** tints pink/blue; moods **sleepy / happy / chaotic**; all 12 in the MVP, **3 test critters first**. In-app via `react-native-svg`; the **widget uses PNGs exported from the same art** | PROPOSED (needs Greg: new native dep + widget export) | Noah | ☑ Noah ☐ Tiago ☐ Greg |
 
 ---
 
@@ -201,6 +202,15 @@ Widgets are timeline-based — you pre-declare what shows when (`m5cRcii3pec @ 0
 
 ### Not included in this decision
 Greg separately raised **trimming MVP scope** back toward the original D-008 v1 — dropping public communities, the three insights, and two of the three widget sizes. That is **not proposed here** and would need its own decision. Noted so it isn't lost.
+
+## D-024: Critter art system (refines D-016)
+- **Noah's choices (2026-10-01, three rounds of questions):** soft & round, **no outlines** · **tiny dot eyes + small mouth** · **head only, in a circle** · vibe **"cute but a bit chaotic"** · **pick any critter + any of 8 colours** · after voting, a **ring around the circle** tints pink (A) / blue (B), replacing the roster's bandana idea · **3 moods** in the MVP: sleepy (before the drop), happy (after voting), chaotic (rare pick, 25% or less) · **all 12 critters** in the MVP · art drawn **by Claude as SVG code** · **modular faces** · **3 test critters first** (Capy, Axie, Fen) · personality lines **punched up**.
+- **Why SVG code:** perfectly consistent across 12 critters x 3 moods, tiny files, any colour/mood swappable in code, editable any time, free. Faces are shared parts (Notion Faces / Duolingo lesson, `research/avatar-case-study.md`).
+- **Tech facts:**
+  - In the app, `react-native-svg` is supported in Expo SDK 57 on iOS, Android and web ([Expo docs](https://docs.expo.dev/versions/v57.0.0/sdk/svg/)). It's a native library, so it needs to be in Greg's next build.
+  - **The widget can't render SVG.** Widgets render only `@expo/ui/swift-ui` components; images must come from the shared App Group container (`widgetsDirectory`) or SF Symbols ([Expo SDK 57 widgets](https://docs.expo.dev/versions/v57.0.0/sdk/widgets/)). So the widget's face stack will use **small PNGs exported from the same SVG art**, kept tiny (a ~2MB image crashed Raroque's widget, `9sHd-VWssxw @ 02:04`). Export pipeline: a later step, Greg's area.
+- **Found in review (2026-10-02):** a shared lavender background made lilac critters vanish, so each avatar's background is now a light tint of its own body colour. `cloudWhite` became a soft cloud grey (near-white had no silhouette). Capy redrawn with the capybara's long blocky snout + high eyes after first reading as a bear.
+- **Code:** branch `noah/critters-svg` (stacked on `noah/today-screen-mock`). Review page: dev bar, then **Critters**.
 
 ## D-023: Design in code, on a branch (amends D-014)
 - **Noah (2026-10-01):** start front-end coding now rather than doing a separate design phase first. Chose "design in code, on a branch" over "design first, then code".

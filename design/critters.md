@@ -1,3 +1,5 @@
+> **Art direction locked 2026-10-01 (D-024):** soft & round, no outlines · tiny dot eyes + small mouth · head only in a circle · "cute but a bit chaotic" · any critter x 8 colours · a **ring** around the circle tints pink/blue after voting (replaces the bandana below) · moods **sleepy / happy / chaotic** · drawn as SVG code with modular faces. **Code is the source of truth now:** names + punched-up lines live in `app/src/ui/critters/roster.ts`, art in `heads.tsx` + `faces.tsx` (branch `noah/critters-svg` until merged). Drawn so far: **Capy, Axie, Fen** (test set). The roster below is the original draft, kept for history.
+
 # The Critters: avatar roster draft (D-016)
 
 _Text-only draft, 2026-09-11. Direction: **Pastel Critters** (Noah). Principles come from `research/avatar-case-study.md`. Noah owns design (D-017). Draw from this, change anything._
