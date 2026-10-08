@@ -125,7 +125,7 @@ function BeforeDrop() {
 
 function QuestionCard({ pick, circle, onPick }: { pick?: Option; circle: Circle; onPick: (o: Option) => void }) {
   return (
-    <Card style={{ minHeight: 176 }}>
+    <Card style={pick ? undefined : { minHeight: 176 }}>
       <T v="question" style={{ textAlign: 'center' }}>
         Would you rather
       </T>

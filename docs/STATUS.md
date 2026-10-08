@@ -11,7 +11,7 @@ D-023 now allows **front-end design in code on feature branches**, with review b
 - ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
 
 ## Tonight's plan (2026-10-07, Noah + Greg)
-**Found in the status check:** the GitHub API shows **no pull request has ever been opened** on this repo (still 0 at the end of the session), so the three front-end branches were pushed but **Greg had nothing to review**. Also, nothing from Greg has reached GitHub since 2026-09-14 (pass 1, `87a74fa`); he may have unpushed local work.
+**At the initial status check, before this review:** the GitHub API shows **no pull request has ever been opened** on this repo (still 0 at the end of the session), so the three front-end branches were pushed but **Greg had nothing to review**. Also, nothing from Greg has reached GitHub since 2026-09-14 (pass 1, `87a74fa`); he may have unpushed local work.
 
 | Who | Tonight |
 |---|---|
@@ -22,7 +22,7 @@ D-023 now allows **front-end design in code on feature branches**, with review b
 ## Front-end review and motion pass (2026-10-07)
 Greg approved the shared-components foundation and **D-023** in chat; the signature is recorded in this branch's `DECISIONS.md`, pending merge. **All front-end work still reaches `main` through review.** Today and the critter implementation remain separate review items; liking the art does not complete D-024's native dependency/widget-export review.
 
-Greg likes the existing critters and colors. `greg/interaction-polish` adds short press/release springs, vote/result reveals, animated result bars, reaction feedback, 44px chip/reaction targets, reduced-motion handling, and a web-only Replay control. It builds on Noah's critter branch at `f0a9c21`. Typecheck and browser flows pass; iOS behavior is still unverified. No backend or native dependency changes.
+Greg likes the existing critters and colors. `greg/interaction-polish` adds short press/release springs, vote/result reveals, animated result bars, reaction feedback, 44px chip/reaction targets, reduced-motion handling, and a web-only Replay control. The voted card now sizes to its content so results sit higher. [PR #1](https://github.com/noahhbrown05/WidgetRather/pull/1) includes the pass and review instructions, synced with Noah's completed critters at `94c9fb8` and main documentation at `6c4cb62`. Typecheck and browser flows pass; iOS behavior is still unverified. No backend or native dependency changes.
 
 ## What changed on 2026-09-14
 **Noah** approved all four of Greg's proposals (D-018–D-021), which made **D-008 fully DECIDED**.
@@ -47,7 +47,8 @@ For the code specifically: **`app/README.md`**.
 |---|---|
 | **Greg** | Shared-components foundation and D-023 approved in chat; merge still pending. Continue reviewing (2) `noah/today-screen-mock` and (3) `noah/critters-svg` / D-024 (new native dependency + widget PNG export). Then the **EAS simulator build** to verify widget/native behavior. |
 | **Noah + Greg** | Review the interaction-polish pass on `greg/interaction-polish`; verify motion on iOS before adopting it. |
-| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · **open the 3 PRs** · Stage 2 designs || Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
+| **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · **open the 3 PRs** · Stage 2 designs |
+| Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
 | Noah | Register the domain once agreed (needed for the privacy policy, ROADMAP 3.2 — and it decides D-022) |
 
 ## The MVP (D-008, DECIDED)

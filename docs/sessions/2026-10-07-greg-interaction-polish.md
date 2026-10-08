@@ -30,3 +30,10 @@
 - D-024: visual preference is positive; native-dependency/widget-export approval remains a separate review.
 - Noah + Greg: review this motion pass; verify on iOS after the native build.
 - GitHub connector refused the initial attempt to save D-023 on `main` (403). Approval is preserved with these branch changes.
+
+## Follow-up: prepare teammate review
+- Greg asked to make the recommended spacing adjustment and publish the work for teammates to review.
+- The selected-answer card now sizes to its content after voting, bringing the results higher. The unvoted card retains its minimum height; longer confirmation text can still wrap naturally.
+- Synced Noah's completed critters through `94c9fb8` and current main documentation through `6c4cb62`, preserving both Noah's updates and Greg's D-023 sign-off.
+- Review: [PR #1](https://github.com/noahhbrown05/WidgetRather/pull/1), stacked on `noah/critters-svg`. Includes preview instructions and before/after screenshots. No branch was merged into main.
+- Follow-up validation: typecheck and diff checks pass. At 390px the voted card shrank from 176px to 140px for either answer; the 320px community view fits without horizontal overflow. Browser console contained the expected Metro-disconnect warning from restarting the preview server, with no application errors.
