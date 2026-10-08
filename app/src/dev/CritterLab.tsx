@@ -21,7 +21,7 @@ import {
  * 22px checks (the widget's face stack), then every body colour.
  */
 const BODIES = Object.keys(critterBodies) as CritterBody[];
-const SAMPLE_BODY: Record<string, CritterBody> = { Capy: 'butter', Kip: 'skyGrey', Fen: 'peach', Bun: 'lilac', Ribbs: 'mint', Ollie: 'blushSand' };
+const SAMPLE_BODY: Record<string, CritterBody> = { Capy: 'butter', Kip: 'skyGrey', Fen: 'peach', Bun: 'lilac', Ribbs: 'mint', Ollie: 'blushSand', Maple: 'peach', Puddle: 'butter', Burr: 'sage' };
 
 export function CritterLab() {
   const drawn = ROSTER.filter((r) => HEADS[r.name as CritterName]);

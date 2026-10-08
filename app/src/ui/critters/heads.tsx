@@ -22,6 +22,27 @@ const Sheen = ({ cx, cy }: { cx: number; cy: number }) => (
   <Ellipse cx={cx} cy={cy} rx={10} ry={5.5} fill="#FFFFFF" opacity={0.28} transform={`rotate(-20 ${cx} ${cy})`} />
 );
 
+/** Puddle's beak colours: fixed, not from the body, so a beak always reads as a beak. */
+const BEAK = '#F7BE78';
+const BEAK_DARK = '#E9A35C';
+
+/**
+ * A zig-zag crown over the top half of a circle at (cx, cy): `n` spike tips at
+ * radius `outer`, valleys at `inner`. Used for Burr's spikes.
+ */
+function spikes(cx: number, cy: number, inner: number, outer: number, n: number) {
+  const pt = (deg: number, r: number) => {
+    const a = (deg * Math.PI) / 180;
+    return `${(cx + r * Math.cos(a)).toFixed(1)} ${(cy + r * Math.sin(a)).toFixed(1)}`;
+  };
+  const from = 175;
+  const to = 365;
+  const step = (to - from) / (n * 2);
+  let d = `M${pt(from, inner)}`;
+  for (let i = 1; i <= n * 2; i++) d += ` L${pt(from + i * step, i % 2 ? outer : inner)}`;
+  return `${d} Z`;
+}
+
 export const HEADS: Partial<Record<CritterName, HeadArt>> = {
   /** Capybara: tall blocky head, eyes set high, long blunt snout with nostrils, tiny ears. */
   Capy: {
@@ -134,6 +155,68 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
           </G>
         ))}
         <Sheen cx={35} cy={44} />
+      </G>
+    ),
+  },
+
+  /**
+   * Red panda: pointed-round ears with light insides, light "eyebrow" spots, and
+   * the white cheek + muzzle mask split by tear marks (that mask is what keeps
+   * it from reading as Beanie the bear; first draft did, 2026-10-07).
+   */
+  Maple: {
+    faceY: 53,
+    mouthY: 75,
+    draw: (t) => (
+      <G>
+        <Path d="M15 46 Q10 20 24 17 Q36 18 41 32 Z" fill={t.body} />
+        <Path d="M85 46 Q90 20 76 17 Q64 18 59 32 Z" fill={t.body} />
+        <Path d="M21 40 Q18 26 25 23.5 Q32 24 35.5 32 Z" fill={t.light} />
+        <Path d="M79 40 Q82 26 75 23.5 Q68 24 64.5 32 Z" fill={t.light} />
+        <Ellipse cx={50} cy={58} rx={33} ry={28} fill={t.body} />
+        {/* the white eyebrow markings */}
+        <Ellipse cx={38} cy={44.5} rx={4.6} ry={2.7} fill={t.light} />
+        <Ellipse cx={62} cy={44.5} rx={4.6} ry={2.7} fill={t.light} />
+        {/* white mask: cheeks + muzzle */}
+        <Ellipse cx={29} cy={67} rx={10.5} ry={9} fill={t.light} />
+        <Ellipse cx={71} cy={67} rx={10.5} ry={9} fill={t.light} />
+        <Ellipse cx={50} cy={72} rx={14} ry={11} fill={t.light} />
+        {/* tear marks running down from the eyes */}
+        <Path d="M37.5 61 Q36.5 67 38.5 73" stroke={t.shade} strokeWidth={3} strokeLinecap="round" fill="none" opacity={0.55} />
+        <Path d="M62.5 61 Q63.5 67 61.5 73" stroke={t.shade} strokeWidth={3} strokeLinecap="round" fill="none" opacity={0.55} />
+        <Ellipse cx={50} cy={66} rx={3.6} ry={2.5} fill={t.deep} />
+        <Sheen cx={33} cy={47} />
+      </G>
+    ),
+  },
+
+  /** Duckling: round head, one hair tuft on top, a flat beak the mouth sits on. */
+  Puddle: {
+    faceY: 52,
+    mouthY: 66,
+    draw: (t) => (
+      <G>
+        <Ellipse cx={47} cy={26} rx={3.2} ry={8} fill={t.body} transform="rotate(-22 47 26)" />
+        <Ellipse cx={53.5} cy={24} rx={3.2} ry={9} fill={t.body} transform="rotate(14 53.5 24)" />
+        <Circle cx={50} cy={57} r={30} fill={t.body} />
+        {/* the beak: a fixed soft orange so it reads as a beak on any body colour */}
+        <Ellipse cx={50} cy={69} rx={11} ry={4.5} fill={BEAK_DARK} />
+        <Ellipse cx={50} cy={65.5} rx={14} ry={6} fill={BEAK} />
+        <Sheen cx={36} cy={44} />
+      </G>
+    ),
+  },
+
+  /** Hedgehog: a crown of soft spikes (darker shade) around the top of the head. */
+  Burr: {
+    faceY: 57,
+    mouthY: 74,
+    draw: (t) => (
+      <G>
+        <Path d={spikes(50, 62, 29, 41, 11)} fill={t.shade} />
+        <Ellipse cx={50} cy={62} rx={30} ry={26} fill={t.body} />
+        <Ellipse cx={50} cy={67.5} rx={3.2} ry={2.4} fill={t.deep} />
+        <Sheen cx={35} cy={50} />
       </G>
     ),
   },
