@@ -50,7 +50,7 @@ export function Face({ mood, y, mouthY }: { mood: Mood; y: number; mouthY?: numb
         </G>
       );
     case 'chaotic':
-      // Pushed further (Noah, 2026-10-07): big eye + squint wink, tongue out, sweat drop,
+      // Pushed further (Noah, 2026-10-07): big eye + small squint wink, tongue out, sweat drop (brow removed),
       // so it reads as clearly unhinged, not just "happy but uneven".
       return (
         <G>
@@ -59,15 +59,13 @@ export function Face({ mood, y, mouthY }: { mood: Mood; y: number; mouthY?: numb
           <Circle cx={40.9} cy={y - 1.9} r={1.6} fill="#FFFFFF" />
           {/* squeezed-shut wink on the right (Noah, 2026-10-07: replaced a spiral eye) */}
           <Path
-            d={`M65 ${y - 3.8} L57 ${y} L65 ${y + 3.8}`}
+            d={`M64 ${y - 2.8} L58 ${y} L64 ${y + 2.8}`}
             stroke={INK}
-            strokeWidth={2.6}
+            strokeWidth={2.4}
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
           />
-          {/* raised brow over the big eye */}
-          <Path d={`M32 ${y - 10} Q37 ${y - 14} 45 ${y - 10.5}`} stroke={INK} strokeWidth={2.4} strokeLinecap="round" fill="none" />
           {/* sweat drop */}
           <Path
             d={`M73 ${y - 15} C76 ${y - 10.5} 76.5 ${y - 7.5} 73 ${y - 7} C69.5 ${y - 7.5} 70 ${y - 10.5} 73 ${y - 15} Z`}

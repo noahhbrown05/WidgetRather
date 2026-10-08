@@ -77,11 +77,11 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
           return (
             <G key={`ear${x}`}>
               {/* fluff tufts on the outer edge */}
-              <Circle cx={x + out * 14} cy={33} r={4.5} fill={t.body} />
-              <Circle cx={x + out * 16} cy={43} r={4.5} fill={t.body} />
-              <Circle cx={x + out * 12} cy={52} r={4.5} fill={t.body} />
-              <Circle cx={x} cy={40} r={16.5} fill={t.body} />
-              <Circle cx={x + out * 1.5} cy={41} r={9.5} fill={t.light} />
+              <Circle cx={x + out * 11.5} cy={35} r={3.8} fill={t.body} />
+              <Circle cx={x + out * 13.5} cy={43} r={3.8} fill={t.body} />
+              <Circle cx={x + out * 10} cy={50.5} r={3.8} fill={t.body} />
+              <Circle cx={x + out * -1.5} cy={41} r={14} fill={t.body} />
+              <Circle cx={x} cy={42} r={8} fill={t.light} />
             </G>
           );
         })}

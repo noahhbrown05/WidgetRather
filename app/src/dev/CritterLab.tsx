@@ -29,7 +29,8 @@ export function CritterLab() {
     <Screen>
       <T v="title">Critter lab</T>
       <T v="body">
-        {drawn.length} of {ROSTER.length} critters drawn. The rest show a letter until their art lands.
+        {drawn.length} of {ROSTER.length} critters drawn.
+        {drawn.length < ROSTER.length && ' The rest show a letter until their art lands.'}
       </T>
 
       {drawn.map((c) => {
