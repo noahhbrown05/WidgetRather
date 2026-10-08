@@ -11,7 +11,7 @@ D-023 now allows **front-end design in code on feature branches**, with review b
 - ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
 
 ## Tonight's plan (2026-10-07, Noah + Greg)
-**At the initial status check, before this review:** the GitHub API shows **no pull request has ever been opened** on this repo (still 0 at the end of the session), so the three front-end branches were pushed but **Greg had nothing to review**. Also, nothing from Greg has reached GitHub since 2026-09-14 (pass 1, `87a74fa`); he may have unpushed local work.
+**Current review status:** [PR #1](https://github.com/noahhbrown05/WidgetRather/pull/1) is ready for review, with Noah requested. The separate theme, Today, and critter branches still need their own pull requests and reviews before reaching main.
 
 | Who | Tonight |
 |---|---|
