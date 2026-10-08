@@ -7,6 +7,8 @@ import {
   Card,
   Chip,
   CritterAvatar,
+  MotionPressable,
+  Reveal,
   ResultBar,
   Screen,
   T,
@@ -73,16 +75,16 @@ export function TodayScreen({ phase, initialPick }: { phase: TodayPhase; initial
         <BeforeDrop />
       ) : (
         <>
-          <QuestionCard pick={pick} circle={circle} onPick={setPick} />
+          <QuestionCard pick={pick} circle={circle} onPick={(option) => setPick((current) => current ?? option)} />
           {pick ? (
-            <>
+            <Reveal style={{ gap: 16 }} delay={60}>
               {circle.kind === 'friends' ? (
-                <FriendResults group={circle} myPick={pick} />
+                <FriendResults key={circle.id} group={circle} myPick={pick} />
               ) : (
                 <CommunityResults community={circle} />
               )}
-              <Insights myPick={pick} />
-            </>
+              <Reveal delay={120}><Insights myPick={pick} /></Reveal>
+            </Reveal>
           ) : (
             <T v="caption" style={{ textAlign: 'center' }}>
               Pick one to see how {circle.name} split.
@@ -123,17 +125,19 @@ function BeforeDrop() {
 
 function QuestionCard({ pick, circle, onPick }: { pick?: Option; circle: Circle; onPick: (o: Option) => void }) {
   return (
-    <Card>
+    <Card style={{ minHeight: 176 }}>
       <T v="question" style={{ textAlign: 'center' }}>
         Would you rather
       </T>
       {pick ? (
-        <>
+        <Reveal style={{ gap: 10 }}>
           <AnswerPill option={pick} label={TODAY[pick]} picked size="lg" />
-          <T v="label" style={{ textAlign: 'center' }}>
-            {agreeLine(pick, circle)}
-          </T>
-        </>
+          <Reveal delay={40} accessibilityLiveRegion="polite">
+            <T v="label" style={{ textAlign: 'center' }}>
+              {agreeLine(pick, circle)}
+            </T>
+          </Reveal>
+        </Reveal>
       ) : (
         (['a', 'b'] as Option[]).map((o) => (
           <AnswerPill
@@ -186,10 +190,12 @@ function FriendResults({ group, myPick }: { group: FriendGroup; myPick: Option }
         </T>
         {answered.map((m) => (
           <View key={m.name}>
-            <Pressable
+            <MotionPressable
               onPress={() => setOpenFor(openFor === m.name ? null : m.name)}
+              accessibilityRole="button"
+              accessibilityState={{ expanded: openFor === m.name }}
               accessibilityLabel={`${m.name} picked ${TODAY[m.pick!]}. React`}
-              style={{ flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 6 }}
+              style={{ flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 6, minHeight: 44, borderRadius: 10 }}
             >
               <CritterAvatar critter={m.critter} body={m.body} pick={m.pick} size={30} />
               <T v="label" style={{ flex: 1, color: colors.plum }}>
@@ -198,23 +204,33 @@ function FriendResults({ group, myPick }: { group: FriendGroup; myPick: Option }
               <View style={{ paddingVertical: 3, paddingHorizontal: 9, borderRadius: 999, backgroundColor: optionColors[m.pick!].light }}>
                 <Text style={{ fontFamily: fonts.bold, fontSize: 11, color: colors.plum }}>{TODAY[m.pick!]}</Text>
               </View>
-              <Text style={{ fontSize: 16, width: 22, textAlign: 'center' }}>{reactions[m.name] ?? '☺︎'}</Text>
-            </Pressable>
+              {reactions[m.name] ? (
+                <Reveal key={reactions[m.name]} pop>
+                  <Text style={{ fontSize: 16, width: 22, textAlign: 'center' }}>{reactions[m.name]}</Text>
+                </Reveal>
+              ) : (
+                <Text style={{ fontSize: 16, width: 22, textAlign: 'center' }}>☺︎</Text>
+              )}
+            </MotionPressable>
             {openFor === m.name && (
-              <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 6, backgroundColor: colors.lavChip, borderRadius: 12 }}>
+              <Reveal style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 4, backgroundColor: colors.lavChip, borderRadius: 12 }}>
                 {REACTIONS.map((e) => (
-                  <Pressable
+                  <MotionPressable
                     key={e}
+                    pressScale={0.9}
+                    accessibilityRole="button"
                     accessibilityLabel={`React ${e}`}
+                    accessibilityState={{ selected: reactions[m.name] === e }}
+                    style={{ minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 10 }}
                     onPress={() => {
                       setReactions((r) => ({ ...r, [m.name]: e }));
                       setOpenFor(null);
                     }}
                   >
                     <Text style={{ fontSize: 22 }}>{e}</Text>
-                  </Pressable>
+                  </MotionPressable>
                 ))}
-              </View>
+              </Reveal>
             )}
           </View>
         ))}

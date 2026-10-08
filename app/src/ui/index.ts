@@ -7,6 +7,7 @@ export { AnswerPill, CheckDisc, type AnswerPillProps } from './AnswerPill';
 export { ResultBar, type ResultBarProps } from './ResultBar';
 export { CritterAvatar, AvatarStack, type CritterAvatarProps } from './CritterAvatar';
 export { Screen } from './Screen';
+export { MotionPressable, Reveal, useMotionValue, useReducedMotion } from './motion';
 export { Chip } from './Chip';
 export { TabBar, type Tab } from './TabBar';
 export { ROSTER, type CritterName } from './critters/roster';
