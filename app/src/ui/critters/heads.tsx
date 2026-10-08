@@ -12,7 +12,7 @@ import type { CritterName } from './roster';
  *    (ears / frills / muzzle), because the widget face stack is ~22px
  *  - faces are NOT drawn here; faces.tsx puts the mood's eyes + mouth at `faceY`
  *
- * Status: test set (Capy, Kip, Fen; Kip replaced Axie 2026-10-07) approved; drawing the rest in batches for Noah's review.
+ * Status: test set (Capy, Kip, Fen; Kip replaced Axie 2026-10-07) approved; all 12 drawn 2026-10-07.
  * Critters without art fall back to the letter placeholder in CritterAvatar.
  */
 export type HeadArt = { faceY: number; mouthY?: number; draw: (t: Tones) => ReactElement };
@@ -25,6 +25,8 @@ const Sheen = ({ cx, cy }: { cx: number; cy: number }) => (
 /** Puddle's beak colours: fixed, not from the body, so a beak always reads as a beak. */
 const BEAK = '#F7BE78';
 const BEAK_DARK = '#E9A35C';
+/** Chomp's cheek blush. */
+const BLUSH = '#F4A9C8';
 
 /**
  * A zig-zag crown over the top half of a circle at (cx, cy): `n` spike tips at
@@ -63,7 +65,7 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
 
   /**
    * Koala (replaced Axie the axolotl, Noah 2026-10-07): huge fuzzy ears set out
-   * to the SIDES (Beanie the bear's are small and on top) + a big dark nose.
+   * to the SIDES (Oreo the panda's are on top) + a big dark nose.
    */
   Kip: {
     faceY: 50,
@@ -209,6 +211,65 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
         <Ellipse cx={50} cy={62} rx={30} ry={26} fill={t.body} />
         <Ellipse cx={50} cy={67.5} rx={3.2} ry={2.4} fill={t.deep} />
         <Sheen cx={35} cy={50} />
+      </G>
+    ),
+  },
+
+  /** Pig (replaced Mochi the cat, Noah 2026-10-07): short perky ears with folded-over tips, big snout. */
+  Truffle: {
+    faceY: 51,
+    mouthY: 79,
+    draw: (t) => (
+      <G>
+        <Path d="M17 44 Q15 25 24 18 Q35 22 41 33 Z" fill={t.body} />
+        <Path d="M83 44 Q85 25 76 18 Q65 22 59 33 Z" fill={t.body} />
+        {/* folded-over ear tips */}
+        <Path d="M24 18 Q31 22 30 30 Q22 27 24 18 Z" fill={t.shade} />
+        <Path d="M76 18 Q69 22 70 30 Q78 27 76 18 Z" fill={t.shade} />
+        <Ellipse cx={50} cy={58} rx={32} ry={29} fill={t.body} />
+        <Ellipse cx={50} cy={67} rx={12.5} ry={8.5} fill={t.shade} />
+        <Ellipse cx={45.5} cy={67} rx={2} ry={3} fill={t.deep} />
+        <Ellipse cx={54.5} cy={67} rx={2} ry={3} fill={t.deep} />
+        <Sheen cx={34} cy={45} />
+      </G>
+    ),
+  },
+
+  /** Dino (replaced Beanie the bear cub): three ROUNDED back plates (Burr's are sharp), freckles, blush. */
+  Chomp: {
+    faceY: 55,
+    mouthY: 69,
+    draw: (t) => (
+      <G>
+        <Ellipse cx={36} cy={36} rx={5.5} ry={8} fill={t.shade} transform="rotate(-28 36 36)" />
+        <Ellipse cx={50} cy={30} rx={6.5} ry={9.5} fill={t.shade} />
+        <Ellipse cx={64} cy={36} rx={5.5} ry={8} fill={t.shade} transform="rotate(28 64 36)" />
+        <Ellipse cx={50} cy={60} rx={32} ry={27} fill={t.body} />
+        <Circle cx={31} cy={50} r={2.4} fill={t.shade} />
+        <Circle cx={69} cy={47} r={2} fill={t.shade} />
+        <Circle cx={73} cy={53} r={1.5} fill={t.shade} />
+        <Ellipse cx={30} cy={65} rx={5} ry={3} fill={BLUSH} opacity={0.55} />
+        <Ellipse cx={70} cy={65} rx={5} ry={3} fill={BLUSH} opacity={0.55} />
+        <Sheen cx={35} cy={47} />
+      </G>
+    ),
+  },
+
+  /**
+   * Penguin (replaced Rascal the raccoon): head in the body colour's deep tone
+   * with a light heart-shaped face, and a small pointed beak (Puddle's is wide and flat).
+   */
+  Tux: {
+    faceY: 56,
+    mouthY: 74,
+    draw: (t) => (
+      <G>
+        <Circle cx={50} cy={57} r={31} fill={t.deep} />
+        <Ellipse cx={39.5} cy={58} rx={12.5} ry={14.5} fill={t.light} />
+        <Ellipse cx={60.5} cy={58} rx={12.5} ry={14.5} fill={t.light} />
+        <Ellipse cx={50} cy={69} rx={17} ry={13} fill={t.light} />
+        <Path d="M45 64 Q50 61.5 55 64 Q51.5 69.5 50 71 Q48.5 69.5 45 64 Z" fill={BEAK} />
+        <Sheen cx={34} cy={40} />
       </G>
     ),
   },
