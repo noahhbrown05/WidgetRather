@@ -11,12 +11,12 @@ D-023 now allows **front-end design in code on feature branches**, with review b
 - ☐ 1.2 Question bank v1 (Noah) — `app/src/questions.ts` ships **placeholders** until this lands
 
 ## Tonight's plan (2026-10-07, Noah + Greg)
-**Review status (end of 2026-10-07):** ✅ [#1](https://github.com/noahhbrown05/WidgetRather/pull/1) Greg's interaction polish: approved by Noah, merged into `noah/critters-svg` · ✅ [#2](https://github.com/noahhbrown05/WidgetRather/pull/2) theme + shared components: approved by Greg (= **D-023 signed**), merged into `main` · ⏳ [#3](https://github.com/noahhbrown05/WidgetRather/pull/3) Today mockup: now targets `main`, needs Greg · ⏳ [#4](https://github.com/noahhbrown05/WidgetRather/pull/4) critters + polish: needs Greg (= **D-024** sign-off); after #3 merges, change its base to `main`.
+**Review status (end of 2026-10-07):** ✅ [#1](https://github.com/noahhbrown05/WidgetRather/pull/1) Greg's interaction polish: approved by Noah, merged into `noah/critters-svg` · ✅ [#2](https://github.com/noahhbrown05/WidgetRather/pull/2) theme + shared components: approved by Greg (= **D-023 signed**), merged into `main` · ✅ [#3](https://github.com/noahhbrown05/WidgetRather/pull/3) Today mockup: approved + merged into `main` by Greg · ⏳ [#4](https://github.com/noahhbrown05/WidgetRather/pull/4) critters + Greg's polish: now targets `main`, **needs Greg's approval** (= **D-024** sign-off; Noah can't approve his own PR).
 
 | Who | Tonight |
 |---|---|
 | **Noah** | 1. ✅ **PRs opened:** #2 theme -> `main`, #3 Today -> theme branch, #4 critters -> Today branch. 2. ✅ **Critters done:** all 12 drawn on `noah/critters-svg`; 6 animals swapped (Kip, Oreo, Truffle, Chomp, Tux replace Axie, Maple, Mochi, Beanie, Rascal) |
-| **Greg** | 1. ✅ #2 approved + merged (D-023 signed); **#3 then #4 still to review** (#4 = D-024). 2. **Then the EAS iOS simulator build from `main`**, so `react-native-svg` + `expo-font` land in one native build (no Apple account needed with `"ios": { "simulator": true }`, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). 3. **While it builds: ROADMAP 4.4**, the Supabase schema + data-layer function list (the contract the screens call; it moves the front end off dummy data) |
+| **Greg** | 1. ✅ #2 and #3 approved + merged (D-023 signed); **#4 still to review** (= D-024). 2. **Then the EAS iOS simulator build from `main`**, so `react-native-svg` + `expo-font` land in one native build (no Apple account needed with `"ios": { "simulator": true }`, [Expo docs](https://docs.expo.dev/build-reference/simulators/)). 3. **While it builds: ROADMAP 4.4**, the Supabase schema + data-layer function list (the contract the screens call; it moves the front end off dummy data) |
 | **Both (~15 min)** | Morning drop window · who answers reports · D-022 bundle id (depends on the domain) · the spec's remaining `[proposed defaults]` |
 
 ## Front-end review and motion pass (2026-10-07)
@@ -45,7 +45,7 @@ For the code specifically: **`app/README.md`**.
 ## Waiting on
 | Who | What |
 |---|---|
-| **Greg** | **Review + merge #3, then #4** (#4 = sign-off on D-024: `react-native-svg` in the next native build + the widget PNG export later) · then the **EAS simulator build** from `main` (picks up `expo-font` + `react-native-svg`) to verify widget/native behavior and the motion pass on iOS · ROADMAP 4.4 data-layer contract |
+| **Greg** | **Review + merge #4** (= sign-off on D-024: `react-native-svg` in the next native build + the widget PNG export later) · then the **EAS simulator build** from `main` (picks up `expo-font` + `react-native-svg`) to verify widget/native behavior and the motion pass on iOS · ROADMAP 4.4 data-layer contract |
 | **Noah** | **D-022 (bundle identifier)** · 1.2 question bank v1 · wordmark + app icon |
 | Noah + Greg | **The morning drop window** — still `[OPEN]`, and the code ships a placeholder (07:00–08:30) · who answers reports (recommend Noah) · the spec's remaining `[proposed defaults]` |
 | Noah | Register the domain once agreed (needed for the privacy policy, ROADMAP 3.2 — and it decides D-022) |
