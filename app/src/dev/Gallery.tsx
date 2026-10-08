@@ -32,7 +32,7 @@ const FRIENDS: CritterAvatarProps[] = [
   { critter: 'Kip', body: 'skyGrey', pick: 'a' },
   { critter: 'Bun', body: 'peach', pick: 'b' },
   { critter: 'Ribbs', body: 'mint', pick: 'a' },
-  ...Array.from({ length: 8 }, (_, i): CritterAvatarProps => ({ critter: 'Mochi', body: 'skyGrey', pick: i % 3 ? 'a' : 'b' })),
+  ...Array.from({ length: 8 }, (_, i): CritterAvatarProps => ({ critter: 'Truffle', body: 'skyGrey', pick: i % 3 ? 'a' : 'b' })),
 ];
 
 export function Gallery() {
@@ -146,10 +146,10 @@ export function Gallery() {
 
       <Section title="22px check (large widget face stack)">
         <View style={{ flexDirection: 'row', gap: 10, alignItems: 'center' }}>
-          {(['Fen', 'Mochi', 'Maple', 'Beanie'] as const).map((c) => (
+          {(['Fen', 'Truffle', 'Oreo', 'Kip'] as const).map((c) => (
             <CritterAvatar key={c} critter={c} body="lilac" pick="a" size={22} />
           ))}
-          <T v="caption">Fen · Mochi · Maple · Beanie: retest with real art</T>
+          <T v="caption">Fen · Truffle · Oreo · Kip: the closest outlines</T>
         </View>
       </Section>
     </Screen>

@@ -48,8 +48,8 @@ export const CIRCLES: Circle[] = [
       ['Maya', 'Kip', 'skyGrey', 'a'],
       ['Jordan', 'Fen', 'peach', 'b'],
       ['Priya', 'Bun', 'mint', 'a'],
-      ['Diego', 'Rascal', 'skyGrey', 'a'],
-      ['Nia', 'Mochi', 'blushSand', 'b'],
+      ['Diego', 'Tux', 'skyGrey', 'a'],
+      ['Nia', 'Truffle', 'blushSand', 'b'],
       ['Sam', 'Ribbs', 'sage', 'a'],
       ['Leo', 'Capy', 'butter', undefined], // hasn't answered yet
     ]),
@@ -60,8 +60,8 @@ export const CIRCLES: Circle[] = [
     name: 'Cousins',
     members: people([
       ['Ava', 'Puddle', 'butter', 'b'],
-      ['Eli', 'Beanie', 'peach', 'b'],
-      ['Zoe', 'Maple', 'mint', 'a'],
+      ['Eli', 'Chomp', 'peach', 'b'],
+      ['Zoe', 'Oreo', 'mint', 'a'],
     ]),
   },
   { id: 'c1', kind: 'community', name: 'Lincoln High', memberCount: 412, percentA: 61 },

@@ -12,7 +12,7 @@ import type { CritterName } from './roster';
  *    (ears / frills / muzzle), because the widget face stack is ~22px
  *  - faces are NOT drawn here; faces.tsx puts the mood's eyes + mouth at `faceY`
  *
- * Status: test set (Capy, Kip, Fen; Kip replaced Axie 2026-10-07) approved; drawing the rest in batches for Noah's review.
+ * Status: test set (Capy, Kip, Fen; Kip replaced Axie 2026-10-07) approved; all 12 drawn 2026-10-07.
  * Critters without art fall back to the letter placeholder in CritterAvatar.
  */
 export type HeadArt = { faceY: number; mouthY?: number; draw: (t: Tones) => ReactElement };
@@ -25,6 +25,8 @@ const Sheen = ({ cx, cy }: { cx: number; cy: number }) => (
 /** Puddle's beak colours: fixed, not from the body, so a beak always reads as a beak. */
 const BEAK = '#F7BE78';
 const BEAK_DARK = '#E9A35C';
+/** Chomp's cheek blush. */
+const BLUSH = '#F4A9C8';
 
 /**
  * A zig-zag crown over the top half of a circle at (cx, cy): `n` spike tips at
@@ -63,7 +65,7 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
 
   /**
    * Koala (replaced Axie the axolotl, Noah 2026-10-07): huge fuzzy ears set out
-   * to the SIDES (Beanie the bear's are small and on top) + a big dark nose.
+   * to the SIDES (Oreo the panda's are on top) + a big dark nose.
    */
   Kip: {
     faceY: 50,
@@ -75,11 +77,11 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
           return (
             <G key={`ear${x}`}>
               {/* fluff tufts on the outer edge */}
-              <Circle cx={x + out * 14} cy={33} r={4.5} fill={t.body} />
-              <Circle cx={x + out * 16} cy={43} r={4.5} fill={t.body} />
-              <Circle cx={x + out * 12} cy={52} r={4.5} fill={t.body} />
-              <Circle cx={x} cy={40} r={16.5} fill={t.body} />
-              <Circle cx={x + out * 1.5} cy={41} r={9.5} fill={t.light} />
+              <Circle cx={x + out * 11.5} cy={35} r={3.8} fill={t.body} />
+              <Circle cx={x + out * 13.5} cy={43} r={3.8} fill={t.body} />
+              <Circle cx={x + out * 10} cy={50.5} r={3.8} fill={t.body} />
+              <Circle cx={x + out * -1.5} cy={41} r={14} fill={t.body} />
+              <Circle cx={x} cy={42} r={8} fill={t.light} />
             </G>
           );
         })}
@@ -160,32 +162,24 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
   },
 
   /**
-   * Red panda: pointed-round ears with light insides, light "eyebrow" spots, and
-   * the white cheek + muzzle mask split by tear marks (that mask is what keeps
-   * it from reading as Beanie the bear; first draft did, 2026-10-07).
+   * Panda (replaced Maple the red panda, Noah 2026-10-07): dark round ears and
+   * dark slanted eye patches in the body colour's deep tone, so it reads as a
+   * panda in any of the 8 colours; light muzzle + nose.
    */
-  Maple: {
-    faceY: 53,
-    mouthY: 75,
+  Oreo: {
+    faceY: 54,
+    mouthY: 73,
     draw: (t) => (
       <G>
-        <Path d="M15 46 Q10 20 24 17 Q36 18 41 32 Z" fill={t.body} />
-        <Path d="M85 46 Q90 20 76 17 Q64 18 59 32 Z" fill={t.body} />
-        <Path d="M21 40 Q18 26 25 23.5 Q32 24 35.5 32 Z" fill={t.light} />
-        <Path d="M79 40 Q82 26 75 23.5 Q68 24 64.5 32 Z" fill={t.light} />
+        <Circle cx={25} cy={32} r={11} fill={t.deep} />
+        <Circle cx={75} cy={32} r={11} fill={t.deep} />
         <Ellipse cx={50} cy={58} rx={33} ry={28} fill={t.body} />
-        {/* the white eyebrow markings */}
-        <Ellipse cx={38} cy={44.5} rx={4.6} ry={2.7} fill={t.light} />
-        <Ellipse cx={62} cy={44.5} rx={4.6} ry={2.7} fill={t.light} />
-        {/* white mask: cheeks + muzzle */}
-        <Ellipse cx={29} cy={67} rx={10.5} ry={9} fill={t.light} />
-        <Ellipse cx={71} cy={67} rx={10.5} ry={9} fill={t.light} />
-        <Ellipse cx={50} cy={72} rx={14} ry={11} fill={t.light} />
-        {/* tear marks running down from the eyes */}
-        <Path d="M37.5 61 Q36.5 67 38.5 73" stroke={t.shade} strokeWidth={3} strokeLinecap="round" fill="none" opacity={0.55} />
-        <Path d="M62.5 61 Q63.5 67 61.5 73" stroke={t.shade} strokeWidth={3} strokeLinecap="round" fill="none" opacity={0.55} />
-        <Ellipse cx={50} cy={66} rx={3.6} ry={2.5} fill={t.deep} />
-        <Sheen cx={33} cy={47} />
+        {/* eye patches, drooping outward */}
+        <Ellipse cx={38.5} cy={55.5} rx={7.5} ry={9.5} fill={t.deep} opacity={0.55} transform="rotate(32 38.5 55.5)" />
+        <Ellipse cx={61.5} cy={55.5} rx={7.5} ry={9.5} fill={t.deep} opacity={0.55} transform="rotate(-32 61.5 55.5)" />
+        <Ellipse cx={50} cy={70} rx={12} ry={9} fill={t.light} />
+        <Ellipse cx={50} cy={65.5} rx={3.6} ry={2.5} fill={t.deep} />
+        <Sheen cx={33} cy={45} />
       </G>
     ),
   },
@@ -217,6 +211,78 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
         <Ellipse cx={50} cy={62} rx={30} ry={26} fill={t.body} />
         <Ellipse cx={50} cy={67.5} rx={3.2} ry={2.4} fill={t.deep} />
         <Sheen cx={35} cy={50} />
+      </G>
+    ),
+  },
+
+  /** Pig (replaced Mochi the cat, Noah 2026-10-07): short perky ears with folded-over tips, big snout. */
+  Truffle: {
+    faceY: 51,
+    mouthY: 79,
+    draw: (t) => (
+      <G>
+        <Path d="M23 49 Q14 27 24 18 Q35 22 43 35 Z" fill={t.body} />
+        <Path d="M77 49 Q86 27 76 18 Q65 22 57 35 Z" fill={t.body} />
+        {/* folded-over ear tips */}
+        <Path d="M24 18 Q31 22 30 30 Q22 27 24 18 Z" fill={t.shade} />
+        <Path d="M76 18 Q69 22 70 30 Q78 27 76 18 Z" fill={t.shade} />
+        <Ellipse cx={50} cy={58} rx={32} ry={29} fill={t.body} />
+        <Ellipse cx={50} cy={67} rx={12.5} ry={8.5} fill={t.shade} />
+        <Ellipse cx={45.5} cy={67} rx={2} ry={3} fill={t.deep} />
+        <Ellipse cx={54.5} cy={67} rx={2} ry={3} fill={t.deep} />
+        <Sheen cx={34} cy={45} />
+      </G>
+    ),
+  },
+
+  /**
+   * Cartoon T-rex (replaced Beanie the bear cub). Redrawn twice on 2026-10-07 per
+   * Noah: "think the dinosaur from Toy Story" (inspired by, not a copy), then
+   * "more of a rectangle feel". Chunky rounded-rectangle head, head spikes, brow
+   * ridges, and a lighter lower-jaw panel that every mood's mouth sits inside,
+   * with two underbite fangs.
+   */
+  Chomp: {
+    faceY: 47,
+    mouthY: 71,
+    draw: (t) => (
+      <G>
+        {[38, 50, 62].map((x) => (
+          <Path key={`s${x}`} d={`M${x - 6.5} 32 Q${x - 1} -6 ${x + 6.5} 32 Z`} fill={t.shade} />
+        ))}
+        <Rect x={15} y={28} width={70} height={62} rx={20} fill={t.body} />
+        {/* brow ridges */}
+        <Ellipse cx={37} cy={39.5} rx={6.5} ry={2.8} fill={t.shade} transform="rotate(-12 37 39.5)" />
+        <Ellipse cx={63} cy={39.5} rx={6.5} ry={2.8} fill={t.shade} transform="rotate(12 63 39.5)" />
+        <Ellipse cx={45} cy={57} rx={1.7} ry={1.2} fill={t.deep} />
+        <Ellipse cx={55} cy={57} rx={1.7} ry={1.2} fill={t.deep} />
+        {/* lower jaw: the mood's mouth sits in here */}
+        <Rect x={25} y={63} width={50} height={20} rx={10} fill={t.light} />
+        {/* underbite fangs */}
+        <Path d="M29.5 64.5 L32 58.5 L34.5 64.5 Z" fill="#FFFFFF" />
+        <Path d="M70.5 64.5 L68 58.5 L65.5 64.5 Z" fill="#FFFFFF" />
+        <Ellipse cx={23} cy={57} rx={4.2} ry={2.6} fill={BLUSH} opacity={0.55} />
+        <Ellipse cx={77} cy={57} rx={4.2} ry={2.6} fill={BLUSH} opacity={0.55} />
+        <Sheen cx={31} cy={41} />
+      </G>
+    ),
+  },
+
+  /**
+   * Penguin (replaced Rascal the raccoon): head in the body colour's deep tone
+   * with a light heart-shaped face, and a small pointed beak (Puddle's is wide and flat).
+   */
+  Tux: {
+    faceY: 56,
+    mouthY: 74,
+    draw: (t) => (
+      <G>
+        <Circle cx={50} cy={57} r={31} fill={t.deep} />
+        <Ellipse cx={39.5} cy={58} rx={12.5} ry={14.5} fill={t.light} />
+        <Ellipse cx={60.5} cy={58} rx={12.5} ry={14.5} fill={t.light} />
+        <Ellipse cx={50} cy={69} rx={17} ry={13} fill={t.light} />
+        <Path d="M45 64 Q50 61.5 55 64 Q51.5 69.5 50 71 Q48.5 69.5 45 64 Z" fill={BEAK} />
+        <Sheen cx={34} cy={40} />
       </G>
     ),
   },

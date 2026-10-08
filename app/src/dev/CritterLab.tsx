@@ -21,7 +21,7 @@ import {
  * 22px checks (the widget's face stack), then every body colour.
  */
 const BODIES = Object.keys(critterBodies) as CritterBody[];
-const SAMPLE_BODY: Record<string, CritterBody> = { Capy: 'butter', Kip: 'skyGrey', Fen: 'peach', Bun: 'lilac', Ribbs: 'mint', Ollie: 'blushSand', Maple: 'peach', Puddle: 'butter', Burr: 'sage' };
+const SAMPLE_BODY: Record<string, CritterBody> = { Capy: 'butter', Kip: 'skyGrey', Fen: 'peach', Bun: 'lilac', Ribbs: 'mint', Ollie: 'blushSand', Oreo: 'cloudWhite', Puddle: 'butter', Burr: 'sage', Truffle: 'peach', Chomp: 'mint', Tux: 'skyGrey' };
 
 export function CritterLab() {
   const drawn = ROSTER.filter((r) => HEADS[r.name as CritterName]);
@@ -29,7 +29,8 @@ export function CritterLab() {
     <Screen>
       <T v="title">Critter lab</T>
       <T v="body">
-        {drawn.length} of {ROSTER.length} critters drawn. The rest show a letter until their art lands.
+        {drawn.length} of {ROSTER.length} critters drawn.
+        {drawn.length < ROSTER.length && ' The rest show a letter until their art lands.'}
       </T>
 
       {drawn.map((c) => {
@@ -74,7 +75,7 @@ export function CritterLab() {
             <CritterAvatar key={c.name} critter={c.name} body={BODIES[i % BODIES.length]} pick={i % 2 ? 'b' : 'a'} size={22} />
           ))}
         </View>
-        <T v="caption">Can you tell Capy, Kip and Fen apart by outline alone at 22px?</T>
+        <T v="caption">Can you tell all 12 apart by outline alone at 22px?</T>
       </Card>
 
       <Card style={{ gap: 12 }}>
