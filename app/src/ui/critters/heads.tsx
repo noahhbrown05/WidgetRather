@@ -236,42 +236,34 @@ export const HEADS: Partial<Record<CritterName, HeadArt>> = {
   },
 
   /**
-   * Cartoon T-rex (replaced Beanie the bear cub; made more T-rex 2026-10-07, Noah:
-   * "think the dinosaur from Toy Story" - inspired by, not a copy of, that character).
-   * Small rounded skull on a big wide jaw, little head spikes, brow ridges,
-   * nostrils, and a long grin with tiny teeth that the mood's mouth completes.
+   * Cartoon T-rex (replaced Beanie the bear cub). Redrawn twice on 2026-10-07 per
+   * Noah: "think the dinosaur from Toy Story" (inspired by, not a copy), then
+   * "more of a rectangle feel". Chunky rounded-rectangle head, head spikes, brow
+   * ridges, and a lighter lower-jaw panel that every mood's mouth sits inside,
+   * with two underbite fangs.
    */
   Chomp: {
-    faceY: 46,
-    mouthY: 74,
+    faceY: 47,
+    mouthY: 71,
     draw: (t) => (
       <G>
-        {/* little head spikes */}
         {[38, 50, 62].map((x) => (
-          <Path key={`s${x}`} d={`M${x - 6.5} 33 Q${x - 1} 8 ${x + 6.5} 33 Z`} fill={t.shade} />
+          <Path key={`s${x}`} d={`M${x - 6.5} 32 Q${x - 1} -6 ${x + 6.5} 32 Z`} fill={t.shade} />
         ))}
-        {/* skull + big wide jaw */}
-        <Ellipse cx={50} cy={47} rx={23} ry={20} fill={t.body} />
-        <Ellipse cx={50} cy={67} rx={38} ry={19} fill={t.body} />
+        <Rect x={15} y={28} width={70} height={62} rx={20} fill={t.body} />
         {/* brow ridges */}
-        <Ellipse cx={38} cy={39.5} rx={6.5} ry={2.8} fill={t.shade} transform="rotate(-12 38 39.5)" />
-        <Ellipse cx={62} cy={39.5} rx={6.5} ry={2.8} fill={t.shade} transform="rotate(12 62 39.5)" />
-        {/* nostrils */}
-        <Ellipse cx={44} cy={59} rx={1.7} ry={1.2} fill={t.deep} />
-        <Ellipse cx={56} cy={59} rx={1.7} ry={1.2} fill={t.deep} />
-        {/* the long jaw line on each side; the mood's mouth fills the middle */}
-        <Path d="M17 65 Q28 72 43 75" stroke={t.deep} strokeWidth={2.6} opacity={0.6} strokeLinecap="round" fill="none" />
-        <Path d="M83 65 Q72 72 57 75" stroke={t.deep} strokeWidth={2.6} opacity={0.6} strokeLinecap="round" fill="none" />
-        {/* tiny teeth */}
-        {[24, 32].map((x) => (
-          <G key={`t${x}`}>
-            <Path d={`M${x} ${66 + (x - 17) * 0.45} l2.4 4.6 l2.2 -3.8 Z`} fill="#FFFFFF" />
-            <Path d={`M${100 - x} ${66 + (x - 17) * 0.45} l-2.4 4.6 l-2.2 -3.8 Z`} fill="#FFFFFF" />
-          </G>
-        ))}
-        <Ellipse cx={25} cy={60} rx={4.5} ry={2.7} fill={BLUSH} opacity={0.55} />
-        <Ellipse cx={75} cy={60} rx={4.5} ry={2.7} fill={BLUSH} opacity={0.55} />
-        <Sheen cx={37} cy={36} />
+        <Ellipse cx={37} cy={39.5} rx={6.5} ry={2.8} fill={t.shade} transform="rotate(-12 37 39.5)" />
+        <Ellipse cx={63} cy={39.5} rx={6.5} ry={2.8} fill={t.shade} transform="rotate(12 63 39.5)" />
+        <Ellipse cx={45} cy={57} rx={1.7} ry={1.2} fill={t.deep} />
+        <Ellipse cx={55} cy={57} rx={1.7} ry={1.2} fill={t.deep} />
+        {/* lower jaw: the mood's mouth sits in here */}
+        <Rect x={25} y={63} width={50} height={20} rx={10} fill={t.light} />
+        {/* underbite fangs */}
+        <Path d="M29.5 64.5 L32 58.5 L34.5 64.5 Z" fill="#FFFFFF" />
+        <Path d="M70.5 64.5 L68 58.5 L65.5 64.5 Z" fill="#FFFFFF" />
+        <Ellipse cx={23} cy={57} rx={4.2} ry={2.6} fill={BLUSH} opacity={0.55} />
+        <Ellipse cx={77} cy={57} rx={4.2} ry={2.6} fill={BLUSH} opacity={0.55} />
+        <Sheen cx={31} cy={41} />
       </G>
     ),
   },

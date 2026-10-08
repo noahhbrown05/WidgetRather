@@ -14,7 +14,7 @@ export const ROSTER = [
   { name: 'Puddle', animal: 'Duckling', silhouette: 'flat beak, one hair tuft', line: 'Would rather splash first and apologise never.' },
   { name: 'Burr', animal: 'Hedgehog', silhouette: 'spiky crown', line: 'Would rather be honest than polite. Sorry. Not sorry.' },
   { name: 'Truffle', animal: 'Pig', silhouette: 'short perky ears with folded tips, big snout', line: 'Would rather roll in it than overthink it.' },
-  { name: 'Chomp', animal: 'T-rex', silhouette: 'small skull on a big wide jaw, little head spikes', line: 'Would rather go extinct than be boring.' },
+  { name: 'Chomp', animal: 'T-rex', silhouette: 'chunky rectangle head, three head spikes, underbite fangs', line: 'Would rather go extinct than be boring.' },
   { name: 'Tux', animal: 'Penguin', silhouette: 'dark head, light heart-shaped face, small beak', line: 'Would rather show up overdressed. Every time.' },
 ] as const;
 
