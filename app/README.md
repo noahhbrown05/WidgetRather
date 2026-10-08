@@ -70,3 +70,24 @@ the normal case here, not an edge case.
 - **The bundle identifier** `com.widgetrather.app` is provisional (D-022, proposed).
   It is permanent once the app ships, and it depends on the domain Noah still has to
   register. Cheap to change now, expensive later.
+
+## Front end (D-023: design in code, on a branch)
+
+Noah's front-end work lives in `src/ui/` and reaches `main` only through PRs Greg reviews.
+
+| Path | What it is |
+|---|---|
+| `src/ui/theme.ts` | **Design tokens**: colours (sampled from the mockups via `prototype/index.html`), the pink = option A / blue = option B rule, critter body colours, Nunito type scale, spacing, radii, washes |
+| `src/ui/gradient.ts` | Cross-platform gradients/shadows: `experimental_backgroundImage` on phones, `backgroundImage` on web ([react-native-web#2787](https://github.com/necolas/react-native-web/issues/2787)) |
+| `src/ui/*.tsx` | Shared components: `T` (text), `Card`, `AnswerPill`, `CheckDisc`, `ResultBar`, `CritterAvatar`, `AvatarStack`, `Screen` |
+| `src/dev/Gallery.tsx` | Dev-only gallery of every component + mockup 01's Today screen with dummy data. **Not a product screen** |
+| `App.web.tsx` | Web-only root. Expo picks it over `App.tsx` for web, so the native harness stays untouched |
+
+See it in a browser on Windows (no Mac, no simulator):
+
+```bash
+npm run web
+```
+
+Fonts load at runtime with `useFonts` from `@expo-google-fonts/nunito` (works on web, no native rebuild, [Expo docs](https://docs.expo.dev/develop/user-interface/fonts/)).
+**Note for Greg:** `expo-font` is now a dependency, so it rides along in the next native build. No config plugin was added.
